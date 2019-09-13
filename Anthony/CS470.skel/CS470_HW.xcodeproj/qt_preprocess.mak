@@ -17,7 +17,7 @@ LEXFLAGS  =
 YACC      = yacc
 YACCFLAGS = -d
 DEFINES       = -DQT_NO_DEBUG -DQT_PRINTSUPPORT_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
-INCPATH       = -I. -I. -IIP/header -Igui_src -I../../../Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers -I../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers -I../../../Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers -I../../../Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers -I../../../Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/AGL.framework/Headers -I../../../Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang -F/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib
+INCPATH       = -I. -I. -IIP/header -Igui_src -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/AGL.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang -F/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib
 DEL_FILE  = rm -f
 MOVE      = mv -f
 
@@ -43,7 +43,7 @@ compiler_rcc_make_all: qrc_CS470.cpp
 compiler_rcc_clean:
 	-$(DEL_FILE) qrc_CS470.cpp
 qrc_CS470.cpp: CS470.qrc \
-		../../../Qt5.12.4/5.12.4/clang_64/bin/rcc \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/rcc \
 		CS470.png \
 		glsl/hw1/fshader_clip.glsl \
 		glsl/hw1/fshader_quantize.glsl \
@@ -63,298 +63,298 @@ qrc_CS470.cpp: CS470.qrc \
 compiler_moc_predefs_make_all: moc_predefs.h
 compiler_moc_predefs_clean:
 	-$(DEL_FILE) moc_predefs.h
-moc_predefs.h: ../../../Qt5.12.4/5.12.4/clang_64/mkspecs/features/data/dummy.cpp
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -pipe -stdlib=libc++ -O2 -std=gnu++11 -dM -E -o moc_predefs.h ../../../Qt5.12.4/5.12.4/clang_64/mkspecs/features/data/dummy.cpp
+moc_predefs.h: /Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/features/data/dummy.cpp
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -pipe -stdlib=libc++ -O2 -std=gnu++11 -dM -E -o moc_predefs.h /Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/features/data/dummy.cpp
 
 compiler_moc_header_make_all: moc_MainWindow.cpp moc_qcustomplot.cpp moc_Dummy.cpp moc_Threshold.cpp moc_Clip.cpp moc_Quantize.cpp moc_Gamma.cpp moc_Contrast.cpp moc_HistoStretch.cpp moc_HistoMatch.cpp moc_ErrDiffusion.cpp moc_Blur.cpp moc_Sharpen.cpp moc_Median.cpp moc_Convolve.cpp moc_Spectrum.cpp moc_SwapPhase.cpp moc_Filter.cpp moc_Resize.cpp
 compiler_moc_header_clean:
 	-$(DEL_FILE) moc_MainWindow.cpp moc_qcustomplot.cpp moc_Dummy.cpp moc_Threshold.cpp moc_Clip.cpp moc_Quantize.cpp moc_Gamma.cpp moc_Contrast.cpp moc_HistoStretch.cpp moc_HistoMatch.cpp moc_ErrDiffusion.cpp moc_Blur.cpp moc_Sharpen.cpp moc_Median.cpp moc_Convolve.cpp moc_Spectrum.cpp moc_SwapPhase.cpp moc_Filter.cpp moc_Resize.cpp
 moc_MainWindow.cpp: gui_src/MainWindow.h \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
 		IP/header/IP.h \
 		IP/header/IPtoUI.h \
 		gui_src/ImageFilter.h \
 		gui_src/GLWidget.h \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLFunctions \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLShaderProgram \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QtOpenGL \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLFunctions \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLShaderProgram \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QtOpenGL \
 		gui_src/qcustomplot.h \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QObject \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QPointer \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers/QWidget \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers/QPainter \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers/QPaintEvent \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers/QMouseEvent \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers/QPixmap \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QVector \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QString \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QDateTime \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QMultiMap \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QFlags \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QDebug \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers/QVector2D \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QStack \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QCache \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QMargins \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/qmath.h \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/qnumeric.h \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers/QPrinter \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers/QPrintEngine \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QtNumeric \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers/QtPrintSupport \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QObject \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QPointer \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers/QPainter \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers/QPaintEvent \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers/QMouseEvent \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QVector \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QString \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QDateTime \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QMultiMap \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QFlags \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QDebug \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers/QVector2D \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QStack \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QCache \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QMargins \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/qmath.h \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/qnumeric.h \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers/QPrinter \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers/QPrintEngine \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QtNumeric \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers/QtPrintSupport \
 		moc_predefs.h \
-		../../../Qt5.12.4/5.12.4/clang_64/bin/moc
-	/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc $(DEFINES) --include '/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_predefs.h' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel/IP/header' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib gui_src/MainWindow.h -o moc_MainWindow.cpp
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc
+	/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc $(DEFINES) --include '/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/moc_predefs.h' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/IP/header' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib gui_src/MainWindow.h -o moc_MainWindow.cpp
 
 moc_qcustomplot.cpp: gui_src/qcustomplot.h \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QObject \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QPointer \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers/QWidget \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers/QPainter \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers/QPaintEvent \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers/QMouseEvent \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers/QPixmap \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QVector \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QString \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QDateTime \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QMultiMap \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QFlags \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QDebug \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers/QVector2D \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QStack \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QCache \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QMargins \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/qmath.h \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/qnumeric.h \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers/QPrinter \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers/QPrintEngine \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QtNumeric \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers/QtPrintSupport \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QObject \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QPointer \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers/QPainter \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers/QPaintEvent \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers/QMouseEvent \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QVector \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QString \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QDateTime \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QMultiMap \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QFlags \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QDebug \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers/QVector2D \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QStack \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QCache \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QMargins \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/qmath.h \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/qnumeric.h \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers/QPrinter \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers/QPrintEngine \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers/QtNumeric \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers/QtPrintSupport \
 		moc_predefs.h \
-		../../../Qt5.12.4/5.12.4/clang_64/bin/moc
-	/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc $(DEFINES) --include '/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_predefs.h' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel/IP/header' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib gui_src/qcustomplot.h -o moc_qcustomplot.cpp
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc
+	/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc $(DEFINES) --include '/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/moc_predefs.h' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/IP/header' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib gui_src/qcustomplot.h -o moc_qcustomplot.cpp
 
 moc_Dummy.cpp: gui_src/Dummy.h \
 		gui_src/ImageFilter.h \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
 		gui_src/GLWidget.h \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLFunctions \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLShaderProgram \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QtOpenGL \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLFunctions \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLShaderProgram \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QtOpenGL \
 		IP/header/IP.h \
 		moc_predefs.h \
-		../../../Qt5.12.4/5.12.4/clang_64/bin/moc
-	/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc $(DEFINES) --include '/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_predefs.h' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel/IP/header' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib gui_src/Dummy.h -o moc_Dummy.cpp
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc
+	/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc $(DEFINES) --include '/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/moc_predefs.h' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/IP/header' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib gui_src/Dummy.h -o moc_Dummy.cpp
 
 moc_Threshold.cpp: gui_src/Threshold.h \
 		gui_src/ImageFilter.h \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
 		gui_src/GLWidget.h \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLFunctions \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLShaderProgram \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QtOpenGL \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLFunctions \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLShaderProgram \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QtOpenGL \
 		IP/header/IP.h \
 		moc_predefs.h \
-		../../../Qt5.12.4/5.12.4/clang_64/bin/moc
-	/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc $(DEFINES) --include '/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_predefs.h' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel/IP/header' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib gui_src/Threshold.h -o moc_Threshold.cpp
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc
+	/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc $(DEFINES) --include '/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/moc_predefs.h' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/IP/header' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib gui_src/Threshold.h -o moc_Threshold.cpp
 
 moc_Clip.cpp: gui_src/Clip.h \
 		gui_src/ImageFilter.h \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
 		gui_src/GLWidget.h \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLFunctions \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLShaderProgram \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QtOpenGL \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLFunctions \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLShaderProgram \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QtOpenGL \
 		IP/header/IP.h \
 		moc_predefs.h \
-		../../../Qt5.12.4/5.12.4/clang_64/bin/moc
-	/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc $(DEFINES) --include '/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_predefs.h' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel/IP/header' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib gui_src/Clip.h -o moc_Clip.cpp
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc
+	/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc $(DEFINES) --include '/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/moc_predefs.h' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/IP/header' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib gui_src/Clip.h -o moc_Clip.cpp
 
 moc_Quantize.cpp: gui_src/Quantize.h \
 		gui_src/ImageFilter.h \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
 		gui_src/GLWidget.h \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLFunctions \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLShaderProgram \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QtOpenGL \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLFunctions \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLShaderProgram \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QtOpenGL \
 		IP/header/IP.h \
 		moc_predefs.h \
-		../../../Qt5.12.4/5.12.4/clang_64/bin/moc
-	/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc $(DEFINES) --include '/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_predefs.h' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel/IP/header' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib gui_src/Quantize.h -o moc_Quantize.cpp
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc
+	/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc $(DEFINES) --include '/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/moc_predefs.h' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/IP/header' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib gui_src/Quantize.h -o moc_Quantize.cpp
 
 moc_Gamma.cpp: gui_src/Gamma.h \
 		gui_src/ImageFilter.h \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
 		gui_src/GLWidget.h \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLFunctions \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLShaderProgram \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QtOpenGL \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLFunctions \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLShaderProgram \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QtOpenGL \
 		IP/header/IP.h \
 		moc_predefs.h \
-		../../../Qt5.12.4/5.12.4/clang_64/bin/moc
-	/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc $(DEFINES) --include '/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_predefs.h' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel/IP/header' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib gui_src/Gamma.h -o moc_Gamma.cpp
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc
+	/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc $(DEFINES) --include '/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/moc_predefs.h' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/IP/header' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib gui_src/Gamma.h -o moc_Gamma.cpp
 
 moc_Contrast.cpp: gui_src/Contrast.h \
 		gui_src/ImageFilter.h \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
 		gui_src/GLWidget.h \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLFunctions \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLShaderProgram \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QtOpenGL \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLFunctions \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLShaderProgram \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QtOpenGL \
 		IP/header/IP.h \
 		moc_predefs.h \
-		../../../Qt5.12.4/5.12.4/clang_64/bin/moc
-	/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc $(DEFINES) --include '/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_predefs.h' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel/IP/header' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib gui_src/Contrast.h -o moc_Contrast.cpp
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc
+	/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc $(DEFINES) --include '/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/moc_predefs.h' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/IP/header' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib gui_src/Contrast.h -o moc_Contrast.cpp
 
 moc_HistoStretch.cpp: gui_src/HistoStretch.h \
 		gui_src/ImageFilter.h \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
 		gui_src/GLWidget.h \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLFunctions \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLShaderProgram \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QtOpenGL \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLFunctions \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLShaderProgram \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QtOpenGL \
 		IP/header/IP.h \
 		moc_predefs.h \
-		../../../Qt5.12.4/5.12.4/clang_64/bin/moc
-	/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc $(DEFINES) --include '/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_predefs.h' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel/IP/header' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib gui_src/HistoStretch.h -o moc_HistoStretch.cpp
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc
+	/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc $(DEFINES) --include '/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/moc_predefs.h' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/IP/header' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib gui_src/HistoStretch.h -o moc_HistoStretch.cpp
 
 moc_HistoMatch.cpp: gui_src/HistoMatch.h \
 		gui_src/ImageFilter.h \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
 		gui_src/GLWidget.h \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLFunctions \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLShaderProgram \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QtOpenGL \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLFunctions \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLShaderProgram \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QtOpenGL \
 		IP/header/IP.h \
 		moc_predefs.h \
-		../../../Qt5.12.4/5.12.4/clang_64/bin/moc
-	/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc $(DEFINES) --include '/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_predefs.h' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel/IP/header' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib gui_src/HistoMatch.h -o moc_HistoMatch.cpp
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc
+	/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc $(DEFINES) --include '/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/moc_predefs.h' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/IP/header' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib gui_src/HistoMatch.h -o moc_HistoMatch.cpp
 
 moc_ErrDiffusion.cpp: gui_src/ErrDiffusion.h \
 		gui_src/ImageFilter.h \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
 		gui_src/GLWidget.h \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLFunctions \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLShaderProgram \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QtOpenGL \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLFunctions \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLShaderProgram \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QtOpenGL \
 		IP/header/IP.h \
 		moc_predefs.h \
-		../../../Qt5.12.4/5.12.4/clang_64/bin/moc
-	/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc $(DEFINES) --include '/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_predefs.h' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel/IP/header' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib gui_src/ErrDiffusion.h -o moc_ErrDiffusion.cpp
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc
+	/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc $(DEFINES) --include '/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/moc_predefs.h' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/IP/header' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib gui_src/ErrDiffusion.h -o moc_ErrDiffusion.cpp
 
 moc_Blur.cpp: gui_src/Blur.h \
 		gui_src/ImageFilter.h \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
 		gui_src/GLWidget.h \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLFunctions \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLShaderProgram \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QtOpenGL \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLFunctions \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLShaderProgram \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QtOpenGL \
 		IP/header/IP.h \
 		moc_predefs.h \
-		../../../Qt5.12.4/5.12.4/clang_64/bin/moc
-	/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc $(DEFINES) --include '/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_predefs.h' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel/IP/header' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib gui_src/Blur.h -o moc_Blur.cpp
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc
+	/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc $(DEFINES) --include '/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/moc_predefs.h' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/IP/header' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib gui_src/Blur.h -o moc_Blur.cpp
 
 moc_Sharpen.cpp: gui_src/Sharpen.h \
 		gui_src/ImageFilter.h \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
 		gui_src/GLWidget.h \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLFunctions \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLShaderProgram \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QtOpenGL \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLFunctions \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLShaderProgram \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QtOpenGL \
 		IP/header/IP.h \
 		moc_predefs.h \
-		../../../Qt5.12.4/5.12.4/clang_64/bin/moc
-	/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc $(DEFINES) --include '/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_predefs.h' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel/IP/header' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib gui_src/Sharpen.h -o moc_Sharpen.cpp
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc
+	/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc $(DEFINES) --include '/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/moc_predefs.h' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/IP/header' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib gui_src/Sharpen.h -o moc_Sharpen.cpp
 
 moc_Median.cpp: gui_src/Median.h \
 		gui_src/ImageFilter.h \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
 		gui_src/GLWidget.h \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLFunctions \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLShaderProgram \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QtOpenGL \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLFunctions \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLShaderProgram \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QtOpenGL \
 		IP/header/IP.h \
 		moc_predefs.h \
-		../../../Qt5.12.4/5.12.4/clang_64/bin/moc
-	/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc $(DEFINES) --include '/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_predefs.h' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel/IP/header' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib gui_src/Median.h -o moc_Median.cpp
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc
+	/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc $(DEFINES) --include '/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/moc_predefs.h' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/IP/header' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib gui_src/Median.h -o moc_Median.cpp
 
 moc_Convolve.cpp: gui_src/Convolve.h \
 		gui_src/ImageFilter.h \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
 		gui_src/GLWidget.h \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLFunctions \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLShaderProgram \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QtOpenGL \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLFunctions \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLShaderProgram \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QtOpenGL \
 		IP/header/IP.h \
 		moc_predefs.h \
-		../../../Qt5.12.4/5.12.4/clang_64/bin/moc
-	/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc $(DEFINES) --include '/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_predefs.h' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel/IP/header' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib gui_src/Convolve.h -o moc_Convolve.cpp
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc
+	/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc $(DEFINES) --include '/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/moc_predefs.h' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/IP/header' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib gui_src/Convolve.h -o moc_Convolve.cpp
 
 moc_Spectrum.cpp: gui_src/Spectrum.h \
 		gui_src/ImageFilter.h \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
 		gui_src/GLWidget.h \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLFunctions \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLShaderProgram \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QtOpenGL \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLFunctions \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLShaderProgram \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QtOpenGL \
 		IP/header/IP.h \
 		moc_predefs.h \
-		../../../Qt5.12.4/5.12.4/clang_64/bin/moc
-	/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc $(DEFINES) --include '/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_predefs.h' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel/IP/header' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib gui_src/Spectrum.h -o moc_Spectrum.cpp
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc
+	/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc $(DEFINES) --include '/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/moc_predefs.h' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/IP/header' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib gui_src/Spectrum.h -o moc_Spectrum.cpp
 
 moc_SwapPhase.cpp: gui_src/SwapPhase.h \
 		gui_src/ImageFilter.h \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
 		gui_src/GLWidget.h \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLFunctions \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLShaderProgram \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QtOpenGL \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLFunctions \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLShaderProgram \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QtOpenGL \
 		IP/header/IP.h \
 		moc_predefs.h \
-		../../../Qt5.12.4/5.12.4/clang_64/bin/moc
-	/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc $(DEFINES) --include '/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_predefs.h' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel/IP/header' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib gui_src/SwapPhase.h -o moc_SwapPhase.cpp
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc
+	/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc $(DEFINES) --include '/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/moc_predefs.h' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/IP/header' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib gui_src/SwapPhase.h -o moc_SwapPhase.cpp
 
 moc_Filter.cpp: gui_src/Filter.h \
 		gui_src/ImageFilter.h \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
 		gui_src/GLWidget.h \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLFunctions \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLShaderProgram \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QtOpenGL \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLFunctions \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLShaderProgram \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QtOpenGL \
 		IP/header/IP.h \
 		moc_predefs.h \
-		../../../Qt5.12.4/5.12.4/clang_64/bin/moc
-	/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc $(DEFINES) --include '/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_predefs.h' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel/IP/header' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib gui_src/Filter.h -o moc_Filter.cpp
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc
+	/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc $(DEFINES) --include '/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/moc_predefs.h' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/IP/header' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib gui_src/Filter.h -o moc_Filter.cpp
 
 moc_Resize.cpp: gui_src/Resize.h \
 		gui_src/ImageFilter.h \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
 		gui_src/GLWidget.h \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLFunctions \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLShaderProgram \
-		../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QtOpenGL \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLWidget \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLFunctions \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QGLShaderProgram \
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers/QtOpenGL \
 		IP/header/IP.h \
 		moc_predefs.h \
-		../../../Qt5.12.4/5.12.4/clang_64/bin/moc
-	/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc $(DEFINES) --include '/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_predefs.h' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel/IP/header' -I'/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib gui_src/Resize.h -o moc_Resize.cpp
+		/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc
+	/Users/bravo/Qt5.12.4/5.12.4/clang_64/bin/moc $(DEFINES) --include '/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/moc_predefs.h' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/IP/header' -I'/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src' -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers -I/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib gui_src/Resize.h -o moc_Resize.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:

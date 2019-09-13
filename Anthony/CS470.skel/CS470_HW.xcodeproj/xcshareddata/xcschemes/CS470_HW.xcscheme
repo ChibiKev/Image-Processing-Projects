@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "192DA46B86F56F8591391D36"
+               BlueprintIdentifier = "F8C7A07B184BF2046FB52B9D"
                BuildableName = "CS470_HW.app"
                BlueprintName = "CS470_HW"
                ReferencedContainer = "container:CS470_HW.xcodeproj">
@@ -43,7 +43,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "192DA46B86F56F8591391D36"
+            BlueprintIdentifier = "F8C7A07B184BF2046FB52B9D"
             BuildableName = "CS470_HW.app"
             BlueprintName = "CS470_HW"
             ReferencedContainer = "container:CS470_HW.xcodeproj">
@@ -73,7 +73,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "192DA46B86F56F8591391D36"
+            BlueprintIdentifier = "F8C7A07B184BF2046FB52B9D"
             BuildableName = "CS470_HW.app"
             BlueprintName = "CS470_HW"
             ReferencedContainer = "container:CS470_HW.xcodeproj">
@@ -99,7 +99,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "192DA46B86F56F8591391D36"
+            BlueprintIdentifier = "F8C7A07B184BF2046FB52B9D"
             BuildableName = "CS470_HW.app"
             BlueprintName = "CS470_HW"
             ReferencedContainer = "container:CS470_HW.xcodeproj">

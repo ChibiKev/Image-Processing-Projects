@@ -13,1064 +13,1064 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			name = "Qt Qmake";
 			shellPath = "/bin/sh";
-			shellScript = "make -C '/Users/bravo/Desktop/Image Processing Projects/CS470.skel' -f CS470_HW.xcodeproj/qt_makeqmake.mak";
+			shellScript = "make -C '/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel' -f CS470_HW.xcodeproj/qt_makeqmake.mak";
 			showEnvVarsInLog = "0";
 		};
-		33A94681C7BFB2874C4EB2F5 = {
+		B99408AAB7ED4CB27AACA36E = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/main.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src/main.cpp";
 			name = "main.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		B0C02519C0F5260D9837553B = {
-			fileRef = "33A94681C7BFB2874C4EB2F5";
+		31B8F1D96B016529EB098C39 = {
+			fileRef = "B99408AAB7ED4CB27AACA36E";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		E6874BB26460E6FABFD49C9A = {
+		557C78AE43697ED2B850E48F = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/MainWindow.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src/MainWindow.cpp";
 			name = "MainWindow.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		CBB8C75BDB638A2349F80993 = {
-			fileRef = "E6874BB26460E6FABFD49C9A";
+		561E1169843CD39B5B380B20 = {
+			fileRef = "557C78AE43697ED2B850E48F";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		8CC7C04D88320944BD895D31 = {
+		84E7E0501A5AAE38D00BCEED = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/ImageFilter.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src/ImageFilter.cpp";
 			name = "ImageFilter.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		D5ABC158B4CB44E537543C92 = {
-			fileRef = "8CC7C04D88320944BD895D31";
+		72D83752BE0CE8CC201A2BC6 = {
+			fileRef = "84E7E0501A5AAE38D00BCEED";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		AB7940A4CE5CA8A2A1CD97B0 = {
+		71A91DDF00E21EECE0D5A9F1 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/qcustomplot.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src/qcustomplot.cpp";
 			name = "qcustomplot.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		369C76C04A9BA4510CBAF5DD = {
-			fileRef = "AB7940A4CE5CA8A2A1CD97B0";
+		3F91C08868E0367FEB197CDB = {
+			fileRef = "71A91DDF00E21EECE0D5A9F1";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		0675A0C2138D6EFFF4AD61C5 = {
+		3D6F1E5F09AFD29B3C419570 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Dummy.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src/Dummy.cpp";
 			name = "Dummy.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		2C9F1929D8ECBB47194DFB8B = {
-			fileRef = "0675A0C2138D6EFFF4AD61C5";
+		DBC1C9068A1EA25FBD751D74 = {
+			fileRef = "3D6F1E5F09AFD29B3C419570";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		A99969B5DD151DE41FEB9897 = {
+		66D2459F01E6176D4E3EBEB3 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Threshold.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src/Threshold.cpp";
 			name = "Threshold.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		7597E8447B2C41B8877712C0 = {
-			fileRef = "A99969B5DD151DE41FEB9897";
+		3E6213B221C7EC99600DAB59 = {
+			fileRef = "66D2459F01E6176D4E3EBEB3";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		5AF34002595DC34745B26E49 = {
+		19960DE64499D0F80A9301E6 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Clip.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src/Clip.cpp";
 			name = "Clip.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		D1B683832A3D550DB23AC8D0 = {
-			fileRef = "5AF34002595DC34745B26E49";
+		C78DA498230B667C4F4ED970 = {
+			fileRef = "19960DE64499D0F80A9301E6";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		9E436657271DC25F354CE0D8 = {
+		FB402F0D867EEBF48D5A12E9 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Quantize.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src/Quantize.cpp";
 			name = "Quantize.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		F4C89EF1A12E49D2F86DB24D = {
-			fileRef = "9E436657271DC25F354CE0D8";
+		904C990235320A1BCDA4C655 = {
+			fileRef = "FB402F0D867EEBF48D5A12E9";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		C4110FD03E8D6DEB8BB166DC = {
+		66B65567B88AEE92E29D1DFD = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Gamma.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src/Gamma.cpp";
 			name = "Gamma.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		619F1639E0B3464E80B924DF = {
-			fileRef = "C4110FD03E8D6DEB8BB166DC";
+		AA81D88E23C78E71A6D90FE6 = {
+			fileRef = "66B65567B88AEE92E29D1DFD";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		135EF2EE1FDB44E3FFAD2D63 = {
+		642CCC4DF74DED06DE1B45B7 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Contrast.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src/Contrast.cpp";
 			name = "Contrast.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		D0F58254C1B07A5538180C52 = {
-			fileRef = "135EF2EE1FDB44E3FFAD2D63";
+		28AD09F51D1E6FF6AFEA50E7 = {
+			fileRef = "642CCC4DF74DED06DE1B45B7";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		A483901D2F50F4549C5F0CAF = {
+		4D0AAF7C01C605DB4DC0E5DD = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/HistoStretch.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src/HistoStretch.cpp";
 			name = "HistoStretch.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		D604F24313F43F8EB0620C93 = {
-			fileRef = "A483901D2F50F4549C5F0CAF";
+		0F2B68CF410DCCC0755E2EB5 = {
+			fileRef = "4D0AAF7C01C605DB4DC0E5DD";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		3E789F8056FED44FA00B5EB6 = {
+		5BF8FE8374ABDA2202758502 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/HistoMatch.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src/HistoMatch.cpp";
 			name = "HistoMatch.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		92807A60DFC642DDE18ACFA1 = {
-			fileRef = "3E789F8056FED44FA00B5EB6";
+		DD2DBDFF1396144B745DAAE9 = {
+			fileRef = "5BF8FE8374ABDA2202758502";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		537043FFCD03AEEE2C053321 = {
+		BFAA52695E34398811F9479E = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/ErrDiffusion.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src/ErrDiffusion.cpp";
 			name = "ErrDiffusion.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		FDE1E81F6E3D69E3244FF46A = {
-			fileRef = "537043FFCD03AEEE2C053321";
+		B6C793A6E2E50504570E9821 = {
+			fileRef = "BFAA52695E34398811F9479E";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		B195630AA7D079E4DEFBDCD3 = {
+		C7140D7B05267C550CD11CC0 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Blur.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src/Blur.cpp";
 			name = "Blur.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		0310F562AE5F84EAA177AF97 = {
-			fileRef = "B195630AA7D079E4DEFBDCD3";
+		4C788745B7841B59509DEDC9 = {
+			fileRef = "C7140D7B05267C550CD11CC0";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		757819902C4F9DF1DC98ACAF = {
+		B684753B0B31F13E84CDB5A7 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Sharpen.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src/Sharpen.cpp";
 			name = "Sharpen.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		6B133B49A4E27C5F9D94070F = {
-			fileRef = "757819902C4F9DF1DC98ACAF";
+		F80CAE1482A5CBFD596BCFF1 = {
+			fileRef = "B684753B0B31F13E84CDB5A7";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		AF4A0A6214410224431476DF = {
+		7F6D2C25BC6F2A9E2EBBD301 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Median.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src/Median.cpp";
 			name = "Median.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		81F70969C479669BA941805C = {
-			fileRef = "AF4A0A6214410224431476DF";
+		DA136AD7AC8EE3A88A292612 = {
+			fileRef = "7F6D2C25BC6F2A9E2EBBD301";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		2120DEB79DF0DA66FBE2FDAE = {
+		03C5C8E304A7481F02ABDD42 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/GLWidget.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src/GLWidget.cpp";
 			name = "GLWidget.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		E685D76CA7C1F1E771500AF3 = {
-			fileRef = "2120DEB79DF0DA66FBE2FDAE";
+		41A60501890724FF12C014D2 = {
+			fileRef = "03C5C8E304A7481F02ABDD42";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		6C8072F527A9B4EC6D73721F = {
+		7C82CB096143E6D22CD84012 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Convolve.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src/Convolve.cpp";
 			name = "Convolve.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		74A95142208684B511EB810F = {
-			fileRef = "6C8072F527A9B4EC6D73721F";
+		7CD212C5B96ADE8EEE6912E7 = {
+			fileRef = "7C82CB096143E6D22CD84012";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		C06FB08E71FBBC2BA998B1C6 = {
+		99D16D6E425690144C6440F1 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Spectrum.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src/Spectrum.cpp";
 			name = "Spectrum.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		4649C688F1D984A534749E20 = {
-			fileRef = "C06FB08E71FBBC2BA998B1C6";
+		1D1C688734339DC74930C0CA = {
+			fileRef = "99D16D6E425690144C6440F1";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		40CE5EE38AC82830F00D172E = {
+		5A26A4D7D2B437D601A6C0C6 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/SwapPhase.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src/SwapPhase.cpp";
 			name = "SwapPhase.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		C3BEE8C2BB2C82B6462E5C99 = {
-			fileRef = "40CE5EE38AC82830F00D172E";
+		981FC3142C6E989870E14C30 = {
+			fileRef = "5A26A4D7D2B437D601A6C0C6";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		9C803501FDC0AA3874B2DB08 = {
+		B39A716B09C20D2021EDA693 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Filter.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src/Filter.cpp";
 			name = "Filter.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		CBC341D29EBBD568F4032D4C = {
-			fileRef = "9C803501FDC0AA3874B2DB08";
+		E070D6E445BC2CE33C67BE1C = {
+			fileRef = "B39A716B09C20D2021EDA693";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		6CC4194BFA359710A13649DC = {
+		9D670BD7D6A13CA9B7158555 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Resize.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src/Resize.cpp";
 			name = "Resize.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		C3F68F17B74A4CFA866CEB60 = {
-			fileRef = "6CC4194BFA359710A13649DC";
+		B4A44FEACE7E919A1C823361 = {
+			fileRef = "9D670BD7D6A13CA9B7158555";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		F9AD8EDD23348442A63F270D = {
+		09DCB82B3C8536136DA2F567 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/hw1/HW_clip.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/hw1/HW_clip.cpp";
 			name = "HW_clip.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		E6867E38B6CD9DE99DF082A8 = {
-			fileRef = "F9AD8EDD23348442A63F270D";
+		4D8B5C632836CA4D37474313 = {
+			fileRef = "09DCB82B3C8536136DA2F567";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		AEB6E2B0B4EE64E42E689FB9 = {
+		7FC4AD2753F055A8FA693DD9 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/hw1/HW_contrast.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/hw1/HW_contrast.cpp";
 			name = "HW_contrast.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		0CF737ABAA49EE58120EF55B = {
-			fileRef = "AEB6E2B0B4EE64E42E689FB9";
+		7F4CBFFFA8E8C99181DABC0B = {
+			fileRef = "7FC4AD2753F055A8FA693DD9";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		5E1DED4A05BA8EC18D3B1128 = {
+		15145084A5F0011D28BFCC5B = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/hw1/HW_gamma.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/hw1/HW_gamma.cpp";
 			name = "HW_gamma.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		BE448AC241D6A5879BD3CEC4 = {
-			fileRef = "5E1DED4A05BA8EC18D3B1128";
+		CD710669F0973AA0DB42C9EE = {
+			fileRef = "15145084A5F0011D28BFCC5B";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		3C4E6AC6B0B627E1CF4ECD82 = {
+		DF1C4A5B9D9E66E9FD1F01EB = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/hw1/HW_histoMatch.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/hw1/HW_histoMatch.cpp";
 			name = "HW_histoMatch.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		0596A678C5727691CFC33E17 = {
-			fileRef = "3C4E6AC6B0B627E1CF4ECD82";
+		3E0922C5933F423B90CDBF14 = {
+			fileRef = "DF1C4A5B9D9E66E9FD1F01EB";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		8D1A0486A5121E92B84FDD45 = {
+		E43AFC0C4FB1CFBEB8E589E8 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/hw1/HW_histoStretch.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/hw1/HW_histoStretch.cpp";
 			name = "HW_histoStretch.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		E56A8162EE17324746FC14BF = {
-			fileRef = "8D1A0486A5121E92B84FDD45";
+		C13F54E84B9C95C39146F1DC = {
+			fileRef = "E43AFC0C4FB1CFBEB8E589E8";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		201B326EB2351117F65E5EC2 = {
+		86BA90805EE77FFCCE73F109 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/hw1/HW_quantize.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/hw1/HW_quantize.cpp";
 			name = "HW_quantize.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		3F3C3164675A1CCAB3995917 = {
-			fileRef = "201B326EB2351117F65E5EC2";
+		5E0D6FDE2C595FFC1C361AF1 = {
+			fileRef = "86BA90805EE77FFCCE73F109";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		D17673BEE200D518B5F39357 = {
+		EB430B9E06D67DFFB5952A05 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/hw1/HW_threshold.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/hw1/HW_threshold.cpp";
 			name = "HW_threshold.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		1081A94A2B78FEB0C6A4FCC0 = {
-			fileRef = "D17673BEE200D518B5F39357";
+		9CD188EE0A99E105779DA074 = {
+			fileRef = "EB430B9E06D67DFFB5952A05";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		FDDF21AF804C5BCDB5586EC5 = {
+		6C2B4532E65DAFEA0CE69748 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/hw2/HW_blur.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/hw2/HW_blur.cpp";
 			name = "HW_blur.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		A0F9367EDF3D4C3AAC145ABD = {
-			fileRef = "FDDF21AF804C5BCDB5586EC5";
+		EC05FB9050FDEF5BEA1478D8 = {
+			fileRef = "6C2B4532E65DAFEA0CE69748";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		28E48D8574C3275BDABA1474 = {
+		22CC4C6853443BD1E61A5E01 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/hw2/HW_convolve.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/hw2/HW_convolve.cpp";
 			name = "HW_convolve.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		D81CCBCF76AA4F689022D08F = {
-			fileRef = "28E48D8574C3275BDABA1474";
+		4931286976F5A15DAA0034FF = {
+			fileRef = "22CC4C6853443BD1E61A5E01";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		F1BF48B9D01E9DAAAB72E5E0 = {
+		4AB307C8CC8EA108E2FE5313 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/hw2/HW_errDiffusion.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/hw2/HW_errDiffusion.cpp";
 			name = "HW_errDiffusion.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		427A3F44A5B4EE92A35EA2D6 = {
-			fileRef = "F1BF48B9D01E9DAAAB72E5E0";
+		10625EA20BF85FD136671B08 = {
+			fileRef = "4AB307C8CC8EA108E2FE5313";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		EDB5304C91FC1E2A415C9A4F = {
+		9DC34CA996D4002377A2CE8F = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/hw2/HW_median.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/hw2/HW_median.cpp";
 			name = "HW_median.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		5D7A30E443D889364FFEBAF7 = {
-			fileRef = "EDB5304C91FC1E2A415C9A4F";
+		830D5B2D9B7CB939DC18C70B = {
+			fileRef = "9DC34CA996D4002377A2CE8F";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		D837234E76BED31A854A310A = {
+		E0763879B00BA640954B86B4 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/hw2/HW_sharpen.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/hw2/HW_sharpen.cpp";
 			name = "HW_sharpen.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		344E4E418F93086369BB65DB = {
-			fileRef = "D837234E76BED31A854A310A";
+		29AC418049158B523C739905 = {
+			fileRef = "E0763879B00BA640954B86B4";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		1C1F48F3B7D9D3F8C100040A = {
+		403D144571BD7F8DAD4C3EE0 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/hw3/HW_filter.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/hw3/HW_filter.cpp";
 			name = "HW_filter.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		AB72DEDBEB8793451ADB0E68 = {
-			fileRef = "1C1F48F3B7D9D3F8C100040A";
+		8264C37A90AC543603C2D311 = {
+			fileRef = "403D144571BD7F8DAD4C3EE0";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		9243EA9BE50A53022981992F = {
+		20B243D9BE077836D469CF2A = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/hw3/HW_spectrum.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/hw3/HW_spectrum.cpp";
 			name = "HW_spectrum.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		5ADA3F2942094D8D46628755 = {
-			fileRef = "9243EA9BE50A53022981992F";
+		1A15882885C0F75DCFC0E05B = {
+			fileRef = "20B243D9BE077836D469CF2A";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		4CF54E267E59B72BB323CBAF = {
+		668B13DDB03785716AED0102 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/hw3/HW_swapPhase.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/hw3/HW_swapPhase.cpp";
 			name = "HW_swapPhase.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		1209AFAF9F8D4DAD8EB4022F = {
-			fileRef = "4CF54E267E59B72BB323CBAF";
+		F93D758DD466E41648E84689 = {
+			fileRef = "668B13DDB03785716AED0102";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		ED66B4940CF2DAB05BC4F566 = {
+		D5F5C054ED624E9718A08AC7 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/hw3/HW_utils.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/hw3/HW_utils.cpp";
 			name = "HW_utils.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		2885962D1F063C9B3774008A = {
-			fileRef = "ED66B4940CF2DAB05BC4F566";
+		9EB09EC673682191E8CBA943 = {
+			fileRef = "D5F5C054ED624E9718A08AC7";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		F5CCE5CB704569B5404D246A = {
+		4FE913CE1D3E6575A23C83EC = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/hw4/HW_resize.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/hw4/HW_resize.cpp";
 			name = "HW_resize.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		CE555FF5694E549B2A4165E9 = {
-			fileRef = "F5CCE5CB704569B5404D246A";
+		2286101015843E30A636E4F0 = {
+			fileRef = "4FE913CE1D3E6575A23C83EC";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		8C1061892C489FF35BF07F40 = {
+		18701265E69D835F8443E4EC = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/CS470.icns";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/CS470.icns";
 			name = "CS470.icns";
 			sourceTree = "<absolute>";
 		};
-		7E879953D6856A2800A485E7 = {
-			fileRef = "8C1061892C489FF35BF07F40";
+		1F6254D73D7DF50A62BA730C = {
+			fileRef = "18701265E69D835F8443E4EC";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		D715895F934A861E51DAAF7A = {
+		0EF25D72EA847D78CD45C711 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/qrc_CS470.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/qrc_CS470.cpp";
 			name = "qrc_CS470.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		F3DDC1B7D1C71F78265BE227 = {
-			fileRef = "D715895F934A861E51DAAF7A";
+		D56F80B75A7F797065192F74 = {
+			fileRef = "0EF25D72EA847D78CD45C711";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		B3BF0D6C7A4AA09DA36DFEEB = {
+		BEC67C12012343A9B8E58E1C = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_MainWindow.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/moc_MainWindow.cpp";
 			name = "moc_MainWindow.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		B0E4966D3DF15F9AEE43B400 = {
-			fileRef = "B3BF0D6C7A4AA09DA36DFEEB";
+		DAD82008667C62F5724AFE96 = {
+			fileRef = "BEC67C12012343A9B8E58E1C";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		0F1887545017D3014DBF50CF = {
+		6DC438495CC07817EE9881CA = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_qcustomplot.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/moc_qcustomplot.cpp";
 			name = "moc_qcustomplot.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		F9927032D3299E356A99779C = {
-			fileRef = "0F1887545017D3014DBF50CF";
+		4860180E9F5A9767C3E2B1F1 = {
+			fileRef = "6DC438495CC07817EE9881CA";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		A1A3B53FAFB4D00A24A9893A = {
+		2C11CA49F08A4FB3A02A4B1B = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_Dummy.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/moc_Dummy.cpp";
 			name = "moc_Dummy.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		81AD1BEF7BB48C4D4D9FFAB4 = {
-			fileRef = "A1A3B53FAFB4D00A24A9893A";
+		65763134EEEF5E52A8A8CD2F = {
+			fileRef = "2C11CA49F08A4FB3A02A4B1B";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		5C150A0209C73496A8605301 = {
+		93915530BBA34F3B21E9511E = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_Threshold.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/moc_Threshold.cpp";
 			name = "moc_Threshold.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		C42CF8AA1AB9958646DD7AEC = {
-			fileRef = "5C150A0209C73496A8605301";
+		583A1EADC8385A963ECD0A0C = {
+			fileRef = "93915530BBA34F3B21E9511E";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		180DEDEC63F832DE1C5C8164 = {
+		CD912D3530CA5337C488B4FB = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_Clip.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/moc_Clip.cpp";
 			name = "moc_Clip.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		791142B9A231EF9BC428F77D = {
-			fileRef = "180DEDEC63F832DE1C5C8164";
+		EE24B37131BFC42F76C435B8 = {
+			fileRef = "CD912D3530CA5337C488B4FB";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		8E80DC62A52CECD0B8BC4EBC = {
+		A7F69B5B4663F32066F1421E = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_Quantize.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/moc_Quantize.cpp";
 			name = "moc_Quantize.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		5BE502F1B507481585F2C96C = {
-			fileRef = "8E80DC62A52CECD0B8BC4EBC";
+		89563DF2C1561FCFA924B886 = {
+			fileRef = "A7F69B5B4663F32066F1421E";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		07E064E0D8A15352E7F7F07C = {
+		05040881009AF1632FEE0757 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_Gamma.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/moc_Gamma.cpp";
 			name = "moc_Gamma.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		615E85BFBB415338791B6A2B = {
-			fileRef = "07E064E0D8A15352E7F7F07C";
+		3D89A34BA1F45D9C74A045B9 = {
+			fileRef = "05040881009AF1632FEE0757";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		41E24C2FCE37CF99500F7073 = {
+		7B56A1D0D6011EC1D7C73914 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_Contrast.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/moc_Contrast.cpp";
 			name = "moc_Contrast.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		3E355CA3B125E139E58B3FCD = {
-			fileRef = "41E24C2FCE37CF99500F7073";
+		A877B11FCCC274999EED0DC4 = {
+			fileRef = "7B56A1D0D6011EC1D7C73914";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		D6E5550542091E4DAC808299 = {
+		B42B096253BA1F7F05D59BFB = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_HistoStretch.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/moc_HistoStretch.cpp";
 			name = "moc_HistoStretch.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		E80082F3AA0D28136A63F4A5 = {
-			fileRef = "D6E5550542091E4DAC808299";
+		914A4A4E6B938675E751C02D = {
+			fileRef = "B42B096253BA1F7F05D59BFB";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		6460CD9A4678B12180047F0C = {
+		7806646387B76A35A2CF6004 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_HistoMatch.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/moc_HistoMatch.cpp";
 			name = "moc_HistoMatch.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		47AF6654811A0A00AF29366B = {
-			fileRef = "6460CD9A4678B12180047F0C";
+		89D55BDD84F2CB671E93AA2F = {
+			fileRef = "7806646387B76A35A2CF6004";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		158B070A369D85C50EC5FB98 = {
+		7D06C51A3DE3275BB25B81E7 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_ErrDiffusion.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/moc_ErrDiffusion.cpp";
 			name = "moc_ErrDiffusion.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		7CAB9D542690DB4E27716294 = {
-			fileRef = "158B070A369D85C50EC5FB98";
+		37965C95FC1834CE101C8836 = {
+			fileRef = "7D06C51A3DE3275BB25B81E7";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		074F12C1217A0243FA927996 = {
+		2F9BA28D81F5481025920C7B = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_Blur.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/moc_Blur.cpp";
 			name = "moc_Blur.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		255BCC6036B0087B802BA488 = {
-			fileRef = "074F12C1217A0243FA927996";
+		91DED06E53D2AD48A43E4167 = {
+			fileRef = "2F9BA28D81F5481025920C7B";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		76CD1FA0127AC04EC5C3A9F5 = {
+		91F7472993FFE6E00F1F1E4F = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_Sharpen.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/moc_Sharpen.cpp";
 			name = "moc_Sharpen.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		671018D5D7E413D6EF629DB9 = {
-			fileRef = "76CD1FA0127AC04EC5C3A9F5";
+		B620111F597908972FE625ED = {
+			fileRef = "91F7472993FFE6E00F1F1E4F";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		4310B6DA53485F8ABB7FBB5E = {
+		7400D73D3485DB1153075C0A = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_Median.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/moc_Median.cpp";
 			name = "moc_Median.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		AD14B487EA984EFCACACCB2C = {
-			fileRef = "4310B6DA53485F8ABB7FBB5E";
+		A54B5CC69EA2042722E47F6E = {
+			fileRef = "7400D73D3485DB1153075C0A";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		9C96D38352B45E90EF1B75A8 = {
+		165D790A53E0A9BFEB59B809 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_Convolve.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/moc_Convolve.cpp";
 			name = "moc_Convolve.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		510EF1F28820A67106DA3306 = {
-			fileRef = "9C96D38352B45E90EF1B75A8";
+		EA8CE869D7541C64E167D680 = {
+			fileRef = "165D790A53E0A9BFEB59B809";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		7442458097C4292A9A5C9C7F = {
+		A6EC0713B883FEDE4785FE8E = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_Spectrum.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/moc_Spectrum.cpp";
 			name = "moc_Spectrum.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		E8EE0E7E55FFC24F34362B2E = {
-			fileRef = "7442458097C4292A9A5C9C7F";
+		D30186EA7248ADFED9610D2A = {
+			fileRef = "A6EC0713B883FEDE4785FE8E";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		A3AD49CFDC0AD5D8FE1CDEFC = {
+		04C58A6840F495CB167FDC30 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_SwapPhase.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/moc_SwapPhase.cpp";
 			name = "moc_SwapPhase.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		033AD6206FA5789AA6D9D78E = {
-			fileRef = "A3AD49CFDC0AD5D8FE1CDEFC";
+		C25E790A0CB87AD213CA69F0 = {
+			fileRef = "04C58A6840F495CB167FDC30";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		35C967BB7FABF85609B7D924 = {
+		C126D9FC4846D08E205BD811 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_Filter.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/moc_Filter.cpp";
 			name = "moc_Filter.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		5D267969D70CF39EBCC1151E = {
-			fileRef = "35C967BB7FABF85609B7D924";
+		16833E631F26F4CE521663E7 = {
+			fileRef = "C126D9FC4846D08E205BD811";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		B33F4725E009F4D9FD952638 = {
+		1209405C2A305338229A9183 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_Resize.cpp";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/moc_Resize.cpp";
 			name = "moc_Resize.cpp";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		BE76972EEC6CF143F14ADE6A = {
-			fileRef = "B33F4725E009F4D9FD952638";
+		70FA42FB62DBE3B5F4434AA5 = {
+			fileRef = "1209405C2A305338229A9183";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		C18960BA3FDB70D4BD10A8B6 = {
+		89C0626BAA2AC0FFA342D94B = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/MainWindow.h";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src/MainWindow.h";
 			name = "MainWindow.h";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.c.h";
 		};
-		CB82058F91132852ED8CAFA9 = {
+		496E048F5802DCD8285E0D68 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/ImageFilter.h";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src/ImageFilter.h";
 			name = "ImageFilter.h";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.c.h";
 		};
-		B312ACBF41BAC4269B65655C = {
+		3549E76065F0A4FD3675755B = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/qcustomplot.h";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src/qcustomplot.h";
 			name = "qcustomplot.h";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.c.h";
 		};
-		B92E50B27A24D894A6DE4B80 = {
+		1D4420D103FA9184666CE113 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Dummy.h";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src/Dummy.h";
 			name = "Dummy.h";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.c.h";
 		};
-		7EAF1A2AC150B3EFD19353ED = {
+		AF3BD45222E7C9C43330FEC1 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Threshold.h";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src/Threshold.h";
 			name = "Threshold.h";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.c.h";
 		};
-		CCD0556DA4D2CF52804BBFBD = {
+		3769295301789698E551FCBC = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Clip.h";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src/Clip.h";
 			name = "Clip.h";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.c.h";
 		};
-		0D9BFC4531346D9FD059C595 = {
+		4FB10BC698A6DF8AEB07A6A6 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Quantize.h";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src/Quantize.h";
 			name = "Quantize.h";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.c.h";
 		};
-		93A32FD04A92D46790F40C54 = {
+		BEA5608CE484C14B8A3C171E = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Gamma.h";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src/Gamma.h";
 			name = "Gamma.h";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.c.h";
 		};
-		15320A7D47C3F2E06B11555B = {
+		37FC8BBC338739D7237161B5 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Contrast.h";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src/Contrast.h";
 			name = "Contrast.h";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.c.h";
 		};
-		DD544610F53989B871DE6939 = {
+		C33A1A2050E7D0823AFE70B4 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/HistoStretch.h";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src/HistoStretch.h";
 			name = "HistoStretch.h";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.c.h";
 		};
-		FA2787CA4E6AE219DD9FBB08 = {
+		0B9482056F5A061C636F6CCA = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/HistoMatch.h";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src/HistoMatch.h";
 			name = "HistoMatch.h";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.c.h";
 		};
-		4E31DC9DCC4C8BF5A744A867 = {
+		5E06B78FAE6194EB47828625 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/ErrDiffusion.h";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src/ErrDiffusion.h";
 			name = "ErrDiffusion.h";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.c.h";
 		};
-		C48113EEFD42AF41FB92C316 = {
+		8AFC580FA0BD8F38E3100349 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Blur.h";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src/Blur.h";
 			name = "Blur.h";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.c.h";
 		};
-		877C7F80CEF0AD1B75613F3C = {
+		16E094EEF75262E21AFF3625 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Sharpen.h";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src/Sharpen.h";
 			name = "Sharpen.h";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.c.h";
 		};
-		E83B4B4DC1781D7E5E80CDAE = {
+		0FBD8AEE3016547D64C67ED2 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Median.h";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src/Median.h";
 			name = "Median.h";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.c.h";
 		};
-		56959E12666A4D6670B4B6B9 = {
+		6975A854F6FF10BD9B57714E = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/GLWidget.h";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src/GLWidget.h";
 			name = "GLWidget.h";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.c.h";
 		};
-		DADFDE4B59B02CB181BEF4A6 = {
+		686AFDA02863CF69D4F7A1D5 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Convolve.h";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src/Convolve.h";
 			name = "Convolve.h";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.c.h";
 		};
-		9ED93369C9DA267EB805BF9B = {
+		709E6A279FA1BDFFF79B8C41 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Spectrum.h";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src/Spectrum.h";
 			name = "Spectrum.h";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.c.h";
 		};
-		1263A702B35332B92A748505 = {
+		E5DB7C05286D3D4F7001CD02 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/SwapPhase.h";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src/SwapPhase.h";
 			name = "SwapPhase.h";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.c.h";
 		};
-		DF926675661B7BA2C39569BA = {
+		333D5BDE090238582E7F2D87 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Filter.h";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src/Filter.h";
 			name = "Filter.h";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.c.h";
 		};
-		7870536A4B35F10CB03FD854 = {
+		D399098391B17FE0A53F6BA4 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Resize.h";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/gui_src/Resize.h";
 			name = "Resize.h";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "sourcecode.c.h";
 		};
-		FA37F83B52B07B5AF2CD67C0 = {
+		C9A6E42E900C3432398B1362 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/CS470.qrc";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/CS470.qrc";
 			name = "CS470.qrc";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "text";
 		};
-		E3A4FD58EB94DD8B5B5DACF1 = {
-			fileRef = "FA37F83B52B07B5AF2CD67C0";
+		E1617AA299159FED15636DA4 = {
+			fileRef = "C9A6E42E900C3432398B1362";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
@@ -1092,22 +1092,22 @@
 					);
 			};
 		};
-		D3FD333F11FD8301D6DE166A = {
+		416BE7E4DFE58090D93D5EFA = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/CS470.pro";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/CS470.pro";
 			name = "CS470.pro";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "text";
 		};
-		0D8E9E1319FE8A355CFE18EB = {
+		C36D7C942A23292226CF7C85 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/.qmake.stash";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/.qmake.stash";
 			name = ".qmake.stash";
 			sourceTree = "<absolute>";
 		};
-		D744638A68A098B65209F765 = {
+		7F4F52F60A8E85C47FCDF175 = {
 			isa = PBXFileReference;
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/CS470_common.pro";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/CS470_common.pro";
 			name = "CS470_common.pro";
 			sourceTree = "<absolute>";
 			lastKnownFileType = "text";
@@ -1115,123 +1115,123 @@
 		25B08E2869634E9BCBA333A2 = {
 			isa = PBXGroup;
 			children = (
-				"D715895F934A861E51DAAF7A",
-				"B3BF0D6C7A4AA09DA36DFEEB",
-				"0F1887545017D3014DBF50CF",
-				"A1A3B53FAFB4D00A24A9893A",
-				"5C150A0209C73496A8605301",
-				"180DEDEC63F832DE1C5C8164",
-				"8E80DC62A52CECD0B8BC4EBC",
-				"07E064E0D8A15352E7F7F07C",
-				"41E24C2FCE37CF99500F7073",
-				"D6E5550542091E4DAC808299",
-				"6460CD9A4678B12180047F0C",
-				"158B070A369D85C50EC5FB98",
-				"074F12C1217A0243FA927996",
-				"76CD1FA0127AC04EC5C3A9F5",
-				"4310B6DA53485F8ABB7FBB5E",
-				"9C96D38352B45E90EF1B75A8",
-				"7442458097C4292A9A5C9C7F",
-				"A3AD49CFDC0AD5D8FE1CDEFC",
-				"35C967BB7FABF85609B7D924",
-				"B33F4725E009F4D9FD952638");
+				"0EF25D72EA847D78CD45C711",
+				"BEC67C12012343A9B8E58E1C",
+				"6DC438495CC07817EE9881CA",
+				"2C11CA49F08A4FB3A02A4B1B",
+				"93915530BBA34F3B21E9511E",
+				"CD912D3530CA5337C488B4FB",
+				"A7F69B5B4663F32066F1421E",
+				"05040881009AF1632FEE0757",
+				"7B56A1D0D6011EC1D7C73914",
+				"B42B096253BA1F7F05D59BFB",
+				"7806646387B76A35A2CF6004",
+				"7D06C51A3DE3275BB25B81E7",
+				"2F9BA28D81F5481025920C7B",
+				"91F7472993FFE6E00F1F1E4F",
+				"7400D73D3485DB1153075C0A",
+				"165D790A53E0A9BFEB59B809",
+				"A6EC0713B883FEDE4785FE8E",
+				"04C58A6840F495CB167FDC30",
+				"C126D9FC4846D08E205BD811",
+				"1209405C2A305338229A9183");
 			name = "Generated Sources";
 			sourceTree = "<group>";
 		};
 		1F106A4B8472C49F10353A3C = {
 			isa = PBXGroup;
 			children = (
-				"33A94681C7BFB2874C4EB2F5",
-				"E6874BB26460E6FABFD49C9A",
-				"8CC7C04D88320944BD895D31",
-				"AB7940A4CE5CA8A2A1CD97B0",
-				"0675A0C2138D6EFFF4AD61C5",
-				"A99969B5DD151DE41FEB9897",
-				"5AF34002595DC34745B26E49",
-				"9E436657271DC25F354CE0D8",
-				"C4110FD03E8D6DEB8BB166DC",
-				"135EF2EE1FDB44E3FFAD2D63",
-				"A483901D2F50F4549C5F0CAF",
-				"3E789F8056FED44FA00B5EB6",
-				"537043FFCD03AEEE2C053321",
-				"B195630AA7D079E4DEFBDCD3",
-				"757819902C4F9DF1DC98ACAF",
-				"AF4A0A6214410224431476DF",
-				"2120DEB79DF0DA66FBE2FDAE",
-				"6C8072F527A9B4EC6D73721F",
-				"C06FB08E71FBBC2BA998B1C6",
-				"40CE5EE38AC82830F00D172E",
-				"9C803501FDC0AA3874B2DB08",
-				"6CC4194BFA359710A13649DC",
-				"C18960BA3FDB70D4BD10A8B6",
-				"CB82058F91132852ED8CAFA9",
-				"B312ACBF41BAC4269B65655C",
-				"B92E50B27A24D894A6DE4B80",
-				"7EAF1A2AC150B3EFD19353ED",
-				"CCD0556DA4D2CF52804BBFBD",
-				"0D9BFC4531346D9FD059C595",
-				"93A32FD04A92D46790F40C54",
-				"15320A7D47C3F2E06B11555B",
-				"DD544610F53989B871DE6939",
-				"FA2787CA4E6AE219DD9FBB08",
-				"4E31DC9DCC4C8BF5A744A867",
-				"C48113EEFD42AF41FB92C316",
-				"877C7F80CEF0AD1B75613F3C",
-				"E83B4B4DC1781D7E5E80CDAE",
-				"56959E12666A4D6670B4B6B9",
-				"DADFDE4B59B02CB181BEF4A6",
-				"9ED93369C9DA267EB805BF9B",
-				"1263A702B35332B92A748505",
-				"DF926675661B7BA2C39569BA",
-				"7870536A4B35F10CB03FD854");
+				"B99408AAB7ED4CB27AACA36E",
+				"557C78AE43697ED2B850E48F",
+				"84E7E0501A5AAE38D00BCEED",
+				"71A91DDF00E21EECE0D5A9F1",
+				"3D6F1E5F09AFD29B3C419570",
+				"66D2459F01E6176D4E3EBEB3",
+				"19960DE64499D0F80A9301E6",
+				"FB402F0D867EEBF48D5A12E9",
+				"66B65567B88AEE92E29D1DFD",
+				"642CCC4DF74DED06DE1B45B7",
+				"4D0AAF7C01C605DB4DC0E5DD",
+				"5BF8FE8374ABDA2202758502",
+				"BFAA52695E34398811F9479E",
+				"C7140D7B05267C550CD11CC0",
+				"B684753B0B31F13E84CDB5A7",
+				"7F6D2C25BC6F2A9E2EBBD301",
+				"03C5C8E304A7481F02ABDD42",
+				"7C82CB096143E6D22CD84012",
+				"99D16D6E425690144C6440F1",
+				"5A26A4D7D2B437D601A6C0C6",
+				"B39A716B09C20D2021EDA693",
+				"9D670BD7D6A13CA9B7158555",
+				"89C0626BAA2AC0FFA342D94B",
+				"496E048F5802DCD8285E0D68",
+				"3549E76065F0A4FD3675755B",
+				"1D4420D103FA9184666CE113",
+				"AF3BD45222E7C9C43330FEC1",
+				"3769295301789698E551FCBC",
+				"4FB10BC698A6DF8AEB07A6A6",
+				"BEA5608CE484C14B8A3C171E",
+				"37FC8BBC338739D7237161B5",
+				"C33A1A2050E7D0823AFE70B4",
+				"0B9482056F5A061C636F6CCA",
+				"5E06B78FAE6194EB47828625",
+				"8AFC580FA0BD8F38E3100349",
+				"16E094EEF75262E21AFF3625",
+				"0FBD8AEE3016547D64C67ED2",
+				"6975A854F6FF10BD9B57714E",
+				"686AFDA02863CF69D4F7A1D5",
+				"709E6A279FA1BDFFF79B8C41",
+				"E5DB7C05286D3D4F7001CD02",
+				"333D5BDE090238582E7F2D87",
+				"D399098391B17FE0A53F6BA4");
 			name = "gui_src";
 			sourceTree = "<group>";
 		};
 		3C77C658827F4A07ABF9D58B = {
 			isa = PBXGroup;
 			children = (
-				"F9AD8EDD23348442A63F270D",
-				"AEB6E2B0B4EE64E42E689FB9",
-				"5E1DED4A05BA8EC18D3B1128",
-				"3C4E6AC6B0B627E1CF4ECD82",
-				"8D1A0486A5121E92B84FDD45",
-				"201B326EB2351117F65E5EC2",
-				"D17673BEE200D518B5F39357");
+				"09DCB82B3C8536136DA2F567",
+				"7FC4AD2753F055A8FA693DD9",
+				"15145084A5F0011D28BFCC5B",
+				"DF1C4A5B9D9E66E9FD1F01EB",
+				"E43AFC0C4FB1CFBEB8E589E8",
+				"86BA90805EE77FFCCE73F109",
+				"EB430B9E06D67DFFB5952A05");
 			name = "hw1";
 			sourceTree = "<group>";
 		};
 		8D1A7173215F622A1D3A66B1 = {
 			isa = PBXGroup;
 			children = (
-				"FDDF21AF804C5BCDB5586EC5",
-				"28E48D8574C3275BDABA1474",
-				"F1BF48B9D01E9DAAAB72E5E0",
-				"EDB5304C91FC1E2A415C9A4F",
-				"D837234E76BED31A854A310A");
+				"6C2B4532E65DAFEA0CE69748",
+				"22CC4C6853443BD1E61A5E01",
+				"4AB307C8CC8EA108E2FE5313",
+				"9DC34CA996D4002377A2CE8F",
+				"E0763879B00BA640954B86B4");
 			name = "hw2";
 			sourceTree = "<group>";
 		};
 		0A31DA8FFB6A3F21532CA67A = {
 			isa = PBXGroup;
 			children = (
-				"1C1F48F3B7D9D3F8C100040A",
-				"9243EA9BE50A53022981992F",
-				"4CF54E267E59B72BB323CBAF",
-				"ED66B4940CF2DAB05BC4F566");
+				"403D144571BD7F8DAD4C3EE0",
+				"20B243D9BE077836D469CF2A",
+				"668B13DDB03785716AED0102",
+				"D5F5C054ED624E9718A08AC7");
 			name = "hw3";
 			sourceTree = "<group>";
 		};
 		98958E24D2033CDCEC7E42CF = {
 			isa = PBXGroup;
 			children = (
-				"F5CCE5CB704569B5404D246A");
+				"4FE913CE1D3E6575A23C83EC");
 			name = "hw4";
 			sourceTree = "<group>";
 		};
 		87DF60DE337FB58864343E39 = {
 			isa = PBXGroup;
 			children = (
-				"FA37F83B52B07B5AF2CD67C0");
+				"C9A6E42E900C3432398B1362");
 			name = "Resources";
 			sourceTree = "<group>";
 		};
@@ -1243,7 +1243,7 @@
 				"8D1A7173215F622A1D3A66B1",
 				"0A31DA8FFB6A3F21532CA67A",
 				"98958E24D2033CDCEC7E42CF",
-				"8C1061892C489FF35BF07F40");
+				"18701265E69D835F8443E4EC");
 			name = "Sources";
 			sourceTree = "<group>";
 		};
@@ -1257,9 +1257,9 @@
 		74B182DB50CB5611B5C1C297 = {
 			isa = PBXGroup;
 			children = (
-				"D3FD333F11FD8301D6DE166A",
-				"0D8E9E1319FE8A355CFE18EB",
-				"D744638A68A098B65209F765");
+				"416BE7E4DFE58090D93D5EFA",
+				"C36D7C942A23292226CF7C85",
+				"7F4F52F60A8E85C47FCDF175");
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
@@ -1271,85 +1271,85 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			name = "Qt Preprocessors";
 			shellPath = "/bin/sh";
-			shellScript = "make -C '/Users/bravo/Desktop/Image Processing Projects/CS470.skel' -f CS470_HW.xcodeproj/qt_preprocess.mak";
+			shellScript = "make -C '/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel' -f CS470_HW.xcodeproj/qt_preprocess.mak";
 			showEnvVarsInLog = "0";
 		};
 		F7E50F631C51CD5B5DC0BC43 = {
 			buildActionMask = 2147483647;
 			files = (
-				"B0C02519C0F5260D9837553B",
-				"CBB8C75BDB638A2349F80993",
-				"D5ABC158B4CB44E537543C92",
-				"369C76C04A9BA4510CBAF5DD",
-				"2C9F1929D8ECBB47194DFB8B",
-				"7597E8447B2C41B8877712C0",
-				"D1B683832A3D550DB23AC8D0",
-				"F4C89EF1A12E49D2F86DB24D",
-				"619F1639E0B3464E80B924DF",
-				"D0F58254C1B07A5538180C52",
-				"D604F24313F43F8EB0620C93",
-				"92807A60DFC642DDE18ACFA1",
-				"FDE1E81F6E3D69E3244FF46A",
-				"0310F562AE5F84EAA177AF97",
-				"6B133B49A4E27C5F9D94070F",
-				"81F70969C479669BA941805C",
-				"E685D76CA7C1F1E771500AF3",
-				"74A95142208684B511EB810F",
-				"4649C688F1D984A534749E20",
-				"C3BEE8C2BB2C82B6462E5C99",
-				"CBC341D29EBBD568F4032D4C",
-				"C3F68F17B74A4CFA866CEB60",
-				"E6867E38B6CD9DE99DF082A8",
-				"0CF737ABAA49EE58120EF55B",
-				"BE448AC241D6A5879BD3CEC4",
-				"0596A678C5727691CFC33E17",
-				"E56A8162EE17324746FC14BF",
-				"3F3C3164675A1CCAB3995917",
-				"1081A94A2B78FEB0C6A4FCC0",
-				"A0F9367EDF3D4C3AAC145ABD",
-				"D81CCBCF76AA4F689022D08F",
-				"427A3F44A5B4EE92A35EA2D6",
-				"5D7A30E443D889364FFEBAF7",
-				"344E4E418F93086369BB65DB",
-				"AB72DEDBEB8793451ADB0E68",
-				"5ADA3F2942094D8D46628755",
-				"1209AFAF9F8D4DAD8EB4022F",
-				"2885962D1F063C9B3774008A",
-				"CE555FF5694E549B2A4165E9",
-				"F3DDC1B7D1C71F78265BE227",
-				"B0E4966D3DF15F9AEE43B400",
-				"F9927032D3299E356A99779C",
-				"81AD1BEF7BB48C4D4D9FFAB4",
-				"C42CF8AA1AB9958646DD7AEC",
-				"791142B9A231EF9BC428F77D",
-				"5BE502F1B507481585F2C96C",
-				"615E85BFBB415338791B6A2B",
-				"3E355CA3B125E139E58B3FCD",
-				"E80082F3AA0D28136A63F4A5",
-				"47AF6654811A0A00AF29366B",
-				"7CAB9D542690DB4E27716294",
-				"255BCC6036B0087B802BA488",
-				"671018D5D7E413D6EF629DB9",
-				"AD14B487EA984EFCACACCB2C",
-				"510EF1F28820A67106DA3306",
-				"E8EE0E7E55FFC24F34362B2E",
-				"033AD6206FA5789AA6D9D78E",
-				"5D267969D70CF39EBCC1151E",
-				"BE76972EEC6CF143F14ADE6A",
+				"31B8F1D96B016529EB098C39",
+				"561E1169843CD39B5B380B20",
+				"72D83752BE0CE8CC201A2BC6",
+				"3F91C08868E0367FEB197CDB",
+				"DBC1C9068A1EA25FBD751D74",
+				"3E6213B221C7EC99600DAB59",
+				"C78DA498230B667C4F4ED970",
+				"904C990235320A1BCDA4C655",
+				"AA81D88E23C78E71A6D90FE6",
+				"28AD09F51D1E6FF6AFEA50E7",
+				"0F2B68CF410DCCC0755E2EB5",
+				"DD2DBDFF1396144B745DAAE9",
+				"B6C793A6E2E50504570E9821",
+				"4C788745B7841B59509DEDC9",
+				"F80CAE1482A5CBFD596BCFF1",
+				"DA136AD7AC8EE3A88A292612",
+				"41A60501890724FF12C014D2",
+				"7CD212C5B96ADE8EEE6912E7",
+				"1D1C688734339DC74930C0CA",
+				"981FC3142C6E989870E14C30",
+				"E070D6E445BC2CE33C67BE1C",
+				"B4A44FEACE7E919A1C823361",
+				"4D8B5C632836CA4D37474313",
+				"7F4CBFFFA8E8C99181DABC0B",
+				"CD710669F0973AA0DB42C9EE",
+				"3E0922C5933F423B90CDBF14",
+				"C13F54E84B9C95C39146F1DC",
+				"5E0D6FDE2C595FFC1C361AF1",
+				"9CD188EE0A99E105779DA074",
+				"EC05FB9050FDEF5BEA1478D8",
+				"4931286976F5A15DAA0034FF",
+				"10625EA20BF85FD136671B08",
+				"830D5B2D9B7CB939DC18C70B",
+				"29AC418049158B523C739905",
+				"8264C37A90AC543603C2D311",
+				"1A15882885C0F75DCFC0E05B",
+				"F93D758DD466E41648E84689",
+				"9EB09EC673682191E8CBA943",
+				"2286101015843E30A636E4F0",
+				"D56F80B75A7F797065192F74",
+				"DAD82008667C62F5724AFE96",
+				"4860180E9F5A9767C3E2B1F1",
+				"65763134EEEF5E52A8A8CD2F",
+				"583A1EADC8385A963ECD0A0C",
+				"EE24B37131BFC42F76C435B8",
+				"89563DF2C1561FCFA924B886",
+				"3D89A34BA1F45D9C74A045B9",
+				"A877B11FCCC274999EED0DC4",
+				"914A4A4E6B938675E751C02D",
+				"89D55BDD84F2CB671E93AA2F",
+				"37965C95FC1834CE101C8836",
+				"91DED06E53D2AD48A43E4167",
+				"B620111F597908972FE625ED",
+				"A54B5CC69EA2042722E47F6E",
+				"EA8CE869D7541C64E167D680",
+				"D30186EA7248ADFED9610D2A",
+				"C25E790A0CB87AD213CA69F0",
+				"16833E631F26F4CE521663E7",
+				"70FA42FB62DBE3B5F4434AA5",
 				"6987DE7C04EC2E9DE4BDBA2E");
 			isa = PBXSourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
 			name = "Compile Sources";
 		};
-		5821CA07E0287333736F129A = {
+		58A52D18F6633C74BC596DD1 = {
 			isa = PBXFileReference;
 			name = "IP";
-			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/IP/mac/lib/libIP.a";
+			path = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/IP/mac/lib/libIP.a";
 			refType = 0;
 			sourceTree = "<absolute>";
 		};
-		DE67277EE5679F02FBA80DF6 = {
-			fileRef = "5821CA07E0287333736F129A";
+		E8C1D6407600929EDF135676 = {
+			fileRef = "58A52D18F6633C74BC596DD1";
 			isa = PBXBuildFile;
 			settings = {
 			};
@@ -1482,7 +1482,7 @@
 		};
 		AF39DD055C3EF8226FBE929D = {
 			children = (
-				"5821CA07E0287333736F129A",
+				"58A52D18F6633C74BC596DD1",
 				"126283297C41B4EC43F5D9E5",
 				"2C58A582C7D0AAD75F01CC99",
 				"5ABED5BE28BD90670F2ACFC2",
@@ -1499,7 +1499,7 @@
 		D1C883685E82D5676953459A = {
 			buildActionMask = 2147483647;
 			files = (
-				"DE67277EE5679F02FBA80DF6",
+				"E8C1D6407600929EDF135676",
 				"0A04149940F30374D5C1CED8",
 				"EAF7C2AD9DDC33111BB2CCB7",
 				"4C21CE43E485054157F0A537",
@@ -1531,7 +1531,7 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3A60A387F24F87B6ADB2B3D5 = {
+		C9E645EDDF1535ADB2FB4ABF = {
 			isa = PBXFileReference;
 			includeInIndex = 0;
 			explicitFileType = "wrapper.application";
@@ -1540,7 +1540,7 @@
 		};
 		FE0A091FDBFB3E9C31B7A1BD = {
 			children = (
-				"3A60A387F24F87B6ADB2B3D5");
+				"C9E645EDDF1535ADB2FB4ABF");
 			isa = PBXGroup;
 			name = "Products";
 			sourceTree = "<group>";
@@ -1558,7 +1558,7 @@
 			name = "CS470_HW";
 			sourceTree = "<group>";
 		};
-		872EEDAEAEB385988F8D2899 = {
+		3C9046BD269CAF561D7AAB29 = {
 			buildPhases = (
 				"5E618435888B9D49F8540165",
 				"7EF0942E79C014DCEC8976BC");
@@ -1571,19 +1571,19 @@
 			productName = "Qt Preprocess";
 			name = "Qt Preprocess";
 		};
-		51D40647B8C7199264B26B36 = {
+		D6C2AC2E6CD17649FF2F96FF = {
 			isa = PBXTargetDependency;
-			target = "872EEDAEAEB385988F8D2899";
+			target = "3C9046BD269CAF561D7AAB29";
 		};
-		192DA46B86F56F8591391D36 = {
+		F8C7A07B184BF2046FB52B9D = {
 			buildPhases = (
 				"F7E50F631C51CD5B5DC0BC43",
 				"D1C883685E82D5676953459A",
 				"30414803F31797EB689AE508",
 				"99542592E9780B9225F24AA8");
 			dependencies = (
-				"51D40647B8C7199264B26B36");
-			productReference = "3A60A387F24F87B6ADB2B3D5";
+				"D6C2AC2E6CD17649FF2F96FF");
+			productReference = "C9E645EDDF1535ADB2FB4ABF";
 			buildConfigurationList = 6CC3B5D2136C7CD6A5CF5A59;
 			isa = PBXNativeTarget;
 			buildRules = (
@@ -1611,8 +1611,8 @@
 				CC = "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang";
 				LDPLUSPLUS = "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++";
 				INFOPLIST_FILE = "Info.plist";
-				SYMROOT = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/.xcode";
-				CONFIGURATION_BUILD_DIR = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				SYMROOT = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/.xcode";
+				CONFIGURATION_BUILD_DIR = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				DYLIB_CURRENT_VERSION = "1.0.0";
 				DYLIB_COMPATIBILITY_VERSION = "1.0";
 				MACOSX_DEPLOYMENT_TARGET = "10.11";
@@ -1621,19 +1621,19 @@
 					".",
 					"IP/header",
 					"gui_src",
-					"../../../Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers",
-					"../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers",
-					"../../../Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers",
-					"../../../Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers",
-					"../../../Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers",
+					"/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers",
+					"/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers",
+					"/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers",
+					"/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers",
+					"/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers",
 					".",
 					"/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework/Headers",
 					"/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/AGL.framework/Headers",
-					"../../../Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang");
+					"/Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang");
 				LIBRARY_SEARCH_PATHS = (
 					"./IP",
 					"./IP/mac/lib",
-					"/Users/bravo/Desktop/Image Processing Projects/CS470.skel/IP/mac/lib",
+					"/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/IP/mac/lib",
 					"/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib",
 					"/System/Library/Frameworks/");
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1714,8 +1714,8 @@
 				CC = "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang";
 				LDPLUSPLUS = "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++";
 				INFOPLIST_FILE = "Info.plist";
-				SYMROOT = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/.xcode";
-				CONFIGURATION_BUILD_DIR = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				SYMROOT = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/.xcode";
+				CONFIGURATION_BUILD_DIR = "/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				DYLIB_CURRENT_VERSION = "1.0.0";
 				DYLIB_COMPATIBILITY_VERSION = "1.0";
 				MACOSX_DEPLOYMENT_TARGET = "10.11";
@@ -1724,19 +1724,19 @@
 					".",
 					"IP/header",
 					"gui_src",
-					"../../../Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers",
-					"../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers",
-					"../../../Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers",
-					"../../../Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers",
-					"../../../Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers",
+					"/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers",
+					"/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers",
+					"/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers",
+					"/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers",
+					"/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers",
 					".",
 					"/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework/Headers",
 					"/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/AGL.framework/Headers",
-					"../../../Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang");
+					"/Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang");
 				LIBRARY_SEARCH_PATHS = (
 					"./IP",
 					"./IP/mac/lib",
-					"/Users/bravo/Desktop/Image Processing Projects/CS470.skel/IP/mac/lib",
+					"/Users/bravo/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/IP/mac/lib",
 					"/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib",
 					"/System/Library/Frameworks/");
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1824,8 +1824,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				"192DA46B86F56F8591391D36",
-				"872EEDAEAEB385988F8D2899");
+				"F8C7A07B184BF2046FB52B9D",
+				"3C9046BD269CAF561D7AAB29");
 			attributes = {
 				TargetAttributes = {
 				};

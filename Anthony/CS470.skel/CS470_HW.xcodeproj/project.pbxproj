@@ -1,0 +1,1836 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+		5E618435888B9D49F8540165 = {
+			buildActionMask = 2147483647;
+			files = (
+				);
+			isa = PBXShellScriptBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+			name = "Qt Qmake";
+			shellPath = "/bin/sh";
+			shellScript = "make -C '/Users/bravo/Desktop/Image Processing Projects/CS470.skel' -f CS470_HW.xcodeproj/qt_makeqmake.mak";
+			showEnvVarsInLog = "0";
+		};
+		33A94681C7BFB2874C4EB2F5 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/main.cpp";
+			name = "main.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		B0C02519C0F5260D9837553B = {
+			fileRef = "33A94681C7BFB2874C4EB2F5";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		E6874BB26460E6FABFD49C9A = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/MainWindow.cpp";
+			name = "MainWindow.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		CBB8C75BDB638A2349F80993 = {
+			fileRef = "E6874BB26460E6FABFD49C9A";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		8CC7C04D88320944BD895D31 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/ImageFilter.cpp";
+			name = "ImageFilter.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		D5ABC158B4CB44E537543C92 = {
+			fileRef = "8CC7C04D88320944BD895D31";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		AB7940A4CE5CA8A2A1CD97B0 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/qcustomplot.cpp";
+			name = "qcustomplot.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		369C76C04A9BA4510CBAF5DD = {
+			fileRef = "AB7940A4CE5CA8A2A1CD97B0";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		0675A0C2138D6EFFF4AD61C5 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Dummy.cpp";
+			name = "Dummy.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		2C9F1929D8ECBB47194DFB8B = {
+			fileRef = "0675A0C2138D6EFFF4AD61C5";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		A99969B5DD151DE41FEB9897 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Threshold.cpp";
+			name = "Threshold.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		7597E8447B2C41B8877712C0 = {
+			fileRef = "A99969B5DD151DE41FEB9897";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		5AF34002595DC34745B26E49 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Clip.cpp";
+			name = "Clip.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		D1B683832A3D550DB23AC8D0 = {
+			fileRef = "5AF34002595DC34745B26E49";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		9E436657271DC25F354CE0D8 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Quantize.cpp";
+			name = "Quantize.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		F4C89EF1A12E49D2F86DB24D = {
+			fileRef = "9E436657271DC25F354CE0D8";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		C4110FD03E8D6DEB8BB166DC = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Gamma.cpp";
+			name = "Gamma.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		619F1639E0B3464E80B924DF = {
+			fileRef = "C4110FD03E8D6DEB8BB166DC";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		135EF2EE1FDB44E3FFAD2D63 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Contrast.cpp";
+			name = "Contrast.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		D0F58254C1B07A5538180C52 = {
+			fileRef = "135EF2EE1FDB44E3FFAD2D63";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		A483901D2F50F4549C5F0CAF = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/HistoStretch.cpp";
+			name = "HistoStretch.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		D604F24313F43F8EB0620C93 = {
+			fileRef = "A483901D2F50F4549C5F0CAF";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		3E789F8056FED44FA00B5EB6 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/HistoMatch.cpp";
+			name = "HistoMatch.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		92807A60DFC642DDE18ACFA1 = {
+			fileRef = "3E789F8056FED44FA00B5EB6";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		537043FFCD03AEEE2C053321 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/ErrDiffusion.cpp";
+			name = "ErrDiffusion.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		FDE1E81F6E3D69E3244FF46A = {
+			fileRef = "537043FFCD03AEEE2C053321";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		B195630AA7D079E4DEFBDCD3 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Blur.cpp";
+			name = "Blur.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		0310F562AE5F84EAA177AF97 = {
+			fileRef = "B195630AA7D079E4DEFBDCD3";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		757819902C4F9DF1DC98ACAF = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Sharpen.cpp";
+			name = "Sharpen.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		6B133B49A4E27C5F9D94070F = {
+			fileRef = "757819902C4F9DF1DC98ACAF";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		AF4A0A6214410224431476DF = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Median.cpp";
+			name = "Median.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		81F70969C479669BA941805C = {
+			fileRef = "AF4A0A6214410224431476DF";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		2120DEB79DF0DA66FBE2FDAE = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/GLWidget.cpp";
+			name = "GLWidget.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		E685D76CA7C1F1E771500AF3 = {
+			fileRef = "2120DEB79DF0DA66FBE2FDAE";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		6C8072F527A9B4EC6D73721F = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Convolve.cpp";
+			name = "Convolve.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		74A95142208684B511EB810F = {
+			fileRef = "6C8072F527A9B4EC6D73721F";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		C06FB08E71FBBC2BA998B1C6 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Spectrum.cpp";
+			name = "Spectrum.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		4649C688F1D984A534749E20 = {
+			fileRef = "C06FB08E71FBBC2BA998B1C6";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		40CE5EE38AC82830F00D172E = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/SwapPhase.cpp";
+			name = "SwapPhase.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		C3BEE8C2BB2C82B6462E5C99 = {
+			fileRef = "40CE5EE38AC82830F00D172E";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		9C803501FDC0AA3874B2DB08 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Filter.cpp";
+			name = "Filter.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		CBC341D29EBBD568F4032D4C = {
+			fileRef = "9C803501FDC0AA3874B2DB08";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		6CC4194BFA359710A13649DC = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Resize.cpp";
+			name = "Resize.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		C3F68F17B74A4CFA866CEB60 = {
+			fileRef = "6CC4194BFA359710A13649DC";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		F9AD8EDD23348442A63F270D = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/hw1/HW_clip.cpp";
+			name = "HW_clip.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		E6867E38B6CD9DE99DF082A8 = {
+			fileRef = "F9AD8EDD23348442A63F270D";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		AEB6E2B0B4EE64E42E689FB9 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/hw1/HW_contrast.cpp";
+			name = "HW_contrast.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		0CF737ABAA49EE58120EF55B = {
+			fileRef = "AEB6E2B0B4EE64E42E689FB9";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		5E1DED4A05BA8EC18D3B1128 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/hw1/HW_gamma.cpp";
+			name = "HW_gamma.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		BE448AC241D6A5879BD3CEC4 = {
+			fileRef = "5E1DED4A05BA8EC18D3B1128";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		3C4E6AC6B0B627E1CF4ECD82 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/hw1/HW_histoMatch.cpp";
+			name = "HW_histoMatch.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		0596A678C5727691CFC33E17 = {
+			fileRef = "3C4E6AC6B0B627E1CF4ECD82";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		8D1A0486A5121E92B84FDD45 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/hw1/HW_histoStretch.cpp";
+			name = "HW_histoStretch.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		E56A8162EE17324746FC14BF = {
+			fileRef = "8D1A0486A5121E92B84FDD45";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		201B326EB2351117F65E5EC2 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/hw1/HW_quantize.cpp";
+			name = "HW_quantize.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		3F3C3164675A1CCAB3995917 = {
+			fileRef = "201B326EB2351117F65E5EC2";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		D17673BEE200D518B5F39357 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/hw1/HW_threshold.cpp";
+			name = "HW_threshold.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		1081A94A2B78FEB0C6A4FCC0 = {
+			fileRef = "D17673BEE200D518B5F39357";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		FDDF21AF804C5BCDB5586EC5 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/hw2/HW_blur.cpp";
+			name = "HW_blur.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		A0F9367EDF3D4C3AAC145ABD = {
+			fileRef = "FDDF21AF804C5BCDB5586EC5";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		28E48D8574C3275BDABA1474 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/hw2/HW_convolve.cpp";
+			name = "HW_convolve.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		D81CCBCF76AA4F689022D08F = {
+			fileRef = "28E48D8574C3275BDABA1474";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		F1BF48B9D01E9DAAAB72E5E0 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/hw2/HW_errDiffusion.cpp";
+			name = "HW_errDiffusion.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		427A3F44A5B4EE92A35EA2D6 = {
+			fileRef = "F1BF48B9D01E9DAAAB72E5E0";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		EDB5304C91FC1E2A415C9A4F = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/hw2/HW_median.cpp";
+			name = "HW_median.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		5D7A30E443D889364FFEBAF7 = {
+			fileRef = "EDB5304C91FC1E2A415C9A4F";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		D837234E76BED31A854A310A = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/hw2/HW_sharpen.cpp";
+			name = "HW_sharpen.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		344E4E418F93086369BB65DB = {
+			fileRef = "D837234E76BED31A854A310A";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		1C1F48F3B7D9D3F8C100040A = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/hw3/HW_filter.cpp";
+			name = "HW_filter.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		AB72DEDBEB8793451ADB0E68 = {
+			fileRef = "1C1F48F3B7D9D3F8C100040A";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		9243EA9BE50A53022981992F = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/hw3/HW_spectrum.cpp";
+			name = "HW_spectrum.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		5ADA3F2942094D8D46628755 = {
+			fileRef = "9243EA9BE50A53022981992F";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		4CF54E267E59B72BB323CBAF = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/hw3/HW_swapPhase.cpp";
+			name = "HW_swapPhase.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		1209AFAF9F8D4DAD8EB4022F = {
+			fileRef = "4CF54E267E59B72BB323CBAF";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		ED66B4940CF2DAB05BC4F566 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/hw3/HW_utils.cpp";
+			name = "HW_utils.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		2885962D1F063C9B3774008A = {
+			fileRef = "ED66B4940CF2DAB05BC4F566";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		F5CCE5CB704569B5404D246A = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/hw4/HW_resize.cpp";
+			name = "HW_resize.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		CE555FF5694E549B2A4165E9 = {
+			fileRef = "F5CCE5CB704569B5404D246A";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		8C1061892C489FF35BF07F40 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/CS470.icns";
+			name = "CS470.icns";
+			sourceTree = "<absolute>";
+		};
+		7E879953D6856A2800A485E7 = {
+			fileRef = "8C1061892C489FF35BF07F40";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		D715895F934A861E51DAAF7A = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/qrc_CS470.cpp";
+			name = "qrc_CS470.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		F3DDC1B7D1C71F78265BE227 = {
+			fileRef = "D715895F934A861E51DAAF7A";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		B3BF0D6C7A4AA09DA36DFEEB = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_MainWindow.cpp";
+			name = "moc_MainWindow.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		B0E4966D3DF15F9AEE43B400 = {
+			fileRef = "B3BF0D6C7A4AA09DA36DFEEB";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		0F1887545017D3014DBF50CF = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_qcustomplot.cpp";
+			name = "moc_qcustomplot.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		F9927032D3299E356A99779C = {
+			fileRef = "0F1887545017D3014DBF50CF";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		A1A3B53FAFB4D00A24A9893A = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_Dummy.cpp";
+			name = "moc_Dummy.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		81AD1BEF7BB48C4D4D9FFAB4 = {
+			fileRef = "A1A3B53FAFB4D00A24A9893A";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		5C150A0209C73496A8605301 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_Threshold.cpp";
+			name = "moc_Threshold.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		C42CF8AA1AB9958646DD7AEC = {
+			fileRef = "5C150A0209C73496A8605301";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		180DEDEC63F832DE1C5C8164 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_Clip.cpp";
+			name = "moc_Clip.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		791142B9A231EF9BC428F77D = {
+			fileRef = "180DEDEC63F832DE1C5C8164";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		8E80DC62A52CECD0B8BC4EBC = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_Quantize.cpp";
+			name = "moc_Quantize.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		5BE502F1B507481585F2C96C = {
+			fileRef = "8E80DC62A52CECD0B8BC4EBC";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		07E064E0D8A15352E7F7F07C = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_Gamma.cpp";
+			name = "moc_Gamma.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		615E85BFBB415338791B6A2B = {
+			fileRef = "07E064E0D8A15352E7F7F07C";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		41E24C2FCE37CF99500F7073 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_Contrast.cpp";
+			name = "moc_Contrast.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		3E355CA3B125E139E58B3FCD = {
+			fileRef = "41E24C2FCE37CF99500F7073";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		D6E5550542091E4DAC808299 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_HistoStretch.cpp";
+			name = "moc_HistoStretch.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		E80082F3AA0D28136A63F4A5 = {
+			fileRef = "D6E5550542091E4DAC808299";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		6460CD9A4678B12180047F0C = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_HistoMatch.cpp";
+			name = "moc_HistoMatch.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		47AF6654811A0A00AF29366B = {
+			fileRef = "6460CD9A4678B12180047F0C";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		158B070A369D85C50EC5FB98 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_ErrDiffusion.cpp";
+			name = "moc_ErrDiffusion.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		7CAB9D542690DB4E27716294 = {
+			fileRef = "158B070A369D85C50EC5FB98";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		074F12C1217A0243FA927996 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_Blur.cpp";
+			name = "moc_Blur.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		255BCC6036B0087B802BA488 = {
+			fileRef = "074F12C1217A0243FA927996";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		76CD1FA0127AC04EC5C3A9F5 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_Sharpen.cpp";
+			name = "moc_Sharpen.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		671018D5D7E413D6EF629DB9 = {
+			fileRef = "76CD1FA0127AC04EC5C3A9F5";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		4310B6DA53485F8ABB7FBB5E = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_Median.cpp";
+			name = "moc_Median.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		AD14B487EA984EFCACACCB2C = {
+			fileRef = "4310B6DA53485F8ABB7FBB5E";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		9C96D38352B45E90EF1B75A8 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_Convolve.cpp";
+			name = "moc_Convolve.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		510EF1F28820A67106DA3306 = {
+			fileRef = "9C96D38352B45E90EF1B75A8";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		7442458097C4292A9A5C9C7F = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_Spectrum.cpp";
+			name = "moc_Spectrum.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		E8EE0E7E55FFC24F34362B2E = {
+			fileRef = "7442458097C4292A9A5C9C7F";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		A3AD49CFDC0AD5D8FE1CDEFC = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_SwapPhase.cpp";
+			name = "moc_SwapPhase.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		033AD6206FA5789AA6D9D78E = {
+			fileRef = "A3AD49CFDC0AD5D8FE1CDEFC";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		35C967BB7FABF85609B7D924 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_Filter.cpp";
+			name = "moc_Filter.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		5D267969D70CF39EBCC1151E = {
+			fileRef = "35C967BB7FABF85609B7D924";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		B33F4725E009F4D9FD952638 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/moc_Resize.cpp";
+			name = "moc_Resize.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		BE76972EEC6CF143F14ADE6A = {
+			fileRef = "B33F4725E009F4D9FD952638";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		C18960BA3FDB70D4BD10A8B6 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/MainWindow.h";
+			name = "MainWindow.h";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.c.h";
+		};
+		CB82058F91132852ED8CAFA9 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/ImageFilter.h";
+			name = "ImageFilter.h";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.c.h";
+		};
+		B312ACBF41BAC4269B65655C = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/qcustomplot.h";
+			name = "qcustomplot.h";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.c.h";
+		};
+		B92E50B27A24D894A6DE4B80 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Dummy.h";
+			name = "Dummy.h";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.c.h";
+		};
+		7EAF1A2AC150B3EFD19353ED = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Threshold.h";
+			name = "Threshold.h";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.c.h";
+		};
+		CCD0556DA4D2CF52804BBFBD = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Clip.h";
+			name = "Clip.h";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.c.h";
+		};
+		0D9BFC4531346D9FD059C595 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Quantize.h";
+			name = "Quantize.h";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.c.h";
+		};
+		93A32FD04A92D46790F40C54 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Gamma.h";
+			name = "Gamma.h";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.c.h";
+		};
+		15320A7D47C3F2E06B11555B = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Contrast.h";
+			name = "Contrast.h";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.c.h";
+		};
+		DD544610F53989B871DE6939 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/HistoStretch.h";
+			name = "HistoStretch.h";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.c.h";
+		};
+		FA2787CA4E6AE219DD9FBB08 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/HistoMatch.h";
+			name = "HistoMatch.h";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.c.h";
+		};
+		4E31DC9DCC4C8BF5A744A867 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/ErrDiffusion.h";
+			name = "ErrDiffusion.h";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.c.h";
+		};
+		C48113EEFD42AF41FB92C316 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Blur.h";
+			name = "Blur.h";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.c.h";
+		};
+		877C7F80CEF0AD1B75613F3C = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Sharpen.h";
+			name = "Sharpen.h";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.c.h";
+		};
+		E83B4B4DC1781D7E5E80CDAE = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Median.h";
+			name = "Median.h";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.c.h";
+		};
+		56959E12666A4D6670B4B6B9 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/GLWidget.h";
+			name = "GLWidget.h";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.c.h";
+		};
+		DADFDE4B59B02CB181BEF4A6 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Convolve.h";
+			name = "Convolve.h";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.c.h";
+		};
+		9ED93369C9DA267EB805BF9B = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Spectrum.h";
+			name = "Spectrum.h";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.c.h";
+		};
+		1263A702B35332B92A748505 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/SwapPhase.h";
+			name = "SwapPhase.h";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.c.h";
+		};
+		DF926675661B7BA2C39569BA = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Filter.h";
+			name = "Filter.h";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.c.h";
+		};
+		7870536A4B35F10CB03FD854 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/gui_src/Resize.h";
+			name = "Resize.h";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.c.h";
+		};
+		FA37F83B52B07B5AF2CD67C0 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/CS470.qrc";
+			name = "CS470.qrc";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "text";
+		};
+		E3A4FD58EB94DD8B5B5DACF1 = {
+			fileRef = "FA37F83B52B07B5AF2CD67C0";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		AD87F2FD864E9A5ED23B7BE9 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Qt5.12.4/5.12.4/clang_64/mkspecs/features/data/dummy.cpp";
+			name = "dummy.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		6987DE7C04EC2E9DE4BDBA2E = {
+			fileRef = "AD87F2FD864E9A5ED23B7BE9";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		D3FD333F11FD8301D6DE166A = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/CS470.pro";
+			name = "CS470.pro";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "text";
+		};
+		0D8E9E1319FE8A355CFE18EB = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/.qmake.stash";
+			name = ".qmake.stash";
+			sourceTree = "<absolute>";
+		};
+		D744638A68A098B65209F765 = {
+			isa = PBXFileReference;
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/CS470_common.pro";
+			name = "CS470_common.pro";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "text";
+		};
+		25B08E2869634E9BCBA333A2 = {
+			isa = PBXGroup;
+			children = (
+				"D715895F934A861E51DAAF7A",
+				"B3BF0D6C7A4AA09DA36DFEEB",
+				"0F1887545017D3014DBF50CF",
+				"A1A3B53FAFB4D00A24A9893A",
+				"5C150A0209C73496A8605301",
+				"180DEDEC63F832DE1C5C8164",
+				"8E80DC62A52CECD0B8BC4EBC",
+				"07E064E0D8A15352E7F7F07C",
+				"41E24C2FCE37CF99500F7073",
+				"D6E5550542091E4DAC808299",
+				"6460CD9A4678B12180047F0C",
+				"158B070A369D85C50EC5FB98",
+				"074F12C1217A0243FA927996",
+				"76CD1FA0127AC04EC5C3A9F5",
+				"4310B6DA53485F8ABB7FBB5E",
+				"9C96D38352B45E90EF1B75A8",
+				"7442458097C4292A9A5C9C7F",
+				"A3AD49CFDC0AD5D8FE1CDEFC",
+				"35C967BB7FABF85609B7D924",
+				"B33F4725E009F4D9FD952638");
+			name = "Generated Sources";
+			sourceTree = "<group>";
+		};
+		1F106A4B8472C49F10353A3C = {
+			isa = PBXGroup;
+			children = (
+				"33A94681C7BFB2874C4EB2F5",
+				"E6874BB26460E6FABFD49C9A",
+				"8CC7C04D88320944BD895D31",
+				"AB7940A4CE5CA8A2A1CD97B0",
+				"0675A0C2138D6EFFF4AD61C5",
+				"A99969B5DD151DE41FEB9897",
+				"5AF34002595DC34745B26E49",
+				"9E436657271DC25F354CE0D8",
+				"C4110FD03E8D6DEB8BB166DC",
+				"135EF2EE1FDB44E3FFAD2D63",
+				"A483901D2F50F4549C5F0CAF",
+				"3E789F8056FED44FA00B5EB6",
+				"537043FFCD03AEEE2C053321",
+				"B195630AA7D079E4DEFBDCD3",
+				"757819902C4F9DF1DC98ACAF",
+				"AF4A0A6214410224431476DF",
+				"2120DEB79DF0DA66FBE2FDAE",
+				"6C8072F527A9B4EC6D73721F",
+				"C06FB08E71FBBC2BA998B1C6",
+				"40CE5EE38AC82830F00D172E",
+				"9C803501FDC0AA3874B2DB08",
+				"6CC4194BFA359710A13649DC",
+				"C18960BA3FDB70D4BD10A8B6",
+				"CB82058F91132852ED8CAFA9",
+				"B312ACBF41BAC4269B65655C",
+				"B92E50B27A24D894A6DE4B80",
+				"7EAF1A2AC150B3EFD19353ED",
+				"CCD0556DA4D2CF52804BBFBD",
+				"0D9BFC4531346D9FD059C595",
+				"93A32FD04A92D46790F40C54",
+				"15320A7D47C3F2E06B11555B",
+				"DD544610F53989B871DE6939",
+				"FA2787CA4E6AE219DD9FBB08",
+				"4E31DC9DCC4C8BF5A744A867",
+				"C48113EEFD42AF41FB92C316",
+				"877C7F80CEF0AD1B75613F3C",
+				"E83B4B4DC1781D7E5E80CDAE",
+				"56959E12666A4D6670B4B6B9",
+				"DADFDE4B59B02CB181BEF4A6",
+				"9ED93369C9DA267EB805BF9B",
+				"1263A702B35332B92A748505",
+				"DF926675661B7BA2C39569BA",
+				"7870536A4B35F10CB03FD854");
+			name = "gui_src";
+			sourceTree = "<group>";
+		};
+		3C77C658827F4A07ABF9D58B = {
+			isa = PBXGroup;
+			children = (
+				"F9AD8EDD23348442A63F270D",
+				"AEB6E2B0B4EE64E42E689FB9",
+				"5E1DED4A05BA8EC18D3B1128",
+				"3C4E6AC6B0B627E1CF4ECD82",
+				"8D1A0486A5121E92B84FDD45",
+				"201B326EB2351117F65E5EC2",
+				"D17673BEE200D518B5F39357");
+			name = "hw1";
+			sourceTree = "<group>";
+		};
+		8D1A7173215F622A1D3A66B1 = {
+			isa = PBXGroup;
+			children = (
+				"FDDF21AF804C5BCDB5586EC5",
+				"28E48D8574C3275BDABA1474",
+				"F1BF48B9D01E9DAAAB72E5E0",
+				"EDB5304C91FC1E2A415C9A4F",
+				"D837234E76BED31A854A310A");
+			name = "hw2";
+			sourceTree = "<group>";
+		};
+		0A31DA8FFB6A3F21532CA67A = {
+			isa = PBXGroup;
+			children = (
+				"1C1F48F3B7D9D3F8C100040A",
+				"9243EA9BE50A53022981992F",
+				"4CF54E267E59B72BB323CBAF",
+				"ED66B4940CF2DAB05BC4F566");
+			name = "hw3";
+			sourceTree = "<group>";
+		};
+		98958E24D2033CDCEC7E42CF = {
+			isa = PBXGroup;
+			children = (
+				"F5CCE5CB704569B5404D246A");
+			name = "hw4";
+			sourceTree = "<group>";
+		};
+		87DF60DE337FB58864343E39 = {
+			isa = PBXGroup;
+			children = (
+				"FA37F83B52B07B5AF2CD67C0");
+			name = "Resources";
+			sourceTree = "<group>";
+		};
+		2EB56BE3C2D93CDAB0C52E67 = {
+			isa = PBXGroup;
+			children = (
+				"1F106A4B8472C49F10353A3C",
+				"3C77C658827F4A07ABF9D58B",
+				"8D1A7173215F622A1D3A66B1",
+				"0A31DA8FFB6A3F21532CA67A",
+				"98958E24D2033CDCEC7E42CF",
+				"8C1061892C489FF35BF07F40");
+			name = "Sources";
+			sourceTree = "<group>";
+		};
+		B8254625CFD509ED2A24A166 = {
+			isa = PBXGroup;
+			children = (
+				"AD87F2FD864E9A5ED23B7BE9");
+			name = "Sources [moc_predefs]";
+			sourceTree = "<group>";
+		};
+		74B182DB50CB5611B5C1C297 = {
+			isa = PBXGroup;
+			children = (
+				"D3FD333F11FD8301D6DE166A",
+				"0D8E9E1319FE8A355CFE18EB",
+				"D744638A68A098B65209F765");
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7EF0942E79C014DCEC8976BC = {
+			buildActionMask = 2147483647;
+			files = (
+				);
+			isa = PBXShellScriptBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+			name = "Qt Preprocessors";
+			shellPath = "/bin/sh";
+			shellScript = "make -C '/Users/bravo/Desktop/Image Processing Projects/CS470.skel' -f CS470_HW.xcodeproj/qt_preprocess.mak";
+			showEnvVarsInLog = "0";
+		};
+		F7E50F631C51CD5B5DC0BC43 = {
+			buildActionMask = 2147483647;
+			files = (
+				"B0C02519C0F5260D9837553B",
+				"CBB8C75BDB638A2349F80993",
+				"D5ABC158B4CB44E537543C92",
+				"369C76C04A9BA4510CBAF5DD",
+				"2C9F1929D8ECBB47194DFB8B",
+				"7597E8447B2C41B8877712C0",
+				"D1B683832A3D550DB23AC8D0",
+				"F4C89EF1A12E49D2F86DB24D",
+				"619F1639E0B3464E80B924DF",
+				"D0F58254C1B07A5538180C52",
+				"D604F24313F43F8EB0620C93",
+				"92807A60DFC642DDE18ACFA1",
+				"FDE1E81F6E3D69E3244FF46A",
+				"0310F562AE5F84EAA177AF97",
+				"6B133B49A4E27C5F9D94070F",
+				"81F70969C479669BA941805C",
+				"E685D76CA7C1F1E771500AF3",
+				"74A95142208684B511EB810F",
+				"4649C688F1D984A534749E20",
+				"C3BEE8C2BB2C82B6462E5C99",
+				"CBC341D29EBBD568F4032D4C",
+				"C3F68F17B74A4CFA866CEB60",
+				"E6867E38B6CD9DE99DF082A8",
+				"0CF737ABAA49EE58120EF55B",
+				"BE448AC241D6A5879BD3CEC4",
+				"0596A678C5727691CFC33E17",
+				"E56A8162EE17324746FC14BF",
+				"3F3C3164675A1CCAB3995917",
+				"1081A94A2B78FEB0C6A4FCC0",
+				"A0F9367EDF3D4C3AAC145ABD",
+				"D81CCBCF76AA4F689022D08F",
+				"427A3F44A5B4EE92A35EA2D6",
+				"5D7A30E443D889364FFEBAF7",
+				"344E4E418F93086369BB65DB",
+				"AB72DEDBEB8793451ADB0E68",
+				"5ADA3F2942094D8D46628755",
+				"1209AFAF9F8D4DAD8EB4022F",
+				"2885962D1F063C9B3774008A",
+				"CE555FF5694E549B2A4165E9",
+				"F3DDC1B7D1C71F78265BE227",
+				"B0E4966D3DF15F9AEE43B400",
+				"F9927032D3299E356A99779C",
+				"81AD1BEF7BB48C4D4D9FFAB4",
+				"C42CF8AA1AB9958646DD7AEC",
+				"791142B9A231EF9BC428F77D",
+				"5BE502F1B507481585F2C96C",
+				"615E85BFBB415338791B6A2B",
+				"3E355CA3B125E139E58B3FCD",
+				"E80082F3AA0D28136A63F4A5",
+				"47AF6654811A0A00AF29366B",
+				"7CAB9D542690DB4E27716294",
+				"255BCC6036B0087B802BA488",
+				"671018D5D7E413D6EF629DB9",
+				"AD14B487EA984EFCACACCB2C",
+				"510EF1F28820A67106DA3306",
+				"E8EE0E7E55FFC24F34362B2E",
+				"033AD6206FA5789AA6D9D78E",
+				"5D267969D70CF39EBCC1151E",
+				"BE76972EEC6CF143F14ADE6A",
+				"6987DE7C04EC2E9DE4BDBA2E");
+			isa = PBXSourcesBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+			name = "Compile Sources";
+		};
+		5821CA07E0287333736F129A = {
+			isa = PBXFileReference;
+			name = "IP";
+			path = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/IP/mac/lib/libIP.a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		DE67277EE5679F02FBA80DF6 = {
+			fileRef = "5821CA07E0287333736F129A";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		126283297C41B4EC43F5D9E5 = {
+			isa = PBXFileReference;
+			name = "QtPrintSupport.framework";
+			path = "/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework";
+			refType = 0;
+			sourceTree = "<absolute>";
+			lastKnownFileType = "wrapper.framework";
+		};
+		0A04149940F30374D5C1CED8 = {
+			fileRef = "126283297C41B4EC43F5D9E5";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		2C58A582C7D0AAD75F01CC99 = {
+			isa = PBXFileReference;
+			name = "QtOpenGL.framework";
+			path = "/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework";
+			refType = 0;
+			sourceTree = "<absolute>";
+			lastKnownFileType = "wrapper.framework";
+		};
+		EAF7C2AD9DDC33111BB2CCB7 = {
+			fileRef = "2C58A582C7D0AAD75F01CC99";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		5ABED5BE28BD90670F2ACFC2 = {
+			isa = PBXFileReference;
+			name = "QtWidgets.framework";
+			path = "/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework";
+			refType = 0;
+			sourceTree = "<absolute>";
+			lastKnownFileType = "wrapper.framework";
+		};
+		4C21CE43E485054157F0A537 = {
+			fileRef = "5ABED5BE28BD90670F2ACFC2";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F8BEC979FE949D542941DA60 = {
+			isa = PBXFileReference;
+			name = "QtGui.framework";
+			path = "/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework";
+			refType = 0;
+			sourceTree = "<absolute>";
+			lastKnownFileType = "wrapper.framework";
+		};
+		6082805A17C0DDD4CA16CCCC = {
+			fileRef = "F8BEC979FE949D542941DA60";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3A0B63FEADA1CCCAF65D2962 = {
+			isa = PBXFileReference;
+			name = "QtCore.framework";
+			path = "/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework";
+			refType = 0;
+			sourceTree = "<absolute>";
+			lastKnownFileType = "wrapper.framework";
+		};
+		30538F1ADF87449D12DC7F39 = {
+			fileRef = "3A0B63FEADA1CCCAF65D2962";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		2B774D8E4178765CE52EAAF5 = {
+			isa = PBXFileReference;
+			name = "DiskArbitration.framework";
+			path = "/System/Library/Frameworks/DiskArbitration.framework";
+			refType = 0;
+			sourceTree = "<absolute>";
+			lastKnownFileType = "wrapper.framework";
+		};
+		A99B2AA0F9CBBDD12BA126A4 = {
+			fileRef = "2B774D8E4178765CE52EAAF5";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		A1A67BEAA744704B29168D39 = {
+			isa = PBXFileReference;
+			name = "IOKit.framework";
+			path = "/System/Library/Frameworks/IOKit.framework";
+			refType = 0;
+			sourceTree = "<absolute>";
+			lastKnownFileType = "wrapper.framework";
+		};
+		8D267F2E4776F0ECA2F49DC8 = {
+			fileRef = "A1A67BEAA744704B29168D39";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		D4B32C2222F82AC56BADEB21 = {
+			isa = PBXFileReference;
+			name = "OpenGL.framework";
+			path = "/System/Library/Frameworks/OpenGL.framework";
+			refType = 0;
+			sourceTree = "<absolute>";
+			lastKnownFileType = "wrapper.framework";
+		};
+		8771A8C96E9C391044035D99 = {
+			fileRef = "D4B32C2222F82AC56BADEB21";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		8D9815BDB5BD9F90D2BC05C5 = {
+			isa = PBXFileReference;
+			name = "AGL.framework";
+			path = "/System/Library/Frameworks/AGL.framework";
+			refType = 0;
+			sourceTree = "<absolute>";
+			lastKnownFileType = "wrapper.framework";
+		};
+		E45E51A644D5FC9F942ECE55 = {
+			fileRef = "8D9815BDB5BD9F90D2BC05C5";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		AF39DD055C3EF8226FBE929D = {
+			children = (
+				"5821CA07E0287333736F129A",
+				"126283297C41B4EC43F5D9E5",
+				"2C58A582C7D0AAD75F01CC99",
+				"5ABED5BE28BD90670F2ACFC2",
+				"F8BEC979FE949D542941DA60",
+				"3A0B63FEADA1CCCAF65D2962",
+				"2B774D8E4178765CE52EAAF5",
+				"A1A67BEAA744704B29168D39",
+				"D4B32C2222F82AC56BADEB21",
+				"8D9815BDB5BD9F90D2BC05C5");
+			isa = PBXGroup;
+			name = "Frameworks";
+			sourceTree = "<group>";
+		};
+		D1C883685E82D5676953459A = {
+			buildActionMask = 2147483647;
+			files = (
+				"DE67277EE5679F02FBA80DF6",
+				"0A04149940F30374D5C1CED8",
+				"EAF7C2AD9DDC33111BB2CCB7",
+				"4C21CE43E485054157F0A537",
+				"6082805A17C0DDD4CA16CCCC",
+				"30538F1ADF87449D12DC7F39",
+				"A99B2AA0F9CBBDD12BA126A4",
+				"8D267F2E4776F0ECA2F49DC8",
+				"8771A8C96E9C391044035D99",
+				"E45E51A644D5FC9F942ECE55");
+			isa = PBXFrameworksBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+			name = "Link Binary With Libraries";
+		};
+		30414803F31797EB689AE508 = {
+			buildActionMask = 2147483647;
+			files = (
+				"8CC9C58D2FA5F75F7671D762");
+			isa = PBXResourcesBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+			name = "Copy Bundle Resources";
+		};
+		99542592E9780B9225F24AA8 = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A60A387F24F87B6ADB2B3D5 = {
+			isa = PBXFileReference;
+			includeInIndex = 0;
+			explicitFileType = "wrapper.application";
+			path = "CS470_HW.app";
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FE0A091FDBFB3E9C31B7A1BD = {
+			children = (
+				"3A60A387F24F87B6ADB2B3D5");
+			isa = PBXGroup;
+			name = "Products";
+			sourceTree = "<group>";
+		};
+		E8C543AB96796ECAA2E65C57 = {
+			children = (
+				"2EB56BE3C2D93CDAB0C52E67",
+				"25B08E2869634E9BCBA333A2",
+				"87DF60DE337FB58864343E39",
+				"B8254625CFD509ED2A24A166",
+				"74B182DB50CB5611B5C1C297",
+				"AF39DD055C3EF8226FBE929D",
+				"FE0A091FDBFB3E9C31B7A1BD");
+			isa = PBXGroup;
+			name = "CS470_HW";
+			sourceTree = "<group>";
+		};
+		872EEDAEAEB385988F8D2899 = {
+			buildPhases = (
+				"5E618435888B9D49F8540165",
+				"7EF0942E79C014DCEC8976BC");
+			dependencies = (
+				);
+			buildConfigurationList = 6CC3B5D2136C7CD6A5CF5A59;
+			isa = PBXAggregateTarget;
+			buildRules = (
+);
+			productName = "Qt Preprocess";
+			name = "Qt Preprocess";
+		};
+		51D40647B8C7199264B26B36 = {
+			isa = PBXTargetDependency;
+			target = "872EEDAEAEB385988F8D2899";
+		};
+		192DA46B86F56F8591391D36 = {
+			buildPhases = (
+				"F7E50F631C51CD5B5DC0BC43",
+				"D1C883685E82D5676953459A",
+				"30414803F31797EB689AE508",
+				"99542592E9780B9225F24AA8");
+			dependencies = (
+				"51D40647B8C7199264B26B36");
+			productReference = "3A60A387F24F87B6ADB2B3D5";
+			buildConfigurationList = 6CC3B5D2136C7CD6A5CF5A59;
+			isa = PBXNativeTarget;
+			buildRules = (
+);
+			productType = "com.apple.product-type.application";
+			name = "CS470_HW";
+			productName = "CS470_HW";
+		};
+		3AA6C32AC930069E80220CF1 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = "NO";
+				"ARCHS[sdk=macosx*]" = "x86_64";
+				COPY_PHASE_STRIP = "NO";
+				DEVELOPMENT_TEAM = "V228S3S8PX";
+				ENABLE_BITCODE = "NO";
+				GCC_OPTIMIZATION_LEVEL = "0";
+				ONLY_ACTIVE_ARCH = "YES";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Olacare.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "CS470_HW";
+				QMAKE_PKGINFO_TYPEINFO = "????";
+				QT_LIBRARY_SUFFIX = "_debug";
+				SDKROOT = "macosx";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				CC = "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang";
+				LDPLUSPLUS = "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++";
+				INFOPLIST_FILE = "Info.plist";
+				SYMROOT = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/.xcode";
+				CONFIGURATION_BUILD_DIR = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				DYLIB_CURRENT_VERSION = "1.0.0";
+				DYLIB_COMPATIBILITY_VERSION = "1.0";
+				MACOSX_DEPLOYMENT_TARGET = "10.11";
+				HEADER_SEARCH_PATHS = (
+					".",
+					".",
+					"IP/header",
+					"gui_src",
+					"../../../Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers",
+					"../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers",
+					"../../../Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers",
+					"../../../Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers",
+					"../../../Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers",
+					".",
+					"/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework/Headers",
+					"/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/AGL.framework/Headers",
+					"../../../Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang");
+				LIBRARY_SEARCH_PATHS = (
+					"./IP",
+					"./IP/mac/lib",
+					"/Users/bravo/Desktop/Image Processing Projects/CS470.skel/IP/mac/lib",
+					"/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib",
+					"/System/Library/Frameworks/");
+				FRAMEWORK_SEARCH_PATHS = (
+					"/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib",
+					"/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib");
+				OTHER_CFLAGS = (
+					"-pipe",
+					"-O2",
+					"-Wall",
+					"-W",
+					"-fPIC",
+					"-DQT_NO_DEBUG",
+					"-DQT_PRINTSUPPORT_LIB",
+					"-DQT_OPENGL_LIB",
+					"-DQT_WIDGETS_LIB",
+					"-DQT_GUI_LIB",
+					"-DQT_CORE_LIB");
+				OTHER_CPLUSPLUSFLAGS = (
+					"-pipe",
+					"-stdlib=libc++",
+					"-O2",
+					"-std=gnu++11",
+					"-Wall",
+					"-W",
+					"-fPIC",
+					"-DQT_NO_DEBUG",
+					"-DQT_PRINTSUPPORT_LIB",
+					"-DQT_OPENGL_LIB",
+					"-DQT_WIDGETS_LIB",
+					"-DQT_GUI_LIB",
+					"-DQT_CORE_LIB");
+				OTHER_LDFLAGS = (
+						"-stdlib=libc++",
+						"-Wl,-rpath,@executable_path/../Frameworks",
+						"-headerpad_max_install_names",
+						"-Wl,-rpath,@executable_path/../Frameworks",
+						"-Wl,-rpath,/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib",
+						"-L./IP",
+						"-F/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib",
+						"-L./IP/mac/lib");
+				ARCHS = "x86_64";
+			};
+			name = "Debug";
+		};
+		77418F46922677BB04ED38DD = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = "NO";
+				"ARCHS[sdk=macosx*]" = "x86_64";
+				COPY_PHASE_STRIP = "NO";
+				DEVELOPMENT_TEAM = "V228S3S8PX";
+				ENABLE_BITCODE = "NO";
+				GCC_OPTIMIZATION_LEVEL = "0";
+				ONLY_ACTIVE_ARCH = "YES";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Olacare.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "CS470_HW";
+				QMAKE_PKGINFO_TYPEINFO = "????";
+				QT_LIBRARY_SUFFIX = "_debug";
+				SDKROOT = "macosx";
+				PRODUCT_NAME = "CS470_HW";
+			};
+			name = "Debug";
+		};
+		339EE1B2CC4FC24589A0EA95 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = "NO";
+				"ARCHS[sdk=macosx*]" = "x86_64";
+				COPY_PHASE_STRIP = "NO";
+				DEVELOPMENT_TEAM = "V228S3S8PX";
+				ENABLE_BITCODE = "NO";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Olacare.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "CS470_HW";
+				QMAKE_PKGINFO_TYPEINFO = "????";
+				QT_LIBRARY_SUFFIX = "";
+				SDKROOT = "macosx";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				CC = "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang";
+				LDPLUSPLUS = "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++";
+				INFOPLIST_FILE = "Info.plist";
+				SYMROOT = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/.xcode";
+				CONFIGURATION_BUILD_DIR = "/Users/bravo/Desktop/Image Processing Projects/CS470.skel/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				DYLIB_CURRENT_VERSION = "1.0.0";
+				DYLIB_COMPATIBILITY_VERSION = "1.0";
+				MACOSX_DEPLOYMENT_TARGET = "10.11";
+				HEADER_SEARCH_PATHS = (
+					".",
+					".",
+					"IP/header",
+					"gui_src",
+					"../../../Qt5.12.4/5.12.4/clang_64/lib/QtPrintSupport.framework/Headers",
+					"../../../Qt5.12.4/5.12.4/clang_64/lib/QtOpenGL.framework/Headers",
+					"../../../Qt5.12.4/5.12.4/clang_64/lib/QtWidgets.framework/Headers",
+					"../../../Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers",
+					"../../../Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers",
+					".",
+					"/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework/Headers",
+					"/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/AGL.framework/Headers",
+					"../../../Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang");
+				LIBRARY_SEARCH_PATHS = (
+					"./IP",
+					"./IP/mac/lib",
+					"/Users/bravo/Desktop/Image Processing Projects/CS470.skel/IP/mac/lib",
+					"/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib",
+					"/System/Library/Frameworks/");
+				FRAMEWORK_SEARCH_PATHS = (
+					"/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib",
+					"/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib");
+				OTHER_CFLAGS = (
+					"-pipe",
+					"-O2",
+					"-Wall",
+					"-W",
+					"-fPIC",
+					"-DQT_NO_DEBUG",
+					"-DQT_PRINTSUPPORT_LIB",
+					"-DQT_OPENGL_LIB",
+					"-DQT_WIDGETS_LIB",
+					"-DQT_GUI_LIB",
+					"-DQT_CORE_LIB");
+				OTHER_CPLUSPLUSFLAGS = (
+					"-pipe",
+					"-stdlib=libc++",
+					"-O2",
+					"-std=gnu++11",
+					"-Wall",
+					"-W",
+					"-fPIC",
+					"-DQT_NO_DEBUG",
+					"-DQT_PRINTSUPPORT_LIB",
+					"-DQT_OPENGL_LIB",
+					"-DQT_WIDGETS_LIB",
+					"-DQT_GUI_LIB",
+					"-DQT_CORE_LIB");
+				OTHER_LDFLAGS = (
+						"-stdlib=libc++",
+						"-Wl,-rpath,@executable_path/../Frameworks",
+						"-headerpad_max_install_names",
+						"-Wl,-rpath,@executable_path/../Frameworks",
+						"-Wl,-rpath,/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib",
+						"-L./IP",
+						"-F/Users/bravo/Qt5.12.4/5.12.4/clang_64/lib",
+						"-L./IP/mac/lib");
+				ARCHS = "x86_64";
+			};
+			name = "Release";
+		};
+		6666AA5E688052234F6758D8 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = "NO";
+				"ARCHS[sdk=macosx*]" = "x86_64";
+				COPY_PHASE_STRIP = "NO";
+				DEVELOPMENT_TEAM = "V228S3S8PX";
+				ENABLE_BITCODE = "NO";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Olacare.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "CS470_HW";
+				QMAKE_PKGINFO_TYPEINFO = "????";
+				QT_LIBRARY_SUFFIX = "";
+				SDKROOT = "macosx";
+				PRODUCT_NAME = "CS470_HW";
+			};
+			name = "Release";
+		};
+		DAC4C1AA5EDEA1C85E9CA5E6 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				"3AA6C32AC930069E80220CF1",
+				"339EE1B2CC4FC24589A0EA95");
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = "Release";
+		};
+		6CC3B5D2136C7CD6A5CF5A59 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				"77418F46922677BB04ED38DD",
+				"6666AA5E688052234F6758D8");
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = "Release";
+		};
+		6DB9C3763D02B1415CD9D565 = {
+			hasScannedForEncodings = 1;
+			compatibilityVersion = "Xcode 3.2";
+			isa = PBXProject;
+			mainGroup = "E8C543AB96796ECAA2E65C57";
+			productRefGroup = "FE0A091FDBFB3E9C31B7A1BD";
+			buildConfigurationList = "DAC4C1AA5EDEA1C85E9CA5E6";
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				"192DA46B86F56F8591391D36",
+				"872EEDAEAEB385988F8D2899");
+			attributes = {
+				TargetAttributes = {
+				};
+			};
+		};
+	};
+	rootObject = "6DB9C3763D02B1415CD9D565";
+}

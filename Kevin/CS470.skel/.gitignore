@@ -1,0 +1,10 @@
+.vs
+debug
+release
+*.db
+*.sln
+*.opendb
+*.stash
+*.vcxproj*
+Make*
+*.app

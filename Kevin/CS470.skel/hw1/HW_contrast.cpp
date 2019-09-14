@@ -12,4 +12,5 @@ using namespace IP;
 void
 HW_contrast(ImagePtr I1, double brightness, double contrast, ImagePtr I2)
 {
+
 }

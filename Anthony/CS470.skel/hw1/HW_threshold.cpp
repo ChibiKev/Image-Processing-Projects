@@ -22,7 +22,7 @@ HW_threshold(ImagePtr I1, int thr, ImagePtr I2)
 	// init lookup table
 	int i, lut[MXGRAY];
 	for(i=0; i<thr && i<MXGRAY; ++i) lut[i] = 0;
-	for(   ;          i<MXGRAY; ++i) lut[i] = MaxGray;
+	for(   ;          i<MXGRAY; ++i) lut[i] = MaxGray; //255 = MaxGray
 
 	// declarations for image channel pointers and datatype
 	ChannelPtr<uchar> p1, p2;

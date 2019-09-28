@@ -19,7 +19,7 @@ HW_gammaCorrect(ImagePtr I1, double gamma, ImagePtr I2)
 
      // init lookup table
      int i, lut[MXGRAY];
-     // LUT
+     for (i = 0; i < MXGRAY; i++) lut[i] = 0;
 
      // declarations for image channel pointers and datatype
      ChannelPtr<uchar> p1, p2;

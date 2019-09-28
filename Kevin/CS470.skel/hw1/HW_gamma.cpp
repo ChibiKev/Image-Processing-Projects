@@ -1,4 +1,6 @@
 #include "IP.h"
+#include <cmath>
+using namespace std;
 using namespace IP;
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -19,7 +21,7 @@ HW_gammaCorrect(ImagePtr I1, double gamma, ImagePtr I2)
 
      // init lookup table
      int i, lut[MXGRAY];
-     for (i = 0; i < MXGRAY; i++) lut[i] = 0;
+     for (i = 0; i < MXGRAY; i++) lut[i] = pow(pow(i, 1 / gamma), gamma);
 
      // declarations for image channel pointers and datatype
      ChannelPtr<uchar> p1, p2;

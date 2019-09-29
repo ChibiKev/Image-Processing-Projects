@@ -23,12 +23,7 @@ HW_contrast(ImagePtr I1, double brightness, double contrast, ImagePtr I2)
      // init lookup table
      int i, lut[MXGRAY];
      for (i = 0; i < MXGRAY; i++) {
-          if (i < 128) {
-               lut[i] = i/contrast;
-          }
-          else {
-               lut[i] = (contrast * i) + 128;
-          }
+          lut[i] = ((i-128) * contrast) + 128;
           lut[i] += brightness;
           if (lut[i] > MaxGray) lut[i] = 255; // In case it goes too far
           if (lut[i] < 0) lut[i] = 0; // In case it goes too short

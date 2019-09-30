@@ -29,20 +29,13 @@ HW_quantize(ImagePtr I1, int levels, bool dither, ImagePtr I2)
     /* First Solution */
     // init lookup table
     int i, lut[MXGRAY];
-    int scale = MXGRAY/levels;
-    int bias = 128/levels;
+    double scale = (double)MXGRAY/levels;
+    double bias = 128.0/levels;
     for(i=0; i<MXGRAY; i++) {
         int value = (scale * (int) (i/scale)) + bias; //value can overflow
         if(value>255) value = (scale * (int) (i/scale));
         lut[i] = value;
     }
-    
-    /* Alternative Solution: Matches his program more */
-    // init lookup table
-    //    int i, lut[MXGRAY];
-    //    double scale = (double) MXGRAY/levels;
-    //    int bias = 128/levels;
-    //    for(i=0; i<MXGRAY; i++) lut[i] = ceil((scale * (int) (i/scale) )) + bias;
     
 
     

@@ -23,6 +23,7 @@ HW_contrast(ImagePtr I1, double brightness, double contrast, ImagePtr I2)
     
     // init lookup table
     int i, lut[MXGRAY];
+    std::cout << "Contrast is: " << contrast << " and brighness is: " << brightness << "\n";
     for(i=0;  i<MXGRAY; ++i) {
         int result = (contrast*(i-128) ) + 128 + brightness;
         if(result <0) result =0;

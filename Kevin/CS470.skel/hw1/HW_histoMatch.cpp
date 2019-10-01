@@ -11,14 +11,14 @@ void histoMatchApprox(ImagePtr, ImagePtr, ImagePtr);
 void
 HW_histoMatch(ImagePtr I1, ImagePtr targetHisto, bool approxAlg, ImagePtr I2)
 {
+     IP_copyImageHeader(I1, I2);
 	if(approxAlg) {
 		histoMatchApprox(I1, targetHisto, I2);
 		return;
 	}
      int i, p, R;
      int left[MXGRAY], right[MXGRAY];
-     int total, Hsum, Havg, h1[MXGRAY], *h2;
-     unsigned char *in, *out;
+     int total, Hsum, Havg, h1[MXGRAY];
      double scale;
      // Total number of pixels in image
      //total = (long)I1->height * I1->width;
@@ -31,12 +31,18 @@ HW_histoMatch(ImagePtr I1, ImagePtr targetHisto, bool approxAlg, ImagePtr I2)
      //I2->image = (unsigned char*)malloc(total);
      //in = I1->image;
      //out = I2->image;
-     IP_copyImageHeader(I1, I2);
+     ChannelPtr<uchar> p1, p2;
+     int type;
      for (i = 0; i < MXGRAY; i++) h1[i] = 0;
-     for (i = 0; i < total; i++) h1[in[i]]++;
+     for (int ch = 0; IP_getChannel(I1, ch, p1, type); ch++) {	// get input  pointer for channel ch
+          for (i = 0; i < total; i++) h1[*p1]++;	// use lut[] to eval output
+     }
+
 
      // target histogram
      //h2 = (int *) histo->image;
+     ChannelPtr<int> h2;
+     IP_getChannel(targetHisto, 0, h2, type);
      // normalize h2 to conform with dimensions of I!
      for (i = Havg = 0; i < MXGRAY; i++) Havg += h2[i];
      scale = (double)total / Havg;
@@ -59,11 +65,11 @@ HW_histoMatch(ImagePtr I1, ImagePtr targetHisto, bool approxAlg, ImagePtr I2)
      for (i = 0; i < MXGRAY; i++) h1[i] = 0;
      // visit all input pixels
      for (i = 0; i < total; i++) {
-          p = left[in[i]];;
+          p = left[*p1++];
           if (h1[p] < h2[p]) // mapping satisfies h2
-               out[i] = p;
+               *p2++ = p;
           else
-               out[i] = p = left[in[i]] = MIN(p + 1, right[in[i]]);
+               *p2++ = p = left[*p1++] = MIN(p + 1, right[*p1++]);
           h1[p]++;
      }
 }

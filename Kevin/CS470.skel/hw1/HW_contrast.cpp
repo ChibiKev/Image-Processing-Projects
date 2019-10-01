@@ -23,8 +23,7 @@ HW_contrast(ImagePtr I1, double brightness, double contrast, ImagePtr I2)
      // init lookup table
      int i, lut[MXGRAY];
      for (i = 0; i < MXGRAY; i++) {
-          lut[i] = round((i-128) * contrast) + 128; // Contrast Equation
-          lut[i] += brightness; // Shifting Based on Brightness
+          lut[i] = round((i-128) * contrast) + 128 + brightness; // Contrast Equation and Shifting Based on Brightness
           if (lut[i] > MaxGray) lut[i] = 255; // In case it goes too far
           if (lut[i] < 0) lut[i] = 0; // In case it goes too short
      }

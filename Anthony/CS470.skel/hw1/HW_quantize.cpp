@@ -10,13 +10,8 @@ using namespace IP;
 
 int getNoise(int bias);
 
-
-
-void
-HW_quantize(ImagePtr I1, int levels, bool dither, ImagePtr I2)
+void HW_quantize(ImagePtr I1, int levels, bool dither, ImagePtr I2)
 {
-    //Same as threshold for testing purposes
-    
     // copy image header (width, height) of input image I1 to output image I2
     IP_copyImageHeader(I1, I2);
     
@@ -25,17 +20,12 @@ HW_quantize(ImagePtr I1, int levels, bool dither, ImagePtr I2)
     int h = I1->height();
     int total = w * h;
     
-    
-    /* First Solution */
     // init lookup table
     int i, lut[MXGRAY];
     double scale = (double)MXGRAY/levels;
     double bias = 128.0/levels;
-    for(i=0; i<MXGRAY; i++) {
-        int value = (scale * (int) (i/scale)) + bias; //value can overflow
-        if(value>255) value = (scale * (int) (i/scale));
-        lut[i] = value;
-    }
+    for(i=0; i<MXGRAY; i++) lut[i] = MIN((scale * (int) (i/scale)) + bias,255); //Value can overflow so use MIN
+        
     
     ChannelPtr<uchar> p1,p2; //p1 points to I1 channels and p2 to I2 channels
     int type;
@@ -43,14 +33,14 @@ HW_quantize(ImagePtr I1, int levels, bool dither, ImagePtr I2)
     for(int ch=0; IP_getChannel(I1, ch, p1, type); ch++) {
         IP_getChannel(I2, ch, p2, type);
         for(int i=0; i<total; i++) {
-            //add noise
+            //add noise to input
             if(dither) {
                 int noise = getNoise(bias);
                 int newValue = (*p1++) + noise;
+                //handle overflow
                 if(newValue>255) newValue = 255;
                 if(newValue<0) newValue = 0;
                 *p2++ = lut[newValue];
-                //*p2++ = newValue;
             }
             else {
                 *p2++ = lut[(*p1++)];
@@ -61,7 +51,7 @@ HW_quantize(ImagePtr I1, int levels, bool dither, ImagePtr I2)
 }
 
 int getNoise(int bias) {
-    double ran = (double)rand()/RAND_MAX; //normalized random # [0...1]
+    double ran = (double)rand()/RAND_MAX; //normalized random number in range [0...1]
     int result = bias*( 1 - (2*ran) ); //Creates range [-bias ..... bias]
     return result;
 }

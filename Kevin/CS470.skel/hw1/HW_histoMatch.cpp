@@ -48,14 +48,8 @@ HW_histoMatch(ImagePtr I1, ImagePtr targetHisto, bool approxAlg, ImagePtr I2)
 
      ChannelPtr<int> h2;
      IP_getChannel(scaleTargetHisto(I1, targetHisto), 0, h2, type);
-
-     // normalize h2 to conform with dimensions of I1
-     for (i = Havg = 0; i < MXGRAY; i++) Havg += h2[i];
-     scale = (double)total / Havg;
-     if (scale != 1) for (i = 0; i < MXGRAY; i++) h2[i] *= scale;
      R = 0;
      Hsum = 0;
-
 
      int preserve[MXGRAY], left2[MXGRAY];
      // Evaluate remapping of all input gray levels;

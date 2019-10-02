@@ -24,10 +24,8 @@ void HW_quantize(ImagePtr I1, int levels, bool dither, ImagePtr I2)
     int i, lut[MXGRAY];
     double scale = (double)MXGRAY/levels;
     double bias = 128.0/levels;
-    for(i=0; i<MXGRAY; i++) lut[i] = MIN((scale * (int) (i/scale)) + bias,255); //Value can overflow so use MIN
+    for(i=0; i<MXGRAY; i++) lut[i] = (int) CLIP((scale * (int) (i/scale)) + bias,0,255); //Value can overflow so use MIN
         
-    
-    
     ChannelPtr<uchar> p1,p2; //p1 points to I1 channels and p2 to I2 channels
     int type;
     

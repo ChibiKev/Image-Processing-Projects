@@ -124,8 +124,7 @@ void histoMatchApprox(ImagePtr I1, ImagePtr targetHisto, ImagePtr I2)
     for(i=0; i<MXGRAY; i++) histogram[i] = 0;
     for(i=0; i<total; i++) histogram[in[i]]++;
     for(i=0; i<MXGRAY; i++) normHisto[i] = (double)histogram[i]/total;
-    
-    
+        
     //Normalized target Histogram
     IP_getChannel(targetHisto, 0, hist, type);
     for(i=0; i<MXGRAY; i++) normHistoTarget[i] = (double)hist[i]/total;

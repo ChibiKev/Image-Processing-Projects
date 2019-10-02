@@ -22,24 +22,19 @@ HW_clip(ImagePtr I1, int t1, int t2, ImagePtr I2)
 
      // init lookup table
      int i, lut[MXGRAY];
-     for (i = 0; i < MXGRAY; i++) { //Run Loop From 0 to 255 to Set Up LUT
-          lut[i] = i; // Set LUT[i] = i as Default. For t1<input<t2: output = input;
-          if (lut[i] < t1) lut[i] = t1; // If lut[i] < t1, Clip at t1. For input<t1: output = t1;
-          if (lut[i] > t2) lut[i] = t2; // If lut[i] > t2, Clip at t2. For val>t2: output = t2;
+     for (i = 0; i < MXGRAY; i++) {          // run Loop From 0 to 255 to Set Up LUT
+          lut[i] = i;                        // set LUT[i] = i as Default. For t1<input<t2: output = input;
+          if (lut[i] < t1) lut[i] = t1;      // if lut[i] < t1, Clip at t1. For input<t1: output = t1;
+          if (lut[i] > t2) lut[i] = t2;      // if lut[i] > t2, Clip at t2. For val>t2: output = t2;
      }
 
      // declarations for image channel pointers and datatype
      ChannelPtr<uchar> p1, p2;
      int type;
 
-     // Note: IP_getChannel(I, ch, p1, type) gets pointer p1 of channel ch in image I.
-     // The pixel datatype (e.g., uchar, short, ...) of that channel is returned in type.
-     // It is ignored here since we assume that our input images consist exclusively of uchars.
-     // IP_getChannel() returns 1 when channel ch exists, 0 otherwise.
-
      // visit all image channels and evaluate output image
-     for (int ch = 0; IP_getChannel(I1, ch, p1, type); ch++) {	// get input  pointer for channel ch
-          IP_getChannel(I2, ch, p2, type);		// get output pointer for channel ch
-          for (i = 0; i < total; i++) *p2++ = lut[*p1++];	// use lut[] to eval output
+     for (int ch = 0; IP_getChannel(I1, ch, p1, type); ch++) {	 // get input  pointer for channel ch
+          IP_getChannel(I2, ch, p2, type);		                // get output pointer for channel ch
+          for (i = 0; i < total; i++) *p2++ = lut[*p1++];	      // use lut[] to eval output
      }
 }

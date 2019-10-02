@@ -11,11 +11,12 @@ void histoMatchApprox(ImagePtr, ImagePtr, ImagePtr);
 void
 HW_histoMatch(ImagePtr I1, ImagePtr targetHisto, bool approxAlg, ImagePtr I2)
 {
-     IP_copyImageHeader(I1, I2);
 	if(approxAlg) {
 		histoMatchApprox(I1, targetHisto, I2);
 		return;
 	}
+     // copy image header (width, height) of input image I1 to output image I2
+     IP_copyImageHeader(I1, I2);
      int i, p, R;
      int left[MXGRAY], right[MXGRAY];
      int total, Hsum, Havg, h1[MXGRAY];
@@ -33,22 +34,26 @@ HW_histoMatch(ImagePtr I1, ImagePtr targetHisto, bool approxAlg, ImagePtr I2)
      //out = I2->image;
      ChannelPtr<uchar> p1, p2;
      int type;
-     for (i = 0; i < MXGRAY; i++) h1[i] = 0;
-     for (int ch = 0; IP_getChannel(I1, ch, p1, type); ch++) {	// get input  pointer for channel ch
-          for (i = 0; i < total; i++) h1[*p1]++;	// use lut[] to eval output
-     }
 
+     for (i = 0; i < MXGRAY; i++) h1[i] = 0;
+
+     for (int ch = 0; IP_getChannel(I1, ch, p1, type); ch++) {	// get input pointer for channel ch
+          for (i = 0; i < total; i++) h1[*p1++]++;	
+     }
 
      // target histogram
      //h2 = (int *) histo->image;
      ChannelPtr<int> h2;
      IP_getChannel(targetHisto, 0, h2, type);
-     // normalize h2 to conform with dimensions of I!
+
+     // normalize h2 to conform with dimensions of I1
      for (i = Havg = 0; i < MXGRAY; i++) Havg += h2[i];
      scale = (double)total / Havg;
      if (scale != 1) for (i = 0; i < MXGRAY; i++) h2[i] *= scale;
      R = 0;
      Hsum = 0;
+
+     //int preserve[MXGRAY], temp[MXGRAY];
      // Evaluate remapping of all input gray levels;
      // Each input gray value maps to an interval of valid output values.
      // The endpoints of the intervals are left[] and right[]
@@ -64,13 +69,18 @@ HW_histoMatch(ImagePtr I1, ImagePtr targetHisto, bool approxAlg, ImagePtr I2)
      // clear h1 and reuse it below
      for (i = 0; i < MXGRAY; i++) h1[i] = 0;
      // visit all input pixels
-     for (i = 0; i < total; i++) {
-          p = left[*p1++];
-          if (h1[p] < h2[p]) // mapping satisfies h2
-               *p2++ = p;
-          else
-               *p2++ = p = left[*p1++] = MIN(p + 1, right[*p1++]);
-          h1[p]++;
+     for (int ch = 0; IP_getChannel(I1, ch, p1, type); ch++) {	// get input  pointer for channel ch
+          IP_getChannel(I2, ch, p2, type);		// get output pointer for channel ch
+          for (i = 0; i < total; i++, p1++, p2++) {
+               p = left[*p1];
+               if (h1[p] < h2[p]) { // mapping satisfies h2
+                    *p2 = p;
+               }
+               else {
+                    *p2 = p = left[*p1] = MIN(p + 1, right[*p1]);
+               }
+               h1[p]++;
+          }
      }
 }
 

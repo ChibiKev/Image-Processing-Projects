@@ -22,20 +22,11 @@ HW_clip(ImagePtr I1, int t1, int t2, ImagePtr I2)
 
      // init lookup table
      int i, lut[MXGRAY];
-#if 0 // 0 For Second Code, 1 For First Code, I think the First code is better.
      for (i = 0; i < MXGRAY; ++i) {
           lut[i] = i;
           if (lut[i] < t1) lut[i] = t1;
           if (lut[i] > t2) lut[i] = t2;
      }
-#else
-     for (i = 0; i < MXGRAY; ++i) {
-          int result = i;
-          if (i < t1) result = t1;
-          if (i > t2) result = t2;
-          lut[i] = result;
-     }
-#endif
 
      // declarations for image channel pointers and datatype
      ChannelPtr<uchar> p1, p2;

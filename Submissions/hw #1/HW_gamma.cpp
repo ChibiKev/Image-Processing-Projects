@@ -20,17 +20,9 @@ HW_gammaCorrect(ImagePtr I1, double gamma, ImagePtr I2)
      // init lookup table
      int i, lut[MXGRAY];
 
-#if 0 // 0 For Second Code, 1 For First Code, I think the First code is better.
      // Set grayscale to a value between 0 and 1, then apply gamma correction, then multiply back to 255 for grayscale.
-     for (i = 0; i < MXGRAY; i++) lut[i] = pow((double)i / 255, 1 / gamma) * 255;
-#else
-     for (i = 0; i < MXGRAY; ++i) {
-          double result = i / 255.0;
-          result = pow(result, 1 / gamma);
-          result *= 255;
-          lut[i] = result;
-     }
-#endif
+     for (i = 0; i < MXGRAY; i++) lut[i] = pow(i / 255.0, 1 / gamma) * 255;
+
 
      // declarations for image channel pointers and datatype
      ChannelPtr<uchar> p1, p2;

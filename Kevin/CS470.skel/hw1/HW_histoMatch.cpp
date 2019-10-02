@@ -53,12 +53,14 @@ HW_histoMatch(ImagePtr I1, ImagePtr targetHisto, bool approxAlg, ImagePtr I2)
      R = 0;
      Hsum = 0;
 
-     //int preserve[MXGRAY], temp[MXGRAY];
+     int preserve[MXGRAY], left2[MXGRAY];
      // Evaluate remapping of all input gray levels;
      // Each input gray value maps to an interval of valid output values.
      // The endpoints of the intervals are left[] and right[]
      for (i = 0; i < MXGRAY; i++) {
           left[i] = R; // left end of interval
+          left2[i] = left[i]; // left[i] will be alternated so keep the data
+          preserve[i] = h2[R] - Hsum; // Keep what is going to be lost after entering the while loop
           Hsum += h1[i]; // cumulative value for interval
           while (Hsum > h2[R] && R < MXGRAY - 1) { // compute width of interval
                Hsum -= h2[R]; // adjust Hsum as interval widens
@@ -71,15 +73,27 @@ HW_histoMatch(ImagePtr I1, ImagePtr targetHisto, bool approxAlg, ImagePtr I2)
      // visit all input pixels
      for (int ch = 0; IP_getChannel(I1, ch, p1, type); ch++) {	// get input  pointer for channel ch
           IP_getChannel(I2, ch, p2, type);		// get output pointer for channel ch
-          for (i = 0; i < total; i++, p1++, p2++) {
+          for (i = 0; i < total; i++) {
                p = left[*p1];
                if (h1[p] < h2[p]) { // mapping satisfies h2
-                    *p2 = p;
+                    if (left[*p1] != right[*p1] && left[*p1] == left2[*p1]) { 
+                         if (preserve[*p1] > 0) {
+                              *p2++ = p;
+                              preserve[*p1]--;
+                         }
+                         else {
+                              *p2++ = p = left[*p1] = MIN(p + 1, right[*p1]);
+                         }
+                    }
+                    else {
+                         *p2++ = p;
+                    }
                }
                else {
-                    *p2 = p = left[*p1] = MIN(p + 1, right[*p1]);
+                    *p2++ = p = left[*p1] = MIN(p + 1, right[*p1]);
                }
                h1[p]++;
+               p1++;
           }
      }
 }

@@ -7,9 +7,6 @@ using namespace IP;
 // Quantize I1 to specified number of levels. Apply dither if flag is set.
 // Output is in I2.
 //
-
-int getNoise(int bias);
-
 void HW_quantize(ImagePtr I1, int levels, bool dither, ImagePtr I2)
 {
     // copy image header (width, height) of input image I1 to output image I2
@@ -35,7 +32,8 @@ void HW_quantize(ImagePtr I1, int levels, bool dither, ImagePtr I2)
         for(int i=0; i<total; i++) {
             //add noise to input
             if(dither) {
-                int noise = getNoise(bias);
+                double ran = (double)rand() / RAND_MAX; //normalized random number in range [0...1]
+                int noise = bias * (1 - (2 * ran)); //Creates range [-bias ..... bias]
                 int newValue = (*p1++) + noise;
                 //handle overflow
                 if(newValue>255) newValue = 255;
@@ -48,10 +46,4 @@ void HW_quantize(ImagePtr I1, int levels, bool dither, ImagePtr I2)
         }
     }
     
-}
-
-int getNoise(int bias) {
-    double ran = (double)rand()/RAND_MAX; //normalized random number in range [0...1]
-    int result = bias*( 1 - (2*ran) ); //Creates range [-bias ..... bias]
-    return result;
 }

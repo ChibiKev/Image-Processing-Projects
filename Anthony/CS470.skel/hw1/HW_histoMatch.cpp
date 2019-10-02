@@ -95,7 +95,6 @@ void HW_histoMatch(ImagePtr I1, ImagePtr targetHisto, bool approxAlg, ImagePtr I
          }
     }
 
-
 }
 
 void histoMatchApprox(ImagePtr I1, ImagePtr targetHisto, ImagePtr I2)

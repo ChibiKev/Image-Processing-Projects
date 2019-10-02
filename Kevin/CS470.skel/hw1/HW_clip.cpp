@@ -28,15 +28,9 @@ HW_clip(ImagePtr I1, int t1, int t2, ImagePtr I2)
      for (i = t2; i < MXGRAY; i++) lut[i] = t2;
 #else
      for (i = 0; i < MXGRAY; i++) {
-          if (i < t1) {
-               lut[i] = t1;
-          }
-          else if (i >= t1 && i <= t2) {
-               lut[i] = i;
-          }
-          else if (i > t2) {
-               lut[i] = t2;
-          }
+          lut[i] = i;
+          if (lut[i] < t1) lut[i] = t1;
+          if (lut[i] > t2) lut[i] = t2;
      }
 #endif
 

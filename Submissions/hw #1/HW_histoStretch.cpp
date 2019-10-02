@@ -20,20 +20,12 @@ HW_histoStretch(ImagePtr I1, int t1, int t2, ImagePtr I2)
 
      // init lookup table
      int i, lut[MXGRAY];
-#if 0 // 0 For Second Code, 1 For First Code, I think the First code is better.
      for (i = 0; i < MXGRAY; i++) {
-          lut[i] = (255 * (i - t1)) / (t2 - t1); //HistoStretch Equation
+          lut[i] = (255.0 * (i - t1)) / (t2 - t1); //HistoStretch Equation
           if (lut[i] > MaxGray) lut[i] = 255; // In case it goes too far
           if (lut[i] < 0) lut[i] = 0; // In case it goes too short
      }
-#else
-     for (i = 0; i < MXGRAY; ++i) {
-          double result = ((double)(i - t1) / (t2 - t1)) * 255;
-          if (result > 255) result = 255;
-          if (result < 0) result = 0;
-          lut[i] = result;
-     }
-#endif
+
      // declarations for image channel pointers and datatype
      ChannelPtr<uchar> p1, p2;
      int type;

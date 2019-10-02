@@ -22,20 +22,12 @@ HW_contrast(ImagePtr I1, double brightness, double contrast, ImagePtr I2)
 
      // init lookup table
      int i, lut[MXGRAY];
-#if 0 // 0 For Second Code, 1 For First Code, I think the First code is better.
      for (i = 0; i < MXGRAY; i++) {
           lut[i] = round((i - 128) * contrast) + 128 + brightness; // Contrast Equation and Shifting Based on Brightness
           if (lut[i] > MaxGray) lut[i] = 255; // In case it goes too far
           if (lut[i] < 0) lut[i] = 0; // In case it goes too short
      }
-#else
-     for (i = 0; i < MXGRAY; ++i) {
-          int result = (contrast*(i - 128)) + 128 + brightness;
-          if (result < 0) result = 0;
-          if (result > 255) result = 255;
-          lut[i] = result;
-     }
-#endif
+
      // declarations for image channel pointers and datatype
      ChannelPtr<uchar> p1, p2;
      int type;

@@ -2,10 +2,8 @@
 using namespace IP;
 
 void histoMatchApprox(ImagePtr, ImagePtr, ImagePtr);
-void regularHistoEqualization(ImagePtr, ImagePtr);
-void betterHistoEqualization(ImagePtr, ImagePtr);
 ImagePtr scaleTargetHisto(ImagePtr, ImagePtr);
-void printHistrogramTarget(ImagePtr);
+
 
 using namespace std;
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

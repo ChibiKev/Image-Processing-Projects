@@ -20,7 +20,8 @@ HW_gammaCorrect(ImagePtr I1, double gamma, ImagePtr I2)
      // init lookup table
      int i, lut[MXGRAY];
 
-     // Set grayscale to a value between 0 and 1, then apply gamma correction, then multiply back to 255 for grayscale.
+     // Run Loop From 0 to 255 to Set Up LUT
+     // Set Grayscale to a Value Between 0 and 1, Then Apply Gamma Correction, Then Multiply Back to 255 For Grayscale.
      for (i = 0; i < MXGRAY; i++) lut[i] = pow(i / 255.0, 1 / gamma) * 255;
 
 

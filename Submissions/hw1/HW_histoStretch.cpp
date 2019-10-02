@@ -22,8 +22,8 @@ HW_histoStretch(ImagePtr I1, int t1, int t2, ImagePtr I2)
      int i, lut[MXGRAY];
      for (i = 0; i < MXGRAY; i++) {
           lut[i] = (255.0 * (i - t1)) / (t2 - t1); //HistoStretch Equation
-          if (lut[i] > MaxGray) lut[i] = 255; // In case it goes too far
-          if (lut[i] < 0) lut[i] = 0; // In case it goes too short
+          if (lut[i] > MaxGray) lut[i] = 255; // Clip at 255 if LUT[i] exceeds 255.
+          if (lut[i] < 0) lut[i] = 0; // Clip at 0 if LUT[i] goes below 0.
      }
 
      // declarations for image channel pointers and datatype

@@ -22,10 +22,10 @@ HW_contrast(ImagePtr I1, double brightness, double contrast, ImagePtr I2)
 
      // init lookup table
      int i, lut[MXGRAY];
-     for (i = 0; i < MXGRAY; i++) {
+     for (i = 0; i < MXGRAY; i++) { //Run Loop From 0 to 255 to Set Up LUT
           lut[i] = round((i - 128) * contrast) + 128 + brightness; // Contrast Equation and Shifting Based on Brightness
-          if (lut[i] > MaxGray) lut[i] = 255; // In case it goes too far
-          if (lut[i] < 0) lut[i] = 0; // In case it goes too short
+          if (lut[i] > MaxGray) lut[i] = 255; // Clip at 255 if LUT[i] exceeds 255.
+          if (lut[i] < 0) lut[i] = 0; // Clip at 0 if LUT[i] goes below 0.
      }
 
      // declarations for image channel pointers and datatype

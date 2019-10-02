@@ -19,8 +19,8 @@ void HW_quantize(ImagePtr I1, int levels, bool dither, ImagePtr I2)
     
     // init lookup table
     int i, lut[MXGRAY];
-    double scale = (double)MXGRAY/levels;
-    double bias = 128.0/levels;
+    double scale = (double)MXGRAY/levels; // Setting up Scale
+    double bias = 128.0/levels; // Setting up Bias
     for(i=0; i<MXGRAY; i++) lut[i] = MIN((scale * (int) (i/scale)) + bias,255); //Value can overflow so use MIN
         
     
@@ -34,16 +34,14 @@ void HW_quantize(ImagePtr I1, int levels, bool dither, ImagePtr I2)
             if(dither) {
                 double ran = (double)rand() / RAND_MAX; //normalized random number in range [0...1]
                 int noise = bias * (1 - (2 * ran)); //Creates range [-bias ..... bias]
-                int newValue = (*p1++) + noise;
-                //handle overflow
-                if(newValue>255) newValue = 255;
-                if(newValue<0) newValue = 0;
-                *p2++ = lut[newValue];
+                int newValue = (*p1++) + noise; // Adding Noise to Original Value
+                if(newValue>255) newValue = 255; // Clip at 255 if LUT[i] exceeds 255.
+                if(newValue<0) newValue = 0; // Clip at 0 if LUT[i] goes below 0.
+                *p2++ = lut[newValue]; // use lut[] to eval output
             }
             else {
-                *p2++ = lut[(*p1++)];
+                *p2++ = lut[(*p1++)]; // use lut[] to eval output
             }
         }
     }
-    
 }

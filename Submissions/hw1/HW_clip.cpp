@@ -22,10 +22,10 @@ HW_clip(ImagePtr I1, int t1, int t2, ImagePtr I2)
 
      // init lookup table
      int i, lut[MXGRAY];
-     for (i = 0; i < MXGRAY; ++i) {
-          lut[i] = i;
-          if (lut[i] < t1) lut[i] = t1;
-          if (lut[i] > t2) lut[i] = t2;
+     for (i = 0; i < MXGRAY; i++) { //Run Loop From 0 to 255 to Set Up LUT
+          lut[i] = i; // Set LUT[i] = i as Default. For t1<input<t2: output = input;
+          if (lut[i] < t1) lut[i] = t1; // If lut[i] < t1, Clip at t1. For input<t1: output = t1;
+          if (lut[i] > t2) lut[i] = t2; // If lut[i] > t2, Clip at t2. For val>t2: output = t2;
      }
 
      // declarations for image channel pointers and datatype

@@ -35,7 +35,7 @@ void HW_histoStretch(ImagePtr I1, int t1, int t2, ImagePtr I2)
          return;
      }
 
-     // init lookup table
+     // init lookup table: Stretching from t1 and t2 to fill [0 255]
      for (i = 0; i < MXGRAY; i++) lut[i] = (int) CLIP((255.0 * (i - t1)) / (t2 - t1),0,255); // histoStretch Equation
     
      // visit all image channels and evaluate output image
@@ -44,4 +44,5 @@ void HW_histoStretch(ImagePtr I1, int t1, int t2, ImagePtr I2)
           for (i = 0; i < total; i++) *p2++ = lut[*p1++];         // use lut[] to eval output
      }
 }
+
 

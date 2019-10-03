@@ -33,8 +33,11 @@ void HW_quantize(ImagePtr I1, int levels, bool dither, ImagePtr I2)
             // add noise to input
             if(dither) {
                 double ran = (double)rand()/RAND_MAX; //normalized random number in range [0...1]
-                int result = bias*( 1 - (2*ran) ); //Creates range [-bias ..... bias]
-                int newValue = CLIP((*p1++) + result,0,255); // input with noise added
+                int noise = bias*( 1 - (2*ran) ); //Creates range [-bias ..... bias]
+                int newValue =  (*p1++) + noise; // input with noise added
+                //Clipping to correct bounds
+                if(newValue>255) newValue = 255;
+                if(newValue<0) newValue = 0;
                 *p2++ = lut[newValue];
             }
             else {
@@ -44,4 +47,5 @@ void HW_quantize(ImagePtr I1, int levels, bool dither, ImagePtr I2)
     }
     
 }
+
 

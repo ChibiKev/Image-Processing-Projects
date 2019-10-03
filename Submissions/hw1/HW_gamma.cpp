@@ -30,8 +30,9 @@ HW_gammaCorrect(ImagePtr I1, double gamma, ImagePtr I2)
      int type;
 
      // visit all image channels and evaluate output image
-     for (int ch = 0; IP_getChannel(I1, ch, p1, type); ch++) {	// get input  pointer for channel ch
-          IP_getChannel(I2, ch, p2, type);		               // get output pointer for channel ch
-          for (i = 0; i < total; i++) *p2++ = lut[*p1++];	     // use lut[] to eval output
+     for (int ch = 0; IP_getChannel(I1, ch, p1, type); ch++) {    // get input  pointer for channel ch
+          IP_getChannel(I2, ch, p2, type);                       // get output pointer for channel ch
+          for (i = 0; i < total; i++) *p2++ = lut[*p1++];         // use lut[] to eval output
      }
 }
+

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F8C7A07B184BF2046FB52B9D"
+               BlueprintIdentifier = "508503DF8DA5185EF58BBB20"
                BuildableName = "CS470_HW.app"
                BlueprintName = "CS470_HW"
                ReferencedContainer = "container:CS470_HW.xcodeproj">
@@ -26,8 +26,23 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      disableMainThreadChecker = "YES"
-      shouldUseLaunchSchemeArgsEnv = "NO">
+      shouldUseLaunchSchemeArgsEnv = "NO"
+      disableMainThreadChecker = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "508503DF8DA5185EF58BBB20"
+            BuildableName = "CS470_HW.app"
+            BlueprintName = "CS470_HW"
+            ReferencedContainer = "container:CS470_HW.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
+      <CommandLineArguments>
+         <CommandLineArgument
+            argument = "$(TESTARGS)"
+            isEnabled = "YES">
+         </CommandLineArgument>
+      </CommandLineArguments>
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -40,23 +55,6 @@
             </BuildableReference>
          </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F8C7A07B184BF2046FB52B9D"
-            BuildableName = "CS470_HW.app"
-            BlueprintName = "CS470_HW"
-            ReferencedContainer = "container:CS470_HW.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
-      <CommandLineArguments>
-         <CommandLineArgument
-            argument = "$(TESTARGS)"
-            isEnabled = "YES">
-         </CommandLineArgument>
-      </CommandLineArguments>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -73,7 +71,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F8C7A07B184BF2046FB52B9D"
+            BlueprintIdentifier = "508503DF8DA5185EF58BBB20"
             BuildableName = "CS470_HW.app"
             BlueprintName = "CS470_HW"
             ReferencedContainer = "container:CS470_HW.xcodeproj">
@@ -86,8 +84,6 @@
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -99,7 +95,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F8C7A07B184BF2046FB52B9D"
+            BlueprintIdentifier = "508503DF8DA5185EF58BBB20"
             BuildableName = "CS470_HW.app"
             BlueprintName = "CS470_HW"
             ReferencedContainer = "container:CS470_HW.xcodeproj">

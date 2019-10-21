@@ -12,4 +12,5 @@ using namespace IP;
 void
 HW_blur(ImagePtr I1, int filterW, int filterH, ImagePtr I2)
 {
+    
 }

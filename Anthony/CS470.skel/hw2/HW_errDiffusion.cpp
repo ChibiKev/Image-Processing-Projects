@@ -3,7 +3,7 @@ using namespace IP;
 
 void copyRowToCircBuffer(int row, short* buf[], ChannelPtr<uchar> start, int w, int h);
 void printCircBuffer(short* buf[], int w);
-void HW_gammaCorrect(ImagePtr I1, double gamma);  //To apply gamma correction
+ImagePtr HW_gammaCorrect(ImagePtr I1, double gamma);  //To apply gamma correction
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // HW_errDiffusion:
 //
@@ -31,12 +31,15 @@ void HW_gammaCorrect(ImagePtr I1, double gamma);  //To apply gamma correction
 //
 void HW_errDiffusion(ImagePtr I1, int method, bool serpentine, double gamma, ImagePtr I2)
 {
+    ImagePtr I3;
+    I3 = HW_gammaCorrect(I1, gamma);
+    
     // copy image header (width, height) of input image I1 to output image I2
-    IP_copyImageHeader(I1, I2);
+    IP_copyImageHeader(I3, I2);
 
     // init vars for width, height, and total number of pixels
-    int w = I1->width ();
-    int h = I1->height();
+    int w = I3->width ();
+    int h = I3->height();
 
     //Applying gamma correction to I1 first
     //HW_gammaCorrect(I1, gamma);
@@ -45,11 +48,10 @@ void HW_errDiffusion(ImagePtr I1, int method, bool serpentine, double gamma, Ima
     int i, lut[MXGRAY];
     int thr = MXGRAY/2;
     
+
     
-    for(i=0; i<MXGRAY; i++) {
-        int value = pow(i / 255.0,  gamma) * 255;
-        lut[i] = (value<thr)? 0:MaxGray;
-    }
+    for(i=0; i<thr && i<MXGRAY; ++i) lut[i] = 0;
+    for(   ;          i<MXGRAY; ++i) lut[i] = MaxGray; //255 = MaxGray
     
 
     // declarations for image channel pointers and datatype
@@ -63,7 +65,7 @@ void HW_errDiffusion(ImagePtr I1, int method, bool serpentine, double gamma, Ima
     short *in1,*in2;
     
     // visit all image channels of input and evaluate output image
-    for(int ch=0; IP_getChannel(I1, ch, in, type); ch++) {    // get input  pointer for channel ch
+    for(int ch=0; IP_getChannel(I3, ch, in, type); ch++) {    // get input  pointer for channel ch
         IP_getChannel(I2, ch, out, type);        // get output pointer for channel ch
         start = in; //making start point at the beginnig of image
         copyRowToCircBuffer(0,buf, start, w, h);
@@ -117,32 +119,33 @@ void printCircBuffer(short* buf[], int w) {
     std::cout << std::endl;
 
 }
+ImagePtr HW_gammaCorrect(ImagePtr I1, double gamma) {
+     // copy image header (width, height) of input image I1 to output image I2
+    ImagePtr I3;
+    IP_copyImageHeader(I1, I3);
 
-void HW_gammaCorrect(ImagePtr I1, double gamma) {
-    // init vars for width, height, and total number of pixels
-        int w = I1->width();
-        int h = I1->height();
-        int total = w * h;
+     // init vars for width, height, and total number of pixels
+     int w = I1->width();
+     int h = I1->height();
+     int total = w * h;
 
-        // init lookup table
-        int i, lut[MXGRAY];
+     // init lookup table
+     int i, lut[MXGRAY];
 
-        // run Loop From 0 to 255 to Set Up LUT
-        // set Grayscale to a Value Between 0 and 1, Then Apply Gamma Correction, Then Multiply Back to 255 For Grayscale.
-        for (i = 0; i < MXGRAY; i++) lut[i] = pow(i / 255.0, 1 / gamma) * 255;
+     // run Loop From 0 to 255 to Set Up LUT
+     // set Grayscale to a Value Between 0 and 1, Then Apply Gamma Correction, Then Multiply Back to 255 For Grayscale.
+     for (i = 0; i < MXGRAY; i++) lut[i] = pow(i / 255.0, 1 / gamma) * 255;
 
-        // declarations for image channel pointers and datatype
-        ChannelPtr<uchar> p1,p2;
-        int type;
 
-        // visit all image channels and evaluate output image
-        for (int ch = 0; IP_getChannel(I1, ch, p1, type); ch++) {    // get input  pointer for channel ch
-            IP_getChannel(I1, ch, p2, type);
-            for (i = 0; i < total; i++) {
-                *p2 = lut[*p1];
-                p1++;
-                p2++;
-            }        // use lut[] to eval output
-        }
+     // declarations for image channel pointers and datatype
+     ChannelPtr<uchar> p1, p2;
+     int type;
+
+     // visit all image channels and evaluate output image
+     for (int ch = 0; IP_getChannel(I1, ch, p1, type); ch++) {    // get input  pointer for channel ch
+          IP_getChannel(I3, ch, p2, type);                       // get output pointer for channel ch
+          for (i = 0; i < total; i++) *p2++ = lut[*p1++];         // use lut[] to eval output
+     }
+    return I3;
 }
 

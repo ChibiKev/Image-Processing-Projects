@@ -1099,12 +1099,6 @@
 			sourceTree = "<absolute>";
 			lastKnownFileType = "text";
 		};
-		5EFFC9CDDD051F2B8A40004F = {
-			isa = PBXFileReference;
-			path = "/Users/anthony/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/.qmake.stash";
-			name = ".qmake.stash";
-			sourceTree = "<absolute>";
-		};
 		A686C5B4C181977C6D7DE021 = {
 			isa = PBXFileReference;
 			path = "/Users/anthony/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/CS470_common.pro";
@@ -1258,7 +1252,6 @@
 			isa = PBXGroup;
 			children = (
 				"E8E5158C8D694B2A81C66C53",
-				"5EFFC9CDDD051F2B8A40004F",
 				"A686C5B4C181977C6D7DE021");
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1607,8 +1600,8 @@
 				QT_LIBRARY_SUFFIX = "_debug";
 				SDKROOT = "macosx";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				CC = "/Library/Developer/CommandLineTools/usr/bin/clang";
-				LDPLUSPLUS = "/Library/Developer/CommandLineTools/usr/bin/clang++";
+				CC = "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang";
+				LDPLUSPLUS = "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++";
 				INFOPLIST_FILE = "Info.plist";
 				SYMROOT = "/Users/anthony/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/.xcode";
 				CONFIGURATION_BUILD_DIR = "/Users/anthony/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
@@ -1626,8 +1619,8 @@
 					"/Users/anthony/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers",
 					"/Users/anthony/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers",
 					".",
-					"/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework/Headers",
-					"/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/AGL.framework/Headers",
+					"/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/OpenGL.framework/Headers",
+					"/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AGL.framework/Headers",
 					"/Users/anthony/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang");
 				LIBRARY_SEARCH_PATHS = (
 					"./IP",
@@ -1708,8 +1701,8 @@
 				QT_LIBRARY_SUFFIX = "";
 				SDKROOT = "macosx";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				CC = "/Library/Developer/CommandLineTools/usr/bin/clang";
-				LDPLUSPLUS = "/Library/Developer/CommandLineTools/usr/bin/clang++";
+				CC = "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang";
+				LDPLUSPLUS = "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++";
 				INFOPLIST_FILE = "Info.plist";
 				SYMROOT = "/Users/anthony/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/.xcode";
 				CONFIGURATION_BUILD_DIR = "/Users/anthony/Desktop/classes/image processing/Image-Processing-Projects/Anthony/CS470.skel/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
@@ -1727,8 +1720,8 @@
 					"/Users/anthony/Qt5.12.4/5.12.4/clang_64/lib/QtGui.framework/Headers",
 					"/Users/anthony/Qt5.12.4/5.12.4/clang_64/lib/QtCore.framework/Headers",
 					".",
-					"/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework/Headers",
-					"/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/AGL.framework/Headers",
+					"/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/OpenGL.framework/Headers",
+					"/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AGL.framework/Headers",
 					"/Users/anthony/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang");
 				LIBRARY_SEARCH_PATHS = (
 					"./IP",

@@ -156,7 +156,6 @@ CS470_HW.xcodeproj/project.pbxproj: CS470.pro /Users/anthony/Qt5.12.4/5.12.4/cla
 		/Users/anthony/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang/qmake.conf \
 		/Users/anthony/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-xcode/qmake.conf \
 		/Users/anthony/Qt5.12.4/5.12.4/clang_64/mkspecs/features/spec_post.prf \
-		.qmake.stash \
 		/Users/anthony/Qt5.12.4/5.12.4/clang_64/mkspecs/features/exclusive_builds.prf \
 		/Users/anthony/Qt5.12.4/5.12.4/clang_64/mkspecs/features/mac/sdk.prf \
 		/Users/anthony/Qt5.12.4/5.12.4/clang_64/mkspecs/features/toolchain.prf \
@@ -338,7 +337,6 @@ CS470_HW.xcodeproj/project.pbxproj: CS470.pro /Users/anthony/Qt5.12.4/5.12.4/cla
 /Users/anthony/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-clang/qmake.conf:
 /Users/anthony/Qt5.12.4/5.12.4/clang_64/mkspecs/macx-xcode/qmake.conf:
 /Users/anthony/Qt5.12.4/5.12.4/clang_64/mkspecs/features/spec_post.prf:
-.qmake.stash:
 /Users/anthony/Qt5.12.4/5.12.4/clang_64/mkspecs/features/exclusive_builds.prf:
 /Users/anthony/Qt5.12.4/5.12.4/clang_64/mkspecs/features/mac/sdk.prf:
 /Users/anthony/Qt5.12.4/5.12.4/clang_64/mkspecs/features/toolchain.prf:

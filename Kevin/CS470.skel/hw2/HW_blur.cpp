@@ -18,7 +18,7 @@ HW_blur(ImagePtr I1, int filterW, int filterH, ImagePtr I2)
      if (filterH % 2 == 0) filterH++; // Makes sure filterW is odd
      I3 = RowBlur(I1, filterW);
      I4 = ColumnBlur(I3, filterH);
-     // copy image header (width, height) of input image I1 to output image I2
+     // copy image header (width, height) of input image I4 to output image I2
      IP_copyImageHeader(I4, I2);
 
      // init vars for width, height, and total number of pixels
@@ -36,8 +36,6 @@ HW_blur(ImagePtr I1, int filterW, int filterH, ImagePtr I2)
      // IP_getChannel() returns 1 when channel ch exists, 0 otherwise.
 
      // visit all image channels and evaluate output image
-     int sum = 0;
-
      for (int ch = 0; IP_getChannel(I4, ch, in, type); ch++) {	// get input  pointer for channel ch
           IP_getChannel(I2, ch, out, type);		// get output pointer for channel ch
           for (int i = 0; i < total; i++) {
@@ -48,7 +46,7 @@ HW_blur(ImagePtr I1, int filterW, int filterH, ImagePtr I2)
 
 ImagePtr RowBlur(ImagePtr I1, int filterW) {
      ImagePtr I3;
-     // copy image header (width, height) of input image I1 to output image I2
+     // copy image header (width, height) of input image I1 to output image I3
      IP_copyImageHeader(I1, I3);
 
      // init vars for width, height, and total number of pixels
@@ -98,7 +96,7 @@ ImagePtr RowBlur(ImagePtr I1, int filterW) {
 
 ImagePtr ColumnBlur(ImagePtr I3, int filterH) {
      ImagePtr I4;
-     // copy image header (width, height) of input image I1 to output image I2
+     // copy image header (width, height) of input image I3 to output image I4
      IP_copyImageHeader(I3, I4);
 
      // init vars for width, height, and total number of pixels

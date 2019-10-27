@@ -1,8 +1,8 @@
 #include "IP.h"
 using namespace IP;
 
-void copyRowToCircBuffer(int row, short* buf[], ChannelPtr<uchar> start, int w, int h);
-void printCircBuffer(short* buf[], int w);
+void copyRowToCircBufferFloyd(int row, short* buf[], ChannelPtr<uchar> start, int w, int h);
+void copyRowToCircBufferJarvis(int row, short* buf[], ChannelPtr<uchar> start, int w, int h);
 ImagePtr HW_gammaCorrect(ImagePtr I1, double gamma);  //To apply gamma correction
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // HW_errDiffusion:
@@ -52,54 +52,33 @@ void HW_errDiffusion(ImagePtr I1, int method, bool serpentine, double gamma, Ima
     ChannelPtr<uchar> in, out, start;
     int type;
     
-    //Our 2 buffers used for padding
-    short *buf[2] = {}; //array of pointers
-    buf[0] = new short[w+2];
-    buf[1] = new short[w+2];
-    short *in1,*in2;
     
-    if(!serpentine) {
-        // visit all image channels of input and evaluate output image
-        for(int ch=0; IP_getChannel(I3, ch, in, type); ch++) {    // get input  pointer for channel ch
-            IP_getChannel(I2, ch, out, type);        // get output pointer for channel ch
-            start = in; //making start point at the beginnig of image (0,0) to use as reference
-            copyRowToCircBuffer(0,buf, start, w, h);
-            for(int y=0; y<h; y++) {
-                copyRowToCircBuffer(y+1, buf, start, w, h);
-                in1 = buf[y%2] + 1; //current row
-                in2 = buf[(y+1)%2] + 1; //row bellow
-                //Go through columns for row y
-                for(int x=0; x<w; x++) {
-                    int index = CLIP(*in1,0,255);
-                    *out = lut[index];
-                    int e = *in1 - *out; //error to spread to neighboors
-                    in1[1] += (e*7/16.0); //err to E nbr
-                    in2[-1] += (e*3/16.0); //err to SW nbr
-                    in2[0] += (e*5/16.0); //err to S nbr
-                    in2[1] += (e*1/16.0); //err to SE nbr
-                    out++;
-                    in1++;
-                    in2++;
-                }
-                
-            }
-        }
-    }
-    else {
-        //Serpentine On:
+    //Floyd-Steinberg Method ----------------------------------------------------------------
+    if(method == 0) {
+        //Our 2 buffers used for padding
+        short *buf[2] = {}; //array of pointers
+        buf[0] = new short[w+2];
+        buf[1] = new short[w+2];
         
-        // visit all image channels of input and evaluate output image
-        for(int ch=0; IP_getChannel(I3, ch, in, type); ch++) {    // get input  pointer for channel ch
-            IP_getChannel(I2, ch, out, type);        // get output pointer for channel ch
-            start = in; //making start point at the beginnig of image (0,0) to use as reference
-            copyRowToCircBuffer(0,buf, start, w, h);
-            for(int y=0; y<h; y++) {
-                copyRowToCircBuffer(y+1, buf, start, w, h);
-                
-                //Even row: left to right scan
-                if(y%2 == 0) {
-                    in1 = buf[y%2] + 1; //current row (@ start)
-                    in2 = buf[(y+1)%2] + 1; //row bellow (@ start)
+        //Initializing buffers to 0
+        for(int i=0; i<w+2; i++) {
+            buf[0][i] = 0;
+            buf[1][i] = 0;
+        }
+        
+        short *in1,*in2;
+        
+        //Raster scan
+        if(!serpentine) {
+            // visit all image channels of input and evaluate output image
+            for(int ch=0; IP_getChannel(I3, ch, in, type); ch++) {    // get input  pointer for channel ch
+                IP_getChannel(I2, ch, out, type);        // get output pointer for channel ch
+                start = in; //making start point at the beginnig of image (0,0) to use as reference
+                copyRowToCircBufferFloyd(0,buf, start, w, h);
+                for(int y=0; y<h; y++) {
+                    copyRowToCircBufferFloyd(y+1, buf, start, w, h);
+                    in1 = buf[y%2] + 1; //current row
+                    in2 = buf[(y+1)%2] + 1; //row bellow
                     //Go through columns for row y
                     for(int x=0; x<w; x++) {
                         int index = CLIP(*in1,0,255);
@@ -113,33 +92,210 @@ void HW_errDiffusion(ImagePtr I1, int method, bool serpentine, double gamma, Ima
                         in1++;
                         in2++;
                     }
-                } //Odd row: right to left scan
-                else {
-                    in1 = buf[y%2] + w; //current row (@ end)
-                    in2 = buf[(y+1)%2] + w; //row bellow (@ end)
-                    out += w-1; //Making output pointer go to the end of the row
+                    
+                }
+            }
+        }
+        else {
+            //Serpentine Scan:
+            
+            // visit all image channels of input and evaluate output image
+            for(int ch=0; IP_getChannel(I3, ch, in, type); ch++) {    // get input  pointer for channel ch
+                IP_getChannel(I2, ch, out, type);        // get output pointer for channel ch
+                start = in; //making start point at the beginnig of image (0,0) to use as reference
+                copyRowToCircBufferFloyd(0,buf, start, w, h);
+                for(int y=0; y<h; y++) {
+                    copyRowToCircBufferFloyd(y+1, buf, start, w, h);
+                    
+                    //Even row: left to right scan
+                    if(y%2 == 0) {
+                        in1 = buf[y%2] + 1; //current row (@ start)
+                        in2 = buf[(y+1)%2] + 1; //row bellow (@ start)
+                        //Go through columns for row y
+                        for(int x=0; x<w; x++) {
+                            int index = CLIP(*in1,0,255);
+                            *out = lut[index];
+                            int e = *in1 - *out; //error to spread to neighboors
+                            in1[1] += (e*7/16.0); //err to E nbr
+                            in2[-1] += (e*3/16.0); //err to SW nbr
+                            in2[0] += (e*5/16.0); //err to S nbr
+                            in2[1] += (e*1/16.0); //err to SE nbr
+                            out++;
+                            in1++;
+                            in2++;
+                        }
+                    } //Odd row: right to left scan
+                    else {
+                        in1 = buf[y%2] + w; //current row (@ end)
+                        in2 = buf[(y+1)%2] + w; //row bellow (@ end)
+                        out += w-1; //Making output pointer go to the end of the row
+                        //Go through columns for row y
+                        for(int x=0; x<w; x++) {
+                            int index = CLIP(*in1,0,255);
+                            *out = lut[index];
+                            int e = *in1 - *out; //error to spread to neighboors
+                            in1[-1] += (e*7/16.0); //err to W nbr
+                            in2[-1] += (e*1/16.0); //err to SW nbr
+                            in2[0] += (e*5/16.0); //err to S nbr
+                            in2[1] += (e*3/16.0); //err to SE nbr
+                            out--;
+                            in1--;
+                            in2--;
+                        }
+                        out += w+1; //Making out point to the next row
+                    }
+                }
+            }
+        }
+    } 
+    else { //Jarvis-Judice-Ninke Method -----------------------------------------------------------------------
+        
+        //Our 3 buffers used for padding
+        short *buf[3] = {}; //array of pointers
+        buf[0] = new short[w+4];
+        buf[1] = new short[w+4];
+        buf[2] = new short[w+4];
+        short *in1,*in2,*in3;
+        
+        //Initializing buffers to 0
+        for(int i=0; i<w+2; i++) {
+            buf[0][i] = 0;
+            buf[1][i] = 0;
+            buf[2][i] = 0;
+        }
+        
+        //raster scan:
+        if(!serpentine) {
+            // visit all image channels of input and evaluate output image
+            for(int ch=0; IP_getChannel(I3, ch, in, type); ch++) {    // get input  pointer for channel ch
+                IP_getChannel(I2, ch, out, type);        // get output pointer for channel ch
+                start = in; //making start point at the beginnig of image (0,0) to use as reference
+                copyRowToCircBufferJarvis(0,buf, start, w, h);
+                copyRowToCircBufferJarvis(1,buf, start, w, h);
+                for(int y=0; y<h; y++) {
+                    copyRowToCircBufferJarvis(y+2, buf, start, w, h); //copy row bellow
+
+                    in1 = buf[y%3] + 2; //current row
+                    in2 = buf[(y+1)%3] + 2; // 1 row below current
+                    in3 = buf[(y+2)%3] + 2; // 2 rows below current
+                    
                     //Go through columns for row y
                     for(int x=0; x<w; x++) {
                         int index = CLIP(*in1,0,255);
                         *out = lut[index];
                         int e = *in1 - *out; //error to spread to neighboors
-                        in1[-1] += (e*7/16.0); //err to W nbr
-                        in2[-1] += (e*3/16.0); //err to SW nbr
-                        in2[0] += (e*5/16.0); //err to S nbr
-                        in2[1] += (e*1/16.0); //err to SE nbr
-                        out--;
-                        in1--;
-                        in2--;
+                        in1[1] += (e*7/48.0); //err to 1E nbr
+                        in1[2] += (e*5/48.0); //err to 2E nbr
+                        
+                        in2[-2] += (e*3/48.0); //err to 2SW nbr
+                        in2[-1] += (e*5/48.0); //err to SW nbr
+                        in2[0] += (e*7/48.0); //err to S nbr
+                        in2[1] += (e*5/48.0); //err to SE nbr
+                        in2[2] += (e*3/48.0); //err to 2SE nbr
+                        
+                        in3[-2] += (e*1/48.0); //err to 2SSW nbr
+                        in3[-1] += (e*3/48.0); //err to SSW nbr
+                        in3[0] += (e*5/48.0); //err to SS nbr
+                        in3[1] += (e*3/48.0); //err to SSE nbr
+                        in3[2] += (e*1/48.0); //err to 2SSE nbr
+                        
+                        out++;
+                        in1++;
+                        in2++;
+                        in3++;
                     }
-                    out += w+1; //Making out point to the next row
+                    
                 }
             }
         }
+        else { //Serpentine scan:
+            
+            // visit all image channels of input and evaluate output image
+            for(int ch=0; IP_getChannel(I3, ch, in, type); ch++) {    // get input  pointer for channel ch
+                IP_getChannel(I2, ch, out, type);        // get output pointer for channel ch
+                start = in; //making start point at the beginnig of image (0,0) to use as reference
+                copyRowToCircBufferJarvis(0,buf, start, w, h);
+                copyRowToCircBufferJarvis(1,buf, start, w, h);
+                for(int y=0; y<h; y++) {
+                    copyRowToCircBufferJarvis(y+2, buf, start, w, h);
+                    
+                    //Even row: left to right scan
+                    if(y%2 == 0) {
+                        in1 = buf[y%3] + 2; //current row
+                        in2 = buf[(y+1)%3] + 2; // 1 row below current
+                        in3 = buf[(y+2)%3] + 2; // 2 rows below current
+                        
+                        //Go through columns for row y
+                        for(int x=0; x<w; x++) {
+                            int index = CLIP(*in1,0,255);
+                            *out = lut[index];
+                            int e = *in1 - *out; //error to spread to neighboors
+                            in1[1] += (e*7/48.0); //err to 1E nbr
+                            in1[2] += (e*5/48.0); //err to 2E nbr
+                            
+                            in2[-2] += (e*3/48.0); //err to 2SW nbr
+                            in2[-1] += (e*5/48.0); //err to SW nbr
+                            in2[0] += (e*7/48.0); //err to S nbr
+                            in2[1] += (e*5/48.0); //err to SE nbr
+                            in2[2] += (e*3/48.0); //err to 2SE nbr
+                            
+                            in3[-2] += (e*1/48.0); //err to 2SSW nbr
+                            in3[-1] += (e*3/48.0); //err to SSW nbr
+                            in3[0] += (e*5/48.0); //err to SS nbr
+                            in3[1] += (e*3/48.0); //err to SSE nbr
+                            in3[2] += (e*1/48.0); //err to 2SSE nbr
+                            
+                            out++;
+                            in1++;
+                            in2++;
+                            in3++;
+                        }
+                    } //Odd row: right to left scan
+                    else {
+                        in1 = buf[y%3] + w + 1; //current row (@ end)
+                        in2 = buf[(y+1)%3] + w + 1; // 1 row below current(@end)
+                        in3 = buf[(y+2)%3] + w + 1; // 2 rows below current (@end)
+                        
+                        out += w-1; //Making output pointer go to the end of the row
+                        //Go through columns for row y
+                        for(int x=0; x<w; x++) {
+                            int index = CLIP(*in1,0,255);
+                            *out = lut[index];
+                            int e = *in1 - *out; //error to spread to neighboors
+                            
+                            in1[-1] += (e*7/48.0); //err to 1E nbr
+                            in1[-2] += (e*5/48.0); //err to 2E nbr
+                            
+                            in2[-2] += (e*3/48.0); //err to 2SW nbr
+                            in2[-1] += (e*5/48.0); //err to SW nbr
+                            in2[0] += (e*7/48.0); //err to S nbr
+                            in2[1] += (e*5/48.0); //err to SE nbr
+                            in2[2] += (e*3/48.0); //err to 2SE nbr
+                            
+                            in3[-2] += (e*1/48.0); //err to 2SSW nbr
+                            in3[-1] += (e*3/48.0); //err to SSW nbr
+                            in3[0] += (e*5/48.0); //err to SS nbr
+                            in3[1] += (e*3/48.0); //err to SSE nbr
+                            in3[2] += (e*1/48.0); //err to 2SSE nbr
+                            
+                            out--;
+                            in1--;
+                            in2--;
+                            in3--;
+                        }
+                        out += w+1; //Making out point to the next row
+                    }
+                }
+            }
+        }
+        
     }
+    
+    
 }
 
 
-void copyRowToCircBuffer(int row, short* buf[], ChannelPtr<uchar> start, int w, int h) {
+void copyRowToCircBufferFloyd(int row, short* buf[], ChannelPtr<uchar> start, int w, int h) {
     if(row >= h) return; //Invalid row to copy [0,h-1]
     ChannelPtr<uchar> original = start; //saving original location
     short *ptr = buf[row%2]; //pointer to correct buffer
@@ -150,25 +306,16 @@ void copyRowToCircBuffer(int row, short* buf[], ChannelPtr<uchar> start, int w, 
     start = original; //preserving start
 }
 
-
-void printCircBuffer(short* buf[], int w) {
-    short *ptr1 = buf[0];
-    short *ptr2 = buf[1];
-    int i;
-    for(i=0; i<w+2; i++) {
-        std::cout << ptr1[i] << " ";
+void copyRowToCircBufferJarvis(int row, short* buf[], ChannelPtr<uchar> start, int w, int h) {
+    if(row >= h) return; //Invalid row to copy [0,h-1]
+    ChannelPtr<uchar> original = start; //saving original location
+    short *ptr = buf[row%3]; //pointer to correct buffer
+    start = (start+ w*row); //making start point to the right row
+    for(int i=2; i<w+2;i++) {
+        ptr[i] = *start++;
     }
-    std::cout << std::endl;
-    for(i=0; i<w+2; i++) {
-        std::cout << ptr2[i] << " ";
-    }
-    std::cout << std::endl;
-    std::cout << std::endl;
-
+    start = original; //preserving start
 }
-
-
-
 
 ImagePtr HW_gammaCorrect(ImagePtr I1, double gamma) {
      // copy image header (width, height) of input image I1 to output image I2

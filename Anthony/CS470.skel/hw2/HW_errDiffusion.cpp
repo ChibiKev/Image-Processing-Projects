@@ -34,75 +34,122 @@ void HW_errDiffusion(ImagePtr I1, int method, bool serpentine, double gamma, Ima
     ImagePtr I3;
     I3 = HW_gammaCorrect(I1, gamma);
     
-    // copy image header (width, height) of input image I1 to output image I2
+    // copy image header (width, height) of input image I3 to output image I2
     IP_copyImageHeader(I3, I2);
 
     // init vars for width, height, and total number of pixels
     int w = I3->width ();
     int h = I3->height();
-
-    //Applying gamma correction to I1 first
-    //HW_gammaCorrect(I1, gamma);
     
     // init lookup table
     int i, lut[MXGRAY];
     int thr = MXGRAY/2;
-    
-
-    
     for(i=0; i<thr && i<MXGRAY; ++i) lut[i] = 0;
     for(   ;          i<MXGRAY; ++i) lut[i] = MaxGray; //255 = MaxGray
-    
+        
 
     // declarations for image channel pointers and datatype
     ChannelPtr<uchar> in, out, start;
     int type;
     
-    //Our buffer
+    //Our 2 buffers used for padding
     short *buf[2] = {}; //array of pointers
     buf[0] = new short[w+2];
     buf[1] = new short[w+2];
     short *in1,*in2;
     
-    // visit all image channels of input and evaluate output image
-    for(int ch=0; IP_getChannel(I3, ch, in, type); ch++) {    // get input  pointer for channel ch
-        IP_getChannel(I2, ch, out, type);        // get output pointer for channel ch
-        start = in; //making start point at the beginnig of image
-        copyRowToCircBuffer(0,buf, start, w, h);
-        for(int y=0; y<h; y++) {
-            copyRowToCircBuffer(y+1, buf, start, w, h);
-            in1 = buf[y%2] + 1;
-            in2 = buf[(y+1)%2] + 1;
-            //printCircBuffer(buf, w);
-            for(int x=0; x<w; x++) {
-                int index = CLIP(*in1,0,255);
-                *out = lut[index];
-                int e = *in1 - *out;
-                in1[1] += (e*7/16.0);
-                in2[-1] += (e*3/16.0);
-                in2[0] += (e*5/16.0);
-                in2[1] += (e*1/16.0);
-                out++;
-                in1++;
-                in2++;
+    if(!serpentine) {
+        // visit all image channels of input and evaluate output image
+        for(int ch=0; IP_getChannel(I3, ch, in, type); ch++) {    // get input  pointer for channel ch
+            IP_getChannel(I2, ch, out, type);        // get output pointer for channel ch
+            start = in; //making start point at the beginnig of image (0,0) to use as reference
+            copyRowToCircBuffer(0,buf, start, w, h);
+            for(int y=0; y<h; y++) {
+                copyRowToCircBuffer(y+1, buf, start, w, h);
+                in1 = buf[y%2] + 1; //current row
+                in2 = buf[(y+1)%2] + 1; //row bellow
+                //Go through columns for row y
+                for(int x=0; x<w; x++) {
+                    int index = CLIP(*in1,0,255);
+                    *out = lut[index];
+                    int e = *in1 - *out; //error to spread to neighboors
+                    in1[1] += (e*7/16.0); //err to E nbr
+                    in2[-1] += (e*3/16.0); //err to SW nbr
+                    in2[0] += (e*5/16.0); //err to S nbr
+                    in2[1] += (e*1/16.0); //err to SE nbr
+                    out++;
+                    in1++;
+                    in2++;
+                }
+                
             }
-            
+        }
+    }
+    else {
+        //Serpentine On:
+        
+        // visit all image channels of input and evaluate output image
+        for(int ch=0; IP_getChannel(I3, ch, in, type); ch++) {    // get input  pointer for channel ch
+            IP_getChannel(I2, ch, out, type);        // get output pointer for channel ch
+            start = in; //making start point at the beginnig of image (0,0) to use as reference
+            copyRowToCircBuffer(0,buf, start, w, h);
+            for(int y=0; y<h; y++) {
+                copyRowToCircBuffer(y+1, buf, start, w, h);
+                
+                //Even row: left to right scan
+                if(y%2 == 0) {
+                    in1 = buf[y%2] + 1; //current row (@ start)
+                    in2 = buf[(y+1)%2] + 1; //row bellow (@ start)
+                    //Go through columns for row y
+                    for(int x=0; x<w; x++) {
+                        int index = CLIP(*in1,0,255);
+                        *out = lut[index];
+                        int e = *in1 - *out; //error to spread to neighboors
+                        in1[1] += (e*7/16.0); //err to E nbr
+                        in2[-1] += (e*3/16.0); //err to SW nbr
+                        in2[0] += (e*5/16.0); //err to S nbr
+                        in2[1] += (e*1/16.0); //err to SE nbr
+                        out++;
+                        in1++;
+                        in2++;
+                    }
+                } //Odd row: right to left scan
+                else {
+                    in1 = buf[y%2] + w; //current row (@ end)
+                    in2 = buf[(y+1)%2] + w; //row bellow (@ end)
+                    out += w-1; //Making output pointer go to the end of the row
+                    //Go through columns for row y
+                    for(int x=0; x<w; x++) {
+                        int index = CLIP(*in1,0,255);
+                        *out = lut[index];
+                        int e = *in1 - *out; //error to spread to neighboors
+                        in1[-1] += (e*7/16.0); //err to W nbr
+                        in2[-1] += (e*3/16.0); //err to SW nbr
+                        in2[0] += (e*5/16.0); //err to S nbr
+                        in2[1] += (e*1/16.0); //err to SE nbr
+                        out--;
+                        in1--;
+                        in2--;
+                    }
+                    out += w+1; //Making out point to the next row
+                }
+            }
         }
     }
 }
 
 
 void copyRowToCircBuffer(int row, short* buf[], ChannelPtr<uchar> start, int w, int h) {
-    if(row >= h) return; //valid row to copy
+    if(row >= h) return; //Invalid row to copy [0,h-1]
     ChannelPtr<uchar> original = start; //saving original location
-    int index = row%2;
+    short *ptr = buf[row%2]; //pointer to correct buffer
     start = (start+ w*row); //making start point to the right row
     for(int i=1; i<w+1;i++) {
-        short *ptr = buf[index];
         ptr[i] = *start++;
     }
-    start = original; //preserving in
+    start = original; //preserving start
 }
+
 
 void printCircBuffer(short* buf[], int w) {
     short *ptr1 = buf[0];
@@ -119,6 +166,10 @@ void printCircBuffer(short* buf[], int w) {
     std::cout << std::endl;
 
 }
+
+
+
+
 ImagePtr HW_gammaCorrect(ImagePtr I1, double gamma) {
      // copy image header (width, height) of input image I1 to output image I2
     ImagePtr I3;

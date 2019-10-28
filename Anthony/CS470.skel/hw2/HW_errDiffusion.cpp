@@ -73,12 +73,12 @@ void HW_errDiffusion(ImagePtr I1, int method, bool serpentine, double gamma, Ima
             // visit all image channels of input and evaluate output image
             for(int ch=0; IP_getChannel(I3, ch, in, type); ch++) {    // get input  pointer for channel ch
                 IP_getChannel(I2, ch, out, type);        // get output pointer for channel ch
-                start = in; //making start point at the beginnig of image (0,0) to use as reference
+                start = in; //making start point at the beginning of image (0,0) to use as reference
                 copyRowToCircBufferFloyd(0,buf, start, w, h);
                 for(int y=0; y<h; y++) {
                     copyRowToCircBufferFloyd(y+1, buf, start, w, h);
                     in1 = buf[y%2] + 1; //current row
-                    in2 = buf[(y+1)%2] + 1; //row bellow
+                    in2 = buf[(y+1)%2] + 1; //row below
                     //Go through columns for row y
                     for(int x=0; x<w; x++) {
                         int index = CLIP(*in1,0,255);
@@ -211,7 +211,7 @@ void HW_errDiffusion(ImagePtr I1, int method, bool serpentine, double gamma, Ima
         else { //Serpentine scan:
             
             // visit all image channels of input and evaluate output image
-            for(int ch=0; IP_getChannel(I3, ch, in, type); ch++) {    // get input  pointer for channel ch
+            for(int ch=0; IP_getChannel(I3, ch,in, type); ch++) {    // get input  pointer for channel ch
                 IP_getChannel(I2, ch, out, type);        // get output pointer for channel ch
                 start = in; //making start point at the beginnig of image (0,0) to use as reference
                 copyRowToCircBufferJarvis(0,buf, start, w, h);

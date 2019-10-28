@@ -85,7 +85,7 @@ HW_median(ImagePtr I1, int sz, ImagePtr I2)
                }
           }
      }
-     for (int i = 0; i < sz; ++i) // Delete Buffer
+     for (int i = 0; i < sz; i++) // Delete Buffer
      {
           delete[] buffer[i];
      }

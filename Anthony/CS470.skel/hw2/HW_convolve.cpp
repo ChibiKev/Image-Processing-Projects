@@ -8,6 +8,7 @@ using namespace IP;
 // Convolve I1 with filter kernel in Ikernel.
 // Output is in I2.
 //
+
 void
 HW_convolve(ImagePtr I1, ImagePtr Ikernel, ImagePtr I2)
 {
@@ -20,7 +21,6 @@ HW_convolve(ImagePtr I1, ImagePtr Ikernel, ImagePtr I2)
     //Dimensions of input image
     int w = I1->width ();
     int h = I1->height();
-    int total = w * h;
     
     //Declaring our buffer
     int kernelW = Ikernel->width();
@@ -67,20 +67,9 @@ HW_convolve(ImagePtr I1, ImagePtr Ikernel, ImagePtr I2)
                         sum += buffer[i-paddingH+kr][j-paddingW+kc] * (*kernelP++);
                     }
                 }
-                *out++ = sum;
+                *out++ = CLIP(sum,0,255);
             }
         }
     }
-
-    
-    
-    
-//    for(int i=0; i<maxH; i++) {
-//        for(int j=0; j<maxW; j++) {
-//            printf("%u ",(unsigned int) buffer[i][j]);
-//        }
-//        printf("\n");
-//    }
-    
-
 }
+

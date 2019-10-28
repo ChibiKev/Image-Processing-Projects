@@ -35,13 +35,14 @@ HW_convolve(ImagePtr I1, ImagePtr Ikernel, ImagePtr I2)
         buffer[i] = new unsigned char[maxW];
     }
     
+    
     //Initialize buffer
     for(int ch=0; IP_getChannel(I1, ch, in, type); ch++) {    // get input  pointer for channel ch
         IP_getChannel(I2, ch, out, type);        // get output pointer for channel ch
         start = in; //making start point at the beginning of image (0,0) to use as reference
         for(int i=0; i<maxH; i++) {
             for(int j=0; j<maxW; j++) {
-                if(i<paddingH || i>paddingH+h || j<paddingW || j>paddingW + w) {
+                if(i<paddingH || i>=paddingH+h || j<paddingW || j>=paddingW + w) {
                     buffer[i][j] = 0;
                 }
                 else{
@@ -49,14 +50,37 @@ HW_convolve(ImagePtr I1, ImagePtr Ikernel, ImagePtr I2)
                 }
             }
         }
-    }
-    
-    for(int i=0; i<maxH; i++) {
-        for(int j=0; j<maxW; j++) {
-            printf("%u ",(unsigned int) buffer[i][j]);
+        //Find the type that the kernel points to
+        
+        ChannelPtr<float> kernelP;
+        
+        for(int i=paddingH; i<h+paddingH; i++) {
+            for(int j=paddingW; j<w+paddingW; j++) {
+                double sum = 0;
+                //printf("%u ",(unsigned int) buffer[i][j]);
+                
+                IP_getChannel(Ikernel, 0, kernelP, type);
+                //All the rows of the kernel
+                for(int kr=0; kr<kernelH; kr++) {
+                    //Each column of the kernel
+                    for(int kc=0; kc<kernelW; kc++) {
+                        sum += buffer[i-paddingH+kr][j-paddingW+kc] * (*kernelP++);
+                    }
+                }
+                *out++ = sum;
+            }
         }
-        printf("\n");
     }
+
+    
+    
+    
+//    for(int i=0; i<maxH; i++) {
+//        for(int j=0; j<maxW; j++) {
+//            printf("%u ",(unsigned int) buffer[i][j]);
+//        }
+//        printf("\n");
+//    }
     
 
 }

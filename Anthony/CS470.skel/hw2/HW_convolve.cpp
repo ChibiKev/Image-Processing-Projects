@@ -53,7 +53,6 @@ HW_convolve(ImagePtr I1, ImagePtr Ikernel, ImagePtr I2)
         //Find the type that the kernel points to
         
         ChannelPtr<float> kernelP;
-        
         for(int i=paddingH; i<h+paddingH; i++) {
             for(int j=paddingW; j<w+paddingW; j++) {
                 double sum = 0;

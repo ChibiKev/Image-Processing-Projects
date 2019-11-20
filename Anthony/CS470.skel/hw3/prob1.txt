@@ -43,10 +43,9 @@ F_5 = (1/6) * [ 10*e^(-i*2*pi*5*0/6) + 40*e^(-i*2*pi*5*1/6) + 20*e^(-i*2*pi*5*2/
 /******************   Part B   ************************/
 /******************************************************/
 
-If we draw this discrete signal [10, 40, 20, 90, 5, 30] into the unit circle by using its Fourier coefficients then we can observe the angle of the complex
-number for each frequency n. Furthermore, we see that the first(n=1) and fifth(n=5) Fourier coefficients have the same magnitude and their cycles start and end 
-at the same angle. This means that after the signal passes n=1 then it has finished one cycle and and after n=5 it has finished three cycles. After this they 
-meet at the same angle and the process repeats. This shows that the maximum frequency n cannot exceed 3 cycles per scan line. 
+The maximum frequency we can have in an image is with a flickering effect where each pixel is white and is followed by a black pixel. This has a maximum frequency
+because it is the greatest amount of change we can have on an image. This means that 2 pixels complete one cycle which leads to each pixel having 1/2 a cycle. Therefore, 
+if we have N pixels that oscillate on and off, then there will be N/2 cycles. 
 
 /******************************************************/
 /******************   Part C   ************************/

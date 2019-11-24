@@ -5,14 +5,13 @@
 #define PI 3.141592653589793
 
 typedef struct {
-    int len;	// length of complex number list
+    int len;	    // length of complex number list
     float * real;	// pointer to real number list
     float * imag;	// pointer to imaginary number list
 }
 complexS, *complexP;
 
-void fft1D(complexP q1, int dir, complexP q2)
-{
+void fft1D(complexP q1, int dir, complexP q2) {
     int i, N, N2;
     float *r1, *i1, *r2, *i2, *ra,  *ia, *rb, *ib;
     float FCTR, fctr, a, b, c, s;
@@ -90,8 +89,8 @@ void fft1D(complexP q1, int dir, complexP q2)
     }
 }
 
-int main(int argc, char *argv[]){
-    if (argc == 4){
+int main(int argc, char *argv[]) {
+    if (argc == 4) {
         FILE *input, *output;                               // Create File Pointer
         char *in  = argv[1];                                // First Argument, Input
         int dir = atoi(argv[2]);                            // Second Argument, Dir
@@ -102,12 +101,11 @@ int main(int argc, char *argv[]){
         int width, height;                                  // Declare Width and Height
         fscanf(input, "%d\t%d", &width, &height);           // Get Values of Width and Height
         int N = height;                                     // N = Height
-        if (ceil(log2(N)) != floor(log2(N)))                // Condition Check
-        {
+        if (ceil(log2(N)) != floor(log2(N))) {              // Condition Check
             printf("Incorrect N. Not a power of 2. N = %d\n", N);
             return 0;
         }
-        if(dir != 0 && dir != 1){                           // Condition Check
+        if(dir != 0 && dir != 1) {                          // Condition Check
             printf("Invalid Dir\n");
             printf("Dir = 0, Forward FFT\n");
             printf("Dir = 1, Inverse FFT\n");
@@ -124,16 +122,16 @@ int main(int argc, char *argv[]){
         q2 -> real = malloc(sizeof(float)*N);               // Store Values
         q2 -> imag = malloc(sizeof(float)*N);               // Store Values
 
-        for (int i = 0; i < N; i++){                        // Goes Through Input
+        for (int i = 0; i < N; i++) {                        // Goes Through Input
             fscanf(input, "%f\t%f", &q1->real[i], &q1->imag[i]);
         }
         fft1D(q1, dir, q2);                                 // Run Function
         fprintf(output, "%d\t%d\n", width, height);         // Write Width and Height In First Row
-        for (int i = 0; i < q2 -> len; i++){                // Goes Through Output
+        for (int i = 0; i < q2 -> len; i++) {               // Goes Through Output
             fprintf(output, "%f\t%f\n", q2->real[i], q2->imag[i]);
         }
     }
-    else{                                                   // Condition Check
+    else {                                                   // Condition Check
         printf("Invalid Arguments.\n");
         printf("Format: ./dtft1D Input Dir Output\n");
     }

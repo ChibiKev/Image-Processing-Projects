@@ -6,8 +6,7 @@
 #define MAG(i)		(sqrt(Fr[i]*Fr[i] + Fi[i]*Fi[i]))
 #define PHASE(i)	(atan2(Fi[i],Fr[i]))
 
-int main(int argc, char *argv[]) 
-{
+int main(int argc, char *argv[]) {
 	if (argc == 4) {
 		FILE *input, *output; 								// Create File Pointer
 		char *in  = argv[1]; 								// First Argument, Input

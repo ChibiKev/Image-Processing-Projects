@@ -17,11 +17,11 @@ int main(int argc, char *argv[])
 		output = fopen(out, "w"); 							// Write Output
 
 		int u, x, N;
-		double c, s, real, imag, cos(), sin();
+		double c, s, real, imag;
 
 		int width, height; 									// Declare Width and Height
 		fscanf(input, "%d\t%d", &width, &height); 			// Get Values of Width and Height
-		N = height; // N = Height
+		N = height; 										// N = Height
 		float *Fr = malloc(sizeof(float) * N); 				// Store Values
 		float *Fi = malloc(sizeof(float) * N); 				// Store Values
 		float *fr = malloc(sizeof(float) * N); 				// Store Values
@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
 				fprintf(output, "%f\t%f\n", Fr[u], Fi[u]); 	// Write to Output
 			}
 		}
-		else if(dir == 1){ // Inverse DFT
+		else if(dir == 1){ 									// Inverse DFT
 			for (x = 0; x < N; x++){
 				fscanf(input, "%f\t%f", &Fr[x], &Fi[x]);
 			}
@@ -63,7 +63,7 @@ int main(int argc, char *argv[])
 				fprintf(output, "%f\t%f\n", fr[x], fi[x]); 	// Write to Output
 			}
 		}
-		else{
+		else{												// Condition Check
 			printf("Invalid Dir\n");
 			printf("Dir = 0, Forward DFT\n");
 			printf("Dir = 1, Inverse DFT\n");

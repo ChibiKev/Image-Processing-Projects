@@ -99,11 +99,12 @@ int main(int argc, char *argv[]) {
         output = fopen(out, "w");                           // Write Output
 
         int width, height;                                  // Declare Width and Height
+        int zeros = 0;
         fscanf(input, "%d\t%d", &width, &height);           // Get Values of Width and Height
         int N = height;                                     // N = Height
-        if (ceil(log2(N)) != floor(log2(N))) {              // Condition Check
-            printf("Incorrect N. Not a power of 2. N = %d\n", N);
-            return 0;
+        if (ceil(log2(N)) != floor(log2(N))) {              // Condition Check:  Not a power of 2
+            int upperBase = floor(log2(N)) + 1;
+            zeros = pow(2,upperBase) - N;                   // Number of zeros to append                                               
         }
         if(dir != 0 && dir != 1) {                          // Condition Check
             printf("Invalid Dir\n");
@@ -113,19 +114,31 @@ int main(int argc, char *argv[]) {
         }
         complexP q1 = malloc(sizeof(*q1));                  // Store Values
         complexP q2 = malloc(sizeof(*q2));                  // Store Values
+        
+        int space = N + zeros;
+        height = space;
 
-        q1 -> real = malloc(sizeof(float)*N);               // Store Values
-        q1 -> imag = malloc(sizeof(float)*N);               // Store Values
+        q1 -> len = space;
+        q1 -> real = malloc(sizeof(float)*space);               // Store Values
+        q1 -> imag = malloc(sizeof(float)*space);               // Store Values
 
-        q2 -> real = malloc(sizeof(float)*N);               // Store Values
-        q2 -> imag = malloc(sizeof(float)*N);               // Store Values
+        q2 -> len = space;
+        q2 -> real = malloc(sizeof(float)*space);               // Store Values
+        q2 -> imag = malloc(sizeof(float)*space);               // Store Values
 
         for (int i = 0; i < N; i++) {                        // Goes Through Input
             fscanf(input, "%f\t%f", &q1->real[i], &q1->imag[i]);
         }
+
+        //Append zeros if necessary
+        for(int i=N; i<zeros+N; i++) {
+            q1->real[i] = q1->imag[i] = 0;
+        }
+
         fft1D(q1, dir, q2);                                 // Run Function
+
         fprintf(output, "%d\t%d\n", width, height);         // Write Width and Height In First Row
-        for (int i = 0; i < N; i++) {               // Goes Through Output
+        for (int i = 0; i < q2 -> len; i++) {               // Goes Through Output
             fprintf(output, "%f\t%f\n", q2->real[i], q2->imag[i]);
         }
     }

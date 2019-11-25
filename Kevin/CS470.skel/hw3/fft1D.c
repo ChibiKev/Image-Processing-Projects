@@ -113,12 +113,10 @@ int main(int argc, char *argv[]) {
         }
         complexP q1 = malloc(sizeof(*q1));                  // Store Values
         complexP q2 = malloc(sizeof(*q2));                  // Store Values
-        
-        q1 -> len = N;
+
         q1 -> real = malloc(sizeof(float)*N);               // Store Values
         q1 -> imag = malloc(sizeof(float)*N);               // Store Values
 
-        q2 -> len = N;
         q2 -> real = malloc(sizeof(float)*N);               // Store Values
         q2 -> imag = malloc(sizeof(float)*N);               // Store Values
 
@@ -127,7 +125,7 @@ int main(int argc, char *argv[]) {
         }
         fft1D(q1, dir, q2);                                 // Run Function
         fprintf(output, "%d\t%d\n", width, height);         // Write Width and Height In First Row
-        for (int i = 0; i < q2 -> len; i++) {               // Goes Through Output
+        for (int i = 0; i < N; i++) {               // Goes Through Output
             fprintf(output, "%f\t%f\n", q2->real[i], q2->imag[i]);
         }
     }

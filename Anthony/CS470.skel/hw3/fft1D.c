@@ -103,10 +103,8 @@ int main(int argc, char *argv[]) {
         fscanf(input, "%d\t%d", &width, &height);           // Get Values of Width and Height
         int N = height;                                     // N = Height
         if (ceil(log2(N)) != floor(log2(N))) {              // Condition Check:  Not a power of 2
-            printf("here!");
             int upperBase = floor(log2(N)) + 1;
-            zeros = pow(2,upperBase) - N;                   // Number of zeros to append        
-            return 0;                                       
+            zeros = pow(2,upperBase) - N;                   // Number of zeros to append                                               
         }
         if(dir != 0 && dir != 1) {                          // Condition Check
             printf("Invalid Dir\n");

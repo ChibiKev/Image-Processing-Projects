@@ -1,0 +1,21 @@
+A) The Fourier transform of an impulse function is a constant value on every frequency. 
+
+B) Yes according to our magnitude spectrum it shows that the FT of this filter is a sinc function. 
+
+C) In the spatial domain the box has gotten wider. However, when we go take its FT we see that 
+the sinc function gets narrower. Therefore, the spatial domain and frequency domain are inversely 
+proportional. 
+
+D) Constant value on the spatial domain will give an impulse in the frequency domain at f=0. 
+Since there is no frequency, then the only component contributing is 0. 
+
+E) The difference is the two spikes that the individual FT of cos produces. This example is testing
+the additive property of FT. The individual FT of a box plus a cos is the same as adding them together 
+or individually. 
+
+F) B(x) will now be a taller box which on the frequency domain translates to the sinc function getting taller as well by
+the same amount. Thus, if we scaled the input on the space domain it also gets scaled on the frequency domain. 
+
+G) Shifting G(X) to the right by 16 does not change the magnitude spectrum, but the phase spectrum appears to have shifted.
+
+H) The magnitude spectrum stays the same since the input was only shifted. The phase spectrum has shifted. 

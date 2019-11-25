@@ -38,7 +38,7 @@ HW_threshold(ImagePtr I1, int thr, ImagePtr I2)
     IP_getChannel(I1, 0, input, type);
 	// visit all image channels of input and evaluate output image
     
-    int row = w * 128; //row 128
+    int row = w * 127; //row 128
     
     for(int column=0; column<w; column++) {
         int value = input[row+column];

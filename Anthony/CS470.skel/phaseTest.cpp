@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <string>
 #include <cmath>
+#include <sstream>
+#include <fstream>
 #include <iostream>
 #include <stdint.h>
 
@@ -112,7 +114,11 @@ void fft1D(complexP *q1, int dir, complexP *q2) {
 void
 HW_swap(ImagePtr I1, ImagePtr I2, ImagePtr II1, ImagePtr II2)
 {
+    ofstream file1, file2;
 
+    // Debugging files.
+    file1.open("File1.txt");
+    file2.open("File2.txt");
 
     ImagePtr Ifft1, Ifft2, IinvFFT1, IinvFFT2;
     ImagePtr Imag1, Iphase1, Imag2, Iphase2;
@@ -565,5 +571,4 @@ HW_swap(ImagePtr I1, ImagePtr I2, ImagePtr II1, ImagePtr II2)
         }
     }
 }
-
 

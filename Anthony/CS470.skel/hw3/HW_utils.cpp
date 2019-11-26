@@ -35,7 +35,8 @@ HW_fft2MagPhase(ImagePtr Ifft, ImagePtr Imag, ImagePtr Iphase)
 
 	// compute mag = sqrt(real^2 + imag^2) and phase = atan2(imag/real)
 	for(int i=0; i<total; ++i) {
-// PUT YOUR CODE HERE
+        mag[i] = sqrt(pow(real[i], 2)+pow(imag[i],2));
+        phase[i] = atan2(imag[i],real[i]);
 	}
 }
 
@@ -64,7 +65,8 @@ HW_MagPhase2fft(ImagePtr Imag, ImagePtr Iphase, ImagePtr Ifft)
 	
 	// compute real and imaginary values from magnitude and phase 
 	for(int i=0; i<total; ++i) {
-// PUT YOUR CODE HERE
+        real[i] = mag[i]*cos(phase[i]);
+        imag[i] = mag[i]*sin(phase[i]);
 	}
 }
 

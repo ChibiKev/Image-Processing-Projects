@@ -52,17 +52,10 @@ HW_spectrum(ImagePtr I1, ImagePtr Imag, ImagePtr Iphase)
      }
 
      ImagePtr Image1, Image2;                          // Get Two Different Images For Row and Column
-<<<<<<< HEAD
      Image1->allocImage(w, h, FFT_TYPE);               // Allocate Image1
      Image2->allocImage(w, h, FFT_TYPE);               // Allocate Image2
      fft1DRow(I2, Image1);                             // FFT For Row
      fft1DColumn(I2, Image1, Image2);                  // FFT For Column
-=======
-     Image1 -> allocImage(w, h, FFT_TYPE);               // Allocate Image1
-     Image2 -> allocImage(w, h, FFT_TYPE);               // Allocate Image2
-     fft1DRow(I1, Image1);                             // FFT For Row
-     fft1DColumn(I1, Image1, Image2);                  // FFT For Column
->>>>>>> b2b84f04ec8fa0ca7e0bef629b58fc062181e524
 
      // compute magnitute and phase spectrums from FFT image
      /*

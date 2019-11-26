@@ -42,8 +42,8 @@ HW_spectrum(ImagePtr I1, ImagePtr Imag, ImagePtr Iphase)
 
 // PUT YOUR CODE HERE...
      ImagePtr Image1, Image2;                          // Get Two Different Images For Row and Column
-     Image1->allocImage(w, h, FFT_TYPE);               // Allocate Image1
-     Image2->allocImage(w, h, FFT_TYPE);               // Allocate Image2
+     Image1 -> allocImage(w, h, FFT_TYPE);               // Allocate Image1
+     Image2 -> allocImage(w, h, FFT_TYPE);               // Allocate Image2
      fft1DRow(I1, Image1);                             // FFT For Row
      fft1DColumn(I1, Image1, Image2);                  // FFT For Column
 
@@ -215,8 +215,10 @@ void fft1DRow(ImagePtr I1, ImagePtr Image1) {
                     *img++ = q2->imag[i];         // Sets Imaginary Output to Image1
                }
           } 
+          delete[] q1->len;                       // Free Memory
           delete[] q1->real;                      // Free Memory
           delete[] q1->imag;                      // Free Memory
+          delete[] q2->len;                       // Free Memory
           delete[] q2->real;                      // Free Memory
           delete[] q2->imag;                      // Free Memory
      } 
@@ -263,8 +265,10 @@ void fft1DColumn(ImagePtr I1, ImagePtr Image1, ImagePtr Image2) {
           real++;                             // Next Column For Real
           img++;                              // Next Column For Imaginary
      } 
+     delete[] q1->len;                       // Free Memory
      delete[] q1->real;                      // Free Memory
      delete[] q1->imag;                      // Free Memory
+     delete[] q2->len;                       // Free Memory
      delete[] q2->real;                      // Free Memory
      delete[] q2->imag;                      // Free Memory
 }
@@ -278,7 +282,7 @@ void fft1DMagPhase(ImagePtr I1, ImagePtr Image2, float *Magnitude, float *Phase)
      img2 = Image2[1];                                                          // Image2[1] Is Imaginary
 
      for (int i = 0; i < total; i++, real2++, img2++) {                         // From 0 to Total, Increment i++ and real2++ and img2++
-          Magnitude[i] = sqrt(pow(*real2, 2)+ pow(*img2, 2));                   // Magnitude Formula
+          Magnitude[i] = sqrt(pow(*real2, 2) + pow(*img2, 2));                   // Magnitude Formula
           Phase[i] = atan2(*img2, *real2);                                      // Phase Formula
      }
 }

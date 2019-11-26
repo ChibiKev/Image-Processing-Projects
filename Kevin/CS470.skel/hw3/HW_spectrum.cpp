@@ -1,4 +1,4 @@
-#if 1
+#if 0
 #include "IP.h"
 #include <stdio.h>
 #include <algorithm>
@@ -258,10 +258,8 @@ void fft1DRow(ImagePtr I1, ImagePtr Image1) {
                     *img++ = q2->imag[i];         // Sets Imaginary Output to Image1
                }
           } 
-          delete[] q1->len;                       // Free Memory
           delete[] q1->real;                      // Free Memory
           delete[] q1->imag;                      // Free Memory
-          delete[] q2->len;                       // Free Memory
           delete[] q2->real;                      // Free Memory
           delete[] q2->imag;                      // Free Memory
      } 
@@ -308,10 +306,8 @@ void fft1DColumn(ImagePtr I1, ImagePtr Image1, ImagePtr Image2) {
           real++;                             // Next Column For Real
           img++;                              // Next Column For Imaginary
      } 
-     delete[] q1->len;                       // Free Memory
      delete[] q1->real;                      // Free Memory
      delete[] q1->imag;                      // Free Memory
-     delete[] q2->len;                       // Free Memory
      delete[] q2->real;                      // Free Memory
      delete[] q2->imag;                      // Free Memory
 }
@@ -381,13 +377,39 @@ HW_spectrum(ImagePtr I1, ImagePtr Imag, ImagePtr Iphase)
      else {
           I2 = I1;
      }
-
+     ChannelPtr<uchar> p1, p2, p3;
+     int type;
+     w = I2->width();                              // Getting Width
+     h = I2->height();                             // Getting Height
+     int total = w * h;
+     printf("%d x %d = %d", w, h, total);
+     // Note: IP_getChannel(I, ch, p1, type) gets pointer p1 of channel ch in image I.
+     // The pixel datatype (e.g., uchar, short, ...) of that channel is returned in type.
+     // It is ignored here since we assume that our input images consist exclusively of uchars.
+     // IP_getChannel() returns 1 when channel ch exists, 0 otherwise.
+     IP_copyImageHeader(I2, Imag);
+     IP_copyImageHeader(I2, Iphase);
+     // visit all image channels and evaluate output image
+     for (int ch = 0; IP_getChannel(I2, ch, p1, type); ch++) {	// get input  pointer for channel ch
+          IP_getChannel(Imag, ch, p2, type);		// get output pointer for channel ch
+          IP_getChannel(Iphase, ch, p3, type);		// get output pointer for channel ch
+          for (int i = 0; i < total; i++) {
+               *p2++ = *p1++;
+               *p3++ = 0;
+          }
+     }
 }
 
 ImagePtr paddedImage(ImagePtr I1) {
      ImagePtr I2;
      int w = I1->width();                              // Getting Width
      int h = I1->height();                             // Getting Height
+     if (w % 2 != 0) {
+          w++;
+     }
+     if (h % 2 != 0) {
+          h++;
+     }
      int zerosW = 0;
      int upperBase = floor(log2(w)) + 1;
      zerosW = pow(2, upperBase) - w;            // Number of zeros to append 
@@ -408,15 +430,15 @@ ImagePtr paddedImage(ImagePtr I1) {
           for (int i = 0; i < maxH; i++) { // Setting Up Buffer Values, Starting From First Row
                for (int j = 0; j < maxW; j++) { // Setting Up Buffer Values, Starting From First Column
                     if (i < paddingH || i >= paddingH + h || j < paddingW || j >= paddingW + w) { // Buffer Is Outside The Image, The Padding Part
-                         printf("0 ");
+                         //printf("0 ");
                          *out++ = 0; // Set Buffer Values To Zero
                     }
                     else { // Inside Image
-                         printf("%d ", *in);
+                         //printf("%d ", *in);
                          *out++ = *in++; //  Set Buffer Values To Same As Image Values
                     }
                }
-               printf("\n");
+               //printf("\n");
           }
      }
      return I2;

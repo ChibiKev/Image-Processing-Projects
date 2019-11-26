@@ -113,6 +113,12 @@ ImagePtr paddedImage(ImagePtr I1) {
      ImagePtr I2;
      int w = I1->width();                              // Getting Width
      int h = I1->height();                             // Getting Height
+     if (w % 2 != 0) {
+          w++;
+     }
+     if (h % 2 != 0) {
+          h++;
+     }
      int zerosW = 0;
      int upperBase = floor(log2(w)) + 1;
      zerosW = pow(2, upperBase) - w;            // Number of zeros to append 
@@ -124,6 +130,7 @@ ImagePtr paddedImage(ImagePtr I1) {
      int paddingW = zerosW / 2;
      int maxH = paddingH + h + paddingH;
      int maxW = paddingW + w + paddingW;
+     I2->allocImage(maxW, maxH, FFT_TYPE);               // Allocate I2
      ChannelPtr<uchar> in, out, start;
      int type;
      //Initialize buffer

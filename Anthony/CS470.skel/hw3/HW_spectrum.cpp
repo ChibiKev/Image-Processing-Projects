@@ -1,319 +1,302 @@
 #include "IP.h"
 #include <stdio.h>
-#include <string>
-#include <cmath>
-#include <sstream>
-#include <fstream>
-#include <iostream>
-#include <stdint.h>
+#include <algorithm>
 
-using namespace std;
 using namespace IP;
+using namespace std;
 
-extern void HW_fft2MagPhase(ImagePtr Ifft, ImagePtr Imag, ImagePtr Iphase);
-
-struct Complex {
-    int len;        // length of complex number list
-    float * real;    // pointer to real number list
-    float * imag;    // pointer to imaginary number list
+struct complexP {
+     int len;        // length of complex number list
+     float *real;    // pointer to real number list
+     float *imag;    // pointer to imaginary number list
 };
 
-float getMin(float arr[], int n)
-{
-    float res = arr[0];
-    for (int i = 1; i < n; i++)
-        res = min(res, arr[i]);
-    return res;
-}
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// HW_spectrum:
+//
+// Convolve magnitude and phase spectrum from image I1.
+// Output is in Imag and Iphase.
+//
 
-float getMax(float arr[], int n)
-{
-    float res = arr[0];
-    for (int i = 1; i < n; i++)
-        res = max(res, arr[i]);
-    return res;
-}
-
-void fft1D(Complex *q1, int dir, Complex *q2)
-{
-    int i, N, N2;
-    float *r1, *i1, *r2, *i2, *ra, *ia, *rb, *ib;
-    double FCTR, fctr, a, b, c, s, num[2];
-
-    Complex ca, cb;
-    Complex *qa, *qb;
-
-    qa = &ca;
-    qb = &cb;
-
-    N = q1->len;
-    r1 = q1->real;
-    i1 = q1->imag;
-    r2 = q2->real;
-    i2 = q2->imag;
-
-    if (N == 2)
-    {
-        a = r1[0] + r1[1];
-        b = i1[0] + i1[1];
-        r2[1] = r1[0] - r1[1];
-        i2[1] = i1[0] - i1[1];
-        r2[0] = a;
-        i2[0] = b;
-    }
-    else
-    {
-        N2 = N / 2;
-        
-        Complex aa;
-        qa = &aa;
-
-        qa->len = N2;
-        qa->real = new float[N2];
-        qa->imag = new float[N2];
-
-        Complex bb;
-        qb = &bb;
-        qb->len = N2;
-        qb->real = new float[N2];
-        qb->imag = new float[N2];
-
-        ra = qa->real;
-        ia = qa->imag;
-        rb = qb->real;
-        ib = qb->imag;
-
-        // Split list into 2 halves; even and odd.
-        for (i = 0; i<N2; i++)
-        {
-            ra[i] = *r1++;
-            ia[i] = *i1++;
-            rb[i] = *r1++;
-            ib[i] = *i1++;
-        }
-
-        // Compute on both lists.
-        fft1D(qa, dir, qa);
-        fft1D(qb, dir, qb);
-
-        // Build up coefficients.
-        if (!dir) // Forward
-            FCTR = -2 * PI / N;
-        else FCTR = 2 * PI / N;
-
-        for (fctr = i = 0; i < N2; i++, fctr += FCTR)
-        {
-            c = cos(fctr);
-            s = sin(fctr);
-            a = c * rb[i] - s * ib[i];
-            r2[i] = ra[i] + a;
-            r2[i + N2] = ra[i] - a;
-
-            a = s * rb[i] + c * ib[i];
-            i2[i] = ia[i] + a;
-            i2[i + N2] = ia[i] - a;
-        }
-        // Prevent Memory Leak
-        delete[] qa->real;
-        delete[] qa->imag;
-        delete[] qb->real;
-        delete[] qb->imag;
-    }
-
-    if (!dir)
-    { // inverse : divide by logN
-        for (i = 0; i < N; i++)
-        {
-            q2->real[i] = q2->real[i] / 2;
-            q2->imag[i] = q2->imag[i] / 2;
-        }
-    }
-}
+extern void HW_fft2MagPhase(ImagePtr Ifft, ImagePtr Imag, ImagePtr Iphase);
+void fft1D(complexP *q1, int dir, complexP *q2);
+void fft1DRow(ImagePtr I1, ImagePtr Image1);
+void fft1DColumn(ImagePtr I1, ImagePtr Image1, ImagePtr Image2);
+void fft1DMagPhase(ImagePtr I1, ImagePtr Image2, float *Magnitude, float *Phase);
+float getMin(float arr[], int total);
+float getMax(float arr[], int total);
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// HW_Spectrum:
+// HW_spectrum:
 //
-// Compute magnitude and phase of I1 fourier transform.
-//
+// Compute magnitude and phase spectrum from input image I1.
+// Save results in Imag and Iphase.
 //
 void
 HW_spectrum(ImagePtr I1, ImagePtr Imag, ImagePtr Iphase)
 {
-    ofstream file;
-    file.open("meow.txt");
+     int w = I1->width();                              // Getting Width
+     int h = I1->height();                             // Getting Height
+     int total = w * h;                                // Getting Total, w * h
+     // compute FFT of the input image
 
-    int w = I1->width();
-    int h = I1->height();
-    int total = w * h;
+// PUT YOUR CODE HERE...
+     ImagePtr Image1, Image2;                          // Get Two Different Images For Row and Column
+     Image1 -> allocImage(w, h, FFT_TYPE);               // Allocate Image1
+     Image2 -> allocImage(w, h, FFT_TYPE);               // Allocate Image2
+     fft1DRow(I1, Image1);                             // FFT For Row
+     fft1DColumn(I1, Image1, Image2);                  // FFT For Column
 
-    ChannelPtr<uchar> p1;
-    int type;
+     // compute magnitute and phase spectrums from FFT image
+     /*
+     ImagePtr Im = NEWIMAGE;
+     ImagePtr Ip = NEWIMAGE;
+     */
+     // PUT YOUR CODE HERE...
+     float *Magnitude = new float[total];              // Declaring Magnitude
+     float *Phase = new float[total];                  // Declairing Phase
+     fft1DMagPhase(I1, Image2, Magnitude, Phase);      // Getting Magitude And Phase, Changes By Reference
+     // find min and max of magnitude and phase spectrums
 
-    // Compute FFT of the input image:
-    ImagePtr IComplex, IComplex2; // To store Real and Imaginary float values.
-    IComplex->allocImage(w, h, FFT_TYPE);
-    IComplex2->allocImage(w, h, FFT_TYPE);
+// PUT YOUR CODE HERE...
+     float minMagnitude = getMin(Magnitude, total);    // Uses Magnitude To Get Min Magnitude
+     float maxMagnitude = getMax(Magnitude, total);    // Uses Magnitude To Get Max Magnitude
+     float minPhase = getMin(Phase, total);            // Uses Phase To Get Min Phase
+     float maxPhase = getMax(Phase, total);            // Uses Phase To Get Max Phase
+     /*
+     // set imagetypes for single 8-bit channel
+     Imag  ->setImageType(BW_IMAGE);
+     Iphase->setImageType(BW_IMAGE);
 
-    // The image IComplex now has two float channels.
-    ChannelPtr<float> real, img, real2, img2;
+     // get channel pointers for input magnitude and phase spectrums
+     ChannelPtr<float>   magF = Im[0];
+     ChannelPtr<float> phaseF = Ip[0];
 
-    // * Compute FFT1D via rows.
-    for (int ch = 0; IP_getChannel(I1, ch, p1, type); ++ch)
-    {
-        real = IComplex[0];
-        img = IComplex[1];
+     // get channel pointers for output magnitude and phase spectrums
+     ChannelPtr<uchar> Pmag    = Imag  [0];
+     ChannelPtr<uchar> Pphase  = Iphase[0];
+     */
+     // scale magnitude and phase to fit between [0, 255]
 
-        Complex c1, c2, *q1, *q2;
-        q1 = &c1;
-        q2 = &c2;
-        q1->len = w;
-        q1->real = new float[w];
-        q1->imag = new float[w];
-        q2->len = w;
-        q2->real = new float[w];
-        q2->imag = new float[w];
+     // PUT YOUR CODE HERE...
 
-        // Visit each row
-        for (int row = 0; row < h; ++row)
-        {
-            for (int column = 0; column < w; ++column)
-            {
-                // Put all pixel values from current row into q1->real.
-                q1->real[column] = *p1++;
+     IP_copyImageHeader(I1, Imag);                                                                                      // copy image header (width, height) of input image I1 to output image Imag
+     ChannelPtr<uchar> Pmag, Pphase;                                                                                    // declarations for image channel pointers and datatype
+     int type;
+     maxMagnitude /= 256;                                                                                               // Normalize Max By 256
+     
+     for (int ch = 0; IP_getChannel(Imag, ch, Pmag, type); ch++) {
+          for (int i = 0; i < total; i++) {
+               *Pmag++ = CLIP((Magnitude[i] - minMagnitude) / (maxMagnitude - minMagnitude) * MaxGray, 0, MaxGray);     //scale magnitude to fit between[0, 255]
+          }
+     }
 
-                // Since imaginary channel don't exist, we put 0's.
-                q1->imag[column] = 0;
-            }
+     IP_copyImageHeader(I1, Iphase);                                                                                    // copy image header (width, height) of input image I1 to output image IPhase
+     
+     for (int ch = 0; IP_getChannel(Iphase, ch, Pphase, type); ch++) {
+          for (int i = 0; i < total; i++) {
+               *Pphase++ = CLIP((Phase[i] - minPhase) / (maxPhase - minPhase) * MaxGray, 0, MaxGray);                   //scale phase to fit between[0, 255]
+          }
+     }
+}
 
-            // Now we apply FFT to this row.
-            fft1D(q1, 0, q2);
-            
-            // Transfer the results in q2 to IComplex.
-            for (int i = 0; i < q2->len; ++i)
-            {
-                *real++ = q2->real[i];
-                *img++  = q2->imag[i];
-            }
-        } // End visit loops.
-        delete[] q1->real;
-        delete[] q1->imag;
-        delete[] q2->real;
-        delete[] q2->imag;
-    } // End IP_getChannel loop.
+void fft1D(complexP *q1, int dir, complexP *q2) { // Converted to cpp from fft1D.c
+     int i, N, N2;
+     float *r1, *i1, *r2, *i2, *ra, *ia, *rb, *ib;
+     float FCTR, fctr, a, b, c, s;
+     complexP *qa, *qb;
 
-    // * Compute FFT1D via columns.
-    real = IComplex[0];
-    img = IComplex[1];
-    real2 = IComplex2[0];
-    img2 = IComplex2[1];
+     N = q1->len;
+     r1 = q1->real;
+     i1 = q1->imag;
+     r2 = q2->real;
+     i2 = q2->imag;
 
-    Complex c1, c2, *q1, *q2;
-    q1 = &c1;
-    q2 = &c2;
-    q1->len = w;
-    q1->real = new float[w];
-    q1->imag = new float[w];
-    q2->len = w;
-    q2->real = new float[w];
-    q2->imag = new float[w];
+     if (N == 2) {
+          a = r1[0] + r1[1];    // F(0)=f(0)+f(1);F(1)=f(0)-f(1)
+          b = i1[0] + i1[1];    // a,b needed when r1=r2
+          r2[1] = r1[0] - r1[1];
+          i2[1] = i1[0] - i1[1];
+          r2[0] = a;
+          i2[0] = b;
+     }
+     else {
+          N2 = N / 2;
 
-    for (int column = 0; column < w; ++column)
-    {
-        // Temporary pointers to loop through current column.
-        ChannelPtr<float> temp_real = real;
-        ChannelPtr<float> temp_img = img;
+          complexP first;
+          qa = &first;
+          qa->len = N2;
+          qa->real = new float[N2];
+          qa->imag = new float[N2];
 
-        for (int row = 0; row < h; ++row)
-        {
-            q1->real[row] = *temp_real;
-            q1->imag[row] = *temp_img;
+          complexP second;
+          qb = &second;
+          qb->len = N2;
+          qb->real = new float[N2];
+          qb->imag = new float[N2];
 
-            // Go to next element in this column until last element.
-            if (row < h - 1)
-            {
-                temp_real += w;
-                temp_img += w;
-            }
-        }
+          ra = qa->real;
+          ia = qa->imag;
+          rb = qb->real;
+          ib = qb->imag;
 
-        // Apply FFT1D to this column.
-        fft1D(q1, 0, q2);
+          // split list into 2 halves; even and odd
+          for (i = 0; i < N2; i++) {
+               ra[i] = *r1++;
+               ia[i] = *i1++;
+               rb[i] = *r1++;
+               ib[i] = *i1++;
+          }
 
-        // Transfer the results in q2 to IComplex2.
-        for (int i = 0; i < q2->len; ++i)
-        {
-            *real2++ = q2->real[i];
-            *img2++ = q2->imag[i];
-        }
+          // compute fft on both lists
+          fft1D(qa, dir, qa);
+          fft1D(qb, dir, qb);
 
-        // After visitng all pixels of current column, go to next column.
-        real++;
-        img++;
-    } // End visit loops.
-    
-    delete[] q1->real;
-    delete[] q1->imag;
-    delete[] q2->real;
-    delete[] q2->imag;
+          // build up coefficients
+          if (!dir)    // forward
+               FCTR = -2 * PI / N;
+          else
+               FCTR = 2 * PI / N;
+          for (fctr = i = 0; i < N2; i++, fctr += FCTR) {
+               c = cos(fctr);
+               s = sin(fctr);
+               a = c * rb[i] - s * ib[i];
+               r2[i] = ra[i] + a;
+               r2[i + N2] = ra[i] - a;
 
-    // compute magnitute and phase of FFT
-    real2 = IComplex2[0];
-    img2 = IComplex2[1];
+               a = s * rb[i] + c * ib[i];
+               i2[i] = ia[i] + a;
+               i2[i + N2] = ia[i] - a;
+          }
+          delete[] qa->real; // Free Memory
+          delete[] qa->imag; // Free Memory
+          delete[] qb->real; // Free Memory
+          delete[] qb->imag; // Free Memory
+     }
 
-    float *magnitude = new float[total];
-    float *phase = new float[total];
+     if (!dir) {    // inverse : divide by logN
+          for (i = 0; i < N; i++) {
+               q2->real[i] = q2->real[i] / 2;
+               q2->imag[i] = q2->imag[i] / 2;
+          }
+     }
+}
 
-    for (int i = 0; i < total; ++i)
-    {
-        float r2 = pow(*real2, 2);
-        float i2 = pow(*img2, 2);
-        float res = r2 + i2;
+void fft1DRow(ImagePtr I1, ImagePtr Image1) {
+     int w = I1->width();                         // Getting Width
+     int h = I1->height();                        // Getting Height
+     ChannelPtr<float> real, img;
+     ChannelPtr<uchar> p1;                        // declarations for image channel pointers and datatype
+     int type;
+     real = Image1[0];                            // Image1[0] Is Real
+     img = Image1[1];                             // Image1[1] Is Imaginary
 
-        magnitude[i] = sqrt(res);
-        phase[i] = atan2(*img2, *real2);
+     complexP c1, c2, *q1, *q2;
+     q1 = &c1;
+     q2 = &c2;
+     q1->len = w;                            // length of complex number list
+     q1->real = new float[w];                // pointer to real number list
+     q1->imag = new float[w];                // pointer to imaginary number list
+     q2->len = w;                            // length of complex number list
+     q2->real = new float[w];                // pointer to real number list
+     q2->imag = new float[w];                // pointer to imaginary number list
 
-        real2++;
-        img2++;
-    }
+     for (int ch = 0; IP_getChannel(I1, ch, p1, type); ch++) {
+          for (int row = 0; row < h; row++) { // FFT Row by Row
+               for (int column = 0; column < q1->len; column++){ // FFT Columns
+                    q1->real[column] = *p1++;     // Storing Real Values For Current Row into q1 -> real
+                    q1->imag[column] = 0;         // Storing Imaginary Value For Current Row into q1 -> imag. It's 0 Because Original Has 0 Imaginary Values
+               }
 
-    // find min and max of magnitude
-    float minMagnitude = getMin(magnitude, total);
-    float maxMagnitude = getMax(magnitude, total);
+               fft1D(q1, 0, q2);                  // Apply FFT 1D To Current Row and Output To q2.
 
-    // Taking the advice from: https://piazza.com/class/jkqfs1lkw579i?cid=36.
-    // "You somehow have to normalize the max by 256. That worked for me"
-    maxMagnitude = maxMagnitude / 256;
+               for (int i = 0; i < q2->len; i++){ // Run Through Output
+                    *real++ = q2->real[i];        // Sets Real Output to Image1
+                    *img++ = q2->imag[i];         // Sets Imaginary Output to Image1
+               }
+          }
+         //delete[] q1->len;                       // Free Memory
+          delete[] q1->real;                      // Free Memory
+          delete[] q1->imag;                      // Free Memory
+        //delete[] q2->len;                       // Free Memory
+          delete[] q2->real;                      // Free Memory
+          delete[] q2->imag;                      // Free Memory
+     }
+}
 
-    // allocate uchar image for displaying magnitude
-    IP_copyImageHeader(I1, Imag);
-    ChannelPtr<uchar> pImag;
-    
-    //scale magnitude to fit between [0, 255]
-    for (int ch = 0; IP_getChannel(Imag, ch, pImag, type); ++ch)
-    {
-        for (int i = 0; i < total; ++i)
-        {
-            *pImag++ = CLIP((magnitude[i]-minMagnitude)/(maxMagnitude-minMagnitude) * MaxGray, 0, MaxGray);
-        }
-    }
-    
-    //find min and max of phase
-    float minPhase = getMin(phase, total);
-    float maxPhase = getMax(phase, total);
-    
-    // allocate uchar image for displaying phase
-    IP_copyImageHeader(I1, Iphase);
-    ChannelPtr<uchar> pIphase;
-    
-    //scale phase to fit between [0, 255]
-    
-    for (int ch = 0; IP_getChannel(Iphase, ch, pIphase, type); ++ch)
-    {
-        for (int i = 0; i < total; ++i)
-        {
-            *pIphase++ = CLIP((phase[i]-minPhase)/(maxPhase-minPhase) * MaxGray, 0, MaxGray);
-        }
-    }
-    
-    
+void fft1DColumn(ImagePtr I1, ImagePtr Image1, ImagePtr Image2) {
+     int w = I1->width();                              // Getting Width
+     int h = I1->height();                             // Getting Height
+     ChannelPtr<float> real, img, real2, img2;
+     real = Image1[0];                                 // Image1[0] Is Real
+     img = Image1[1];                                  // Image1[1] Is Imaginary
+     real2 = Image2[0];                                // Image2[0] Is Real
+     img2 = Image2[1];                                 // Image2[1] Is Imaginary
+
+     complexP c1, c2, *q1, *q2;
+     q1 = &c1;
+     q2 = &c2;
+     q1->len = w;                            // length of complex number list
+     q1->real = new float[w];                // pointer to real number list
+     q1->imag = new float[w];                // pointer to imaginary number list
+     q2->len = w;                            // length of complex number list
+     q2->real = new float[w];                // pointer to real number list
+     q2->imag = new float[w];                // pointer to imaginary number list
+
+     for (int column = 0; column < w; column++) { // FFT Column By Column
+          ChannelPtr<float> temp_real = real;     // Creates Temp For Real For Future Row Calculations
+          ChannelPtr<float> temp_img = img;       // Creates Temp For Imaginary For Future Row Calculations
+
+          for (int row = 0; row < h; row++) {     // FFT Rows
+               q1->real[row] = *temp_real;        // Storing Real Values For Current Column into q1 -> real
+               q1->imag[row] = *temp_img;         // Storing Imaginary Value For Current Column into q1 -> imag.
+               if (row < h - 1) {                 // Keep Storing Until Last Row Of The Column
+                    temp_real += w;               // Goes To Next Row
+                    temp_img += w;                // Goes To Next Row
+               }
+          }
+
+          fft1D(q1, 0, q2);                   // Apply FFT 1D To Current Column and Output To q2.
+
+          for (int i = 0; i < q2->len; i++) { // Run Through Output
+               *real2++ = q2->real[i];        // Sets Real Output to Image2
+               *img2++ = q2->imag[i];         // Sets Imaginary Output to Image2
+          }
+          real++;                             // Next Column For Real
+          img++;                              // Next Column For Imaginary
+     }
+    // delete[] q1->len;                       // Free Memory
+     delete[] q1->real;                      // Free Memory
+     delete[] q1->imag;                      // Free Memory
+     //delete[] q2->len;                       // Free Memory
+     delete[] q2->real;                      // Free Memory
+     delete[] q2->imag;                      // Free Memory
+}
+
+void fft1DMagPhase(ImagePtr I1, ImagePtr Image2, float *Magnitude, float *Phase) {
+     int w = I1->width();                                                       // Getting Width
+     int h = I1->height();                                                      // Getting Height
+     int total = w * h;                                                         // Getting Total, w * h
+     ChannelPtr<float> real2, img2;
+     real2 = Image2[0];                                                         // Image2[0] Is Real
+     img2 = Image2[1];                                                          // Image2[1] Is Imaginary
+
+     for (int i = 0; i < total; i++, real2++, img2++) {                         // From 0 to Total, Increment i++ and real2++ and img2++
+          Magnitude[i] = sqrt(pow(*real2, 2) + pow(*img2, 2));                   // Magnitude Formula
+          Phase[i] = atan2(*img2, *real2);                                      // Phase Formula
+     }
+}
+
+float getMin(float arr[], int total) {
+     float minValue = arr[0];                // Assume First Value is Min
+     for (int i = 1; i < total; i++)         // For Loop To Compare Each Value
+          minValue = min(minValue, arr[i]);  // Min is set to minValue
+     return minValue;                        // Output minValue
+}
+
+float getMax(float arr[], int total) {
+     float maxValue = arr[0];                // Assume First Value is Max
+     for (int i = 1; i < total; i++)         // For Loop To Compare Each Value
+          maxValue = max(maxValue, arr[i]);  // Max is set to maxValue
+     return maxValue;                        // Output maxValue
 }

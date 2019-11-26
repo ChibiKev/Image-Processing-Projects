@@ -1,4 +1,4 @@
-#if 0
+#if 1
 #include "IP.h"
 using namespace IP;
 
@@ -9,10 +9,21 @@ using namespace IP;
 // Output is in II1 and II2.
 //
 
-//extern void HW_fft2MagPhase(ImagePtr Ifft, ImagePtr Imag, ImagePtr Iphase);
-//extern void HW_MagPhase2fft(ImagePtr Imag, ImagePtr Iphase, ImagePtr Ifft);
+struct complexP {
+     int len;        // length of complex number list
+     float * real;    // pointer to real number list
+     float * imag;    // pointer to imaginary number list
+};
 
-void compute2DFFT(ImagePtr I, ImagePtr result); //Computes the 2D FFT of image
+extern void HW_fft2MagPhase(ImagePtr Ifft, ImagePtr Imag, ImagePtr Iphase);
+extern void HW_MagPhase2fft(ImagePtr Imag, ImagePtr Iphase, ImagePtr Ifft);
+extern void fft1D(complexP *q1, int dir, complexP *q2);
+extern void fft1DRow(ImagePtr I1, ImagePtr Image1);
+extern void fft1DColumn(ImagePtr I1, ImagePtr Image1, ImagePtr Image2);
+extern void fft1DMagPhase(ImagePtr I1, ImagePtr Image2, float *Magnitude, float *Phase);
+extern float getMin(float arr[], int total);
+extern float getMax(float arr[], int total);
+
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // HW_swapPhase:
@@ -24,41 +35,13 @@ void compute2DFFT(ImagePtr I, ImagePtr result); //Computes the 2D FFT of image
 void
 HW_swapPhase(ImagePtr I1, ImagePtr I2, ImagePtr II1, ImagePtr II2)
 {
-    //Dimensions of I1
-    int w = I1->width();
-    int h = I1->height();
-    int total = w1 * h1;
     
-    //Dimensions of I2
-    int w2 = I2->width();
-    int h2 = I2->height();
-    int total2 = w2 * h2;
-    
-    //Checking that the images have same dimensions
-    if(w1 != w2 || h1 != h2) {
-        printf("Dimensions of I1: %d x %d \nDimensions of I2: %d x %d\nAre not equal",w1,h1,w2,h2);
-        return;
-    }
+    int w1 = I1 -> width();
     
     ImagePtr Ifft1, Ifft2, IinvFFT1, IinvFFT2;
     ImagePtr Imag1, Iphase1, Imag2, Iphase2;
-    
-    // copy image header (width, height) of input image I1 to output image II1 & II2
-    IP_copyImageHeader(I1, II1);
-    IP_copyImageHeader(I1, II2);
-    
-    // Input and output channels
-    ChannelPtr<uchar> in, out;
-    int type;
-    
+
     // compute FFT of I1 and I2
-    ImagePtr I1FFT;
-    ImagePtr I2FFT;
-    I1FFT->allocImage(w1,h1,FFT_TYPE); //FFT for I1
-    I2FFT->allocImage(w2,h2,FFT_TYPE); //FFT for I2
-    
-    compute2DFFT(I1,I1FFT);
-    compute2DFFT(I2,I2FFT);
     
 // PUT YOUR CODE HERE...
 
@@ -86,16 +69,6 @@ HW_swapPhase(ImagePtr I1, ImagePtr I2, ImagePtr II1, ImagePtr II2)
 
 // PUT YOUR CODE HERE...
 }
-
-void compute2DFFT(ImagePtr I, ImagePtr result) {
-    
-    //Compute FFT 
-}
-
-
-
-
-
 #else
 #include "IP.h"
 #include <stdio.h>

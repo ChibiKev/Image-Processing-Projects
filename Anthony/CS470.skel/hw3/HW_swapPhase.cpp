@@ -63,16 +63,24 @@ HW_swapPhase(ImagePtr I1, ImagePtr I2, ImagePtr II1, ImagePtr II2)
     int type;
     
     // compute FFT of I1 and I2
-    ImagePtr I1FFT;
+    ImagePtr I1FFTTemp;
+    ImagePtr I1FFT; //Final FFT
+    
     ImagePtr I2FFT;
+    ImagePtr I2FFTTemp;
+    
     I1FFT->allocImage(w1,h1,FFT_TYPE); //FFT for I1
+    I1FFTTemp->allocImage(w1, h1, FFT_TYPE);
     I2FFT->allocImage(w2,h2,FFT_TYPE); //FFT for I2
+    I2FFT->allocImage(w2, h2, FFT_TYPE);
     
-    
-    
-// PUT YOUR CODE HERE...
+    fft1DRow(I1,I1FFTTemp);
+    fft1DColumn(I1, I1FFTTemp, I1FFT);
+    fft1DRow(I2, I2FFTTemp);
+    fft1DColumn(I2, I2FFTTemp, I2FFT);
 
     // compute magnitude and phase from real and imaginary FFT channels
+    
     
 // PUT YOUR CODE HERE...
 

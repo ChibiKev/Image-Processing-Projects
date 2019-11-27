@@ -435,7 +435,7 @@ HW_spectrum(ImagePtr I1, ImagePtr Imag, ImagePtr Iphase)
      // compute FFT of the input image
 
 // PUT YOUR CODE HERE...
-     ImagePtr I1Padded; //Padded image passed as reference
+     ImagePtr I1Padded, I1Unpadded; //Padded image passed as reference
      int test; //to unpad
      if (ceil(log2(w)) != floor(log2(w)) || ceil(log2(h)) != floor(log2(h))) {
           test = 1;
@@ -446,9 +446,10 @@ HW_spectrum(ImagePtr I1, ImagePtr Imag, ImagePtr Iphase)
           I1Padded = I1;
      }
 
-//     if (test == 1) {
-//          I2 = unpaddedImage(I1, I2);
-//     }
+     if (test == 1) {
+          unpaddedImage(I1Padded, I1Unpadded);
+     }
+    
     ChannelPtr<uchar> p1,p2,p3; // p1 points to I1 channels and p2 to I2 channels
     int type;
     IP_copyImageHeader(I1Padded, Imag);
@@ -469,6 +470,7 @@ HW_spectrum(ImagePtr I1, ImagePtr Imag, ImagePtr Iphase)
 void paddedImage(ImagePtr I1, ImagePtr I1Padded) {
      int w = I1->width();                              // Getting Width
      int h = I1->height();                             // Getting Height
+    
      int zerosW = 0;
      int upperBase = floor(log2(w)) + 1;
      zerosW = pow(2, upperBase) - w;            // Number of zeros to append
@@ -483,7 +485,7 @@ void paddedImage(ImagePtr I1, ImagePtr I1Padded) {
      //IP_copyImageHeader(I1, I1Padded);               // Allocate I2
      int newW = w+zerosW;
      int newH = h+zerosH;
-     I1Padded->allocImage(newW, newH, RGB_TYPE);
+     I1Padded->allocImage(newW, newH, BW_TYPE);
      ChannelPtr<uchar> in, out, start;
         
      int type;
@@ -517,6 +519,7 @@ void paddedImage(ImagePtr I1, ImagePtr I1Padded) {
                 out[lastRow+j] = 0;
             }
         }
+        
     }
     
     if(zerosW%2 != 0) {
@@ -531,18 +534,29 @@ void paddedImage(ImagePtr I1, ImagePtr I1Padded) {
         }
 
     }
+    
+    
+    //Print Image:
+    for (int ch = 0; IP_getChannel(I1, ch, in, type); ch++) {    // get input  pointer for channel ch
+        IP_getChannel(I1Padded, ch, out, type);        // get output pointer for channel ch
+        int lastColumn = w+zerosW-1;
+        for(int j=0; j<w+zerosW; j++) {
+            int index = lastColumn*(j+1);
+            out[index] = 0;
+        }
+    }
+    
+    
+    
     printf("%d x %d\n", I1Padded->width(),I1Padded->height());
 }
 
-ImagePtr unpaddedImage(ImagePtr I1, ImagePtr I2) {
-     int w = I1->width();                              // Getting Width
-     int h = I1->height();                             // Getting Height
-     if (w % 2 != 0) {
-          w++;
-     }
-     if (h % 2 != 0) {
-          h++;
-     }
+ImagePtr unpaddedImage(ImagePtr original, ImagePtr fftOut, ImagePtr output) {
+    
+    //Original dimensions
+     int w = original->width();                              // Getting Width
+     int h = original->height();                             // Getting Height
+
      int zerosW = 0;
      int upperBase = floor(log2(w)) + 1;
      zerosW = pow(2, upperBase) - w;            // Number of zeros to append
@@ -551,12 +565,12 @@ ImagePtr unpaddedImage(ImagePtr I1, ImagePtr I2) {
      zerosH = pow(2, upperBase) - h;            // Number of zeros to append
 
      int paddingH = zerosH / 2;
-     int paddingW = zerosW / 2;
+    int paddingW = zerosW / 2;
 
      ImagePtr I3;
      ChannelPtr<float> real, img, real2, img2;
-     real = I2[0];                                 // I2[0] Is Real
-     img = I2[1];                                  // I2[1] Is Imaginary
+     real = fftOut[0];                                 // I2[0] Is Real
+     img = fftOut[1];                                  // I2[1] Is Imaginary
      real2 = I3[0];                                // I3[0] Is Real
      img2 = I3[1];                                 // I3[1] Is Imaginary
 

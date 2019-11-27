@@ -416,7 +416,7 @@ using namespace std;
 // Output is in Imag and Iphase.
 //
 
-ImagePtr paddedImage(ImagePtr I1);
+void paddedImage(ImagePtr I1, ImagePtr I1Padded);
 ImagePtr unpaddedImage(ImagePtr I1, ImagePtr I2);
 
 
@@ -435,15 +435,15 @@ HW_spectrum(ImagePtr I1, ImagePtr Imag, ImagePtr Iphase)
      // compute FFT of the input image
 
 // PUT YOUR CODE HERE...
-     ImagePtr I2;
+     ImagePtr I1Padded; //Padded image passed as reference
      int test; //to unpad
      if (ceil(log2(w)) != floor(log2(w)) || ceil(log2(h)) != floor(log2(h))) {
           test = 1;
-          I2 = paddedImage(I1);
+          paddedImage(I1, I1Padded);
      }
      else {
           test = 0;
-          I2 = I1;
+          I1Padded = I1;
      }
 
 //     if (test == 1) {
@@ -451,10 +451,10 @@ HW_spectrum(ImagePtr I1, ImagePtr Imag, ImagePtr Iphase)
 //     }
     ChannelPtr<uchar> p1,p2,p3; // p1 points to I1 channels and p2 to I2 channels
     int type;
-    IP_copyImageHeader(I2, Imag);
-    IP_copyImageHeader(I2, Iphase);
-    int newTotal = I2->width() * I2->height();
-    for(int ch=0; IP_getChannel(I2, ch, p1, type); ch++) {
+    IP_copyImageHeader(I1Padded, Imag);
+    IP_copyImageHeader(I1Padded, Iphase);
+    int newTotal = I1Padded->width() * I1Padded->height();
+    for(int ch=0; IP_getChannel(I1Padded, ch, p1, type); ch++) {
         IP_getChannel(Imag, ch, p2, type);
         IP_getChannel(Iphase, ch, p3, type);
         for(int i=0; i<newTotal; i++) {
@@ -466,8 +466,7 @@ HW_spectrum(ImagePtr I1, ImagePtr Imag, ImagePtr Iphase)
     
 }
 
-ImagePtr paddedImage(ImagePtr I1) {
-     ImagePtr I2;
+void paddedImage(ImagePtr I1, ImagePtr I1Padded) {
      int w = I1->width();                              // Getting Width
      int h = I1->height();                             // Getting Height
      int zerosW = 0;
@@ -480,20 +479,23 @@ ImagePtr paddedImage(ImagePtr I1) {
      int paddingH = zerosH / 2;
      int paddingW = zerosW / 2;
     
-     IP_copyImageHeader(I1, I2);               // Allocate I2
-     I2->setWidth(w+zerosW);             // MAKE THIS POSSIBLE
-     I2->setHeight(h+zerosH);               // MAKE THIS POSSIBLE
-     ChannelPtr<uchar> in, out, start;
     
+     //IP_copyImageHeader(I1, I1Padded);               // Allocate I2
+     int newW = w+zerosW;
+     int newH = h+zerosH;
+     I1Padded->allocImage(newW, newH, RGB_TYPE);
+     ChannelPtr<uchar> in, out, start;
+        
      int type;
      //Initialize buffer
      for (int ch = 0; IP_getChannel(I1, ch, in, type); ch++) {    // get input  pointer for channel ch
-          IP_getChannel(I2, ch, out, type);        // get output pointer for channel ch
-          for (int i = 0; i < h+zerosH; i++) { // Setting Up Buffer Values, Starting From First Row
-               for (int j = 0; j < w+zerosW; j++) { // Setting Up Buffer Values, Starting From First Column
+          IP_getChannel(I1Padded, ch, out, type);        // get output pointer for channel ch
+          for (int i = 0; i < newH; i++) { // Setting Up Buffer Values, Starting From First Row
+               for (int j = 0; j < newW; j++) { // Setting Up Buffer Values, Starting From First Column
+                    //printf("A i=%d j=%d\n",i,j);
+
                     if (i < paddingH || i >= paddingH + h || j < paddingW || j >= paddingW + w) { // Buffer Is Outside The Image, The Padding Part
                         //printf("0 ");
-
                         *out++ = 0; // Set Buffer Values To Zero
                     }
                     else { // Inside Image
@@ -509,7 +511,7 @@ ImagePtr paddedImage(ImagePtr I1) {
     if(zerosH%2 != 0) {
         //ADD extra row of zeros
         for (int ch = 0; IP_getChannel(I1, ch, in, type); ch++) {    // get input  pointer for channel ch
-             IP_getChannel(I2, ch, out, type);        // get output pointer for channel ch
+             IP_getChannel(I1Padded, ch, out, type);        // get output pointer for channel ch
             int lastRow = (w+zerosW)*(h+zerosH-1);
             for(int j=0; j<w+zerosW; j++) {
                 out[lastRow+j] = 0;
@@ -517,13 +519,10 @@ ImagePtr paddedImage(ImagePtr I1) {
         }
     }
     
-    //Error:
     if(zerosW%2 != 0) {
-
         //Add extra column of zeros
-        printf("Hereeeee!!!!\n");
         for (int ch = 0; IP_getChannel(I1, ch, in, type); ch++) {    // get input  pointer for channel ch
-            IP_getChannel(I2, ch, out, type);        // get output pointer for channel ch
+            IP_getChannel(I1Padded, ch, out, type);        // get output pointer for channel ch
             int lastColumn = w+zerosW-1;
             for(int j=0; j<w+zerosW; j++) {
                 int index = lastColumn*(j+1);
@@ -532,8 +531,7 @@ ImagePtr paddedImage(ImagePtr I1) {
         }
 
     }
-    printf("%d x %d = %d\n", I2->width(),I2->height(),I2->width()*I2->height());
-    return I2;
+    printf("%d x %d\n", I1Padded->width(),I1Padded->height());
 }
 
 ImagePtr unpaddedImage(ImagePtr I1, ImagePtr I2) {

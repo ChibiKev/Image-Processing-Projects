@@ -532,7 +532,6 @@ void paddedImage(ImagePtr I1, ImagePtr I1Padded) {
                 out[index] = 0;
             }
         }
-
     }
     
     

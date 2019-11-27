@@ -529,7 +529,6 @@ void paddedImage(ImagePtr I1, ImagePtr I1Padded) {
                 out[index] = 0;
             }
         }
-
     }
     printf("%d x %d\n", I1Padded->width(),I1Padded->height());
 }

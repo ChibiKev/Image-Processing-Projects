@@ -1,3 +1,5 @@
+#if 0
+
 #include "IP.h"
 #include <stdio.h>
 #include <algorithm>
@@ -19,6 +21,8 @@ struct complexP {
 //
 
 extern void HW_fft2MagPhase(ImagePtr Ifft, ImagePtr Imag, ImagePtr Iphase);
+ImagePtr paddedImage(ImagePtr I1);
+ImagePtr unpaddedImage(ImagePtr I1, ImagePtr I2);
 void fft1D(complexP *q1, int dir, complexP *q2);
 void fft1DRow(ImagePtr I1, ImagePtr Image1);
 void fft1DColumn(ImagePtr I1, ImagePtr Image1, ImagePtr Image2);
@@ -41,12 +45,26 @@ HW_spectrum(ImagePtr I1, ImagePtr Imag, ImagePtr Iphase)
      // compute FFT of the input image
 
 // PUT YOUR CODE HERE...
-     ImagePtr Image1, Image2;                          // Get Two Different Images For Row and Column
-     Image1 -> allocImage(w, h, FFT_TYPE);               // Allocate Image1
-     Image2 -> allocImage(w, h, FFT_TYPE);               // Allocate Image2
-     fft1DRow(I1, Image1);                             // FFT For Row
-     fft1DColumn(I1, Image1, Image2);                  // FFT For Column
+     ImagePtr I2;
+     int test;
+     if (ceil(log2(w)) != floor(log2(w)) || ceil(log2(h)) != floor(log2(h))) {
+          test = 1;
+          I2 = paddedImage(I1);
+     }
+     else {
+          test = 0;
+          I2 = I1;
+     }
 
+     ImagePtr Image1, Image2;                          // Get Two Different Images For Row and Column
+     Image1->allocImage(w, h, FFT_TYPE);               // Allocate Image1
+     Image2->allocImage(w, h, FFT_TYPE);               // Allocate Image2
+     fft1DRow(I2, Image1);                             // FFT For Row
+     fft1DColumn(I2, Image1, Image2);                  // FFT For Column
+
+     if (test == 1) {
+          Image2 = unpaddedImage(I1, Image2);
+     }
      // compute magnitute and phase spectrums from FFT image
      /*
      ImagePtr Im = NEWIMAGE;
@@ -82,9 +100,8 @@ HW_spectrum(ImagePtr I1, ImagePtr Imag, ImagePtr Iphase)
 
      IP_copyImageHeader(I1, Imag);                                                                                      // copy image header (width, height) of input image I1 to output image Imag
      ChannelPtr<uchar> Pmag, Pphase;                                                                                    // declarations for image channel pointers and datatype
-     int type;
      maxMagnitude /= 256;                                                                                               // Normalize Max By 256
-     
+     int type;
      for (int ch = 0; IP_getChannel(Imag, ch, Pmag, type); ch++) {
           for (int i = 0; i < total; i++) {
                *Pmag++ = CLIP((Magnitude[i] - minMagnitude) / (maxMagnitude - minMagnitude) * MaxGray, 0, MaxGray);     //scale magnitude to fit between[0, 255]
@@ -98,6 +115,91 @@ HW_spectrum(ImagePtr I1, ImagePtr Imag, ImagePtr Iphase)
                *Pphase++ = CLIP((Phase[i] - minPhase) / (maxPhase - minPhase) * MaxGray, 0, MaxGray);                   //scale phase to fit between[0, 255]
           }
      }
+}
+
+ImagePtr paddedImage(ImagePtr I1) {
+     ImagePtr I2;
+     int w = I1->width();                              // Getting Width
+     int h = I1->height();                             // Getting Height
+     if (w % 2 != 0) {
+          w++;
+     }
+     if (h % 2 != 0) {
+          h++;
+     }
+     int zerosW = 0;
+     int upperBase = floor(log2(w)) + 1;
+     zerosW = pow(2, upperBase) - w;            // Number of zeros to append
+     int zerosH = 0;
+     upperBase = floor(log2(h)) + 1;
+     zerosH = pow(2, upperBase) - h;            // Number of zeros to append
+
+     int paddingH = zerosH / 2;
+     int paddingW = zerosW / 2;
+     int maxH = paddingH + h + paddingH;
+     int maxW = paddingW + w + paddingW;
+     IP_copyImageHeader(I1, I2);               // Allocate I2
+     I2->setWidth(maxW);             // MAKE THIS POSSIBLE
+     I2->setHeight(maxH);               // MAKE THIS POSSIBLE
+     ChannelPtr<uchar> in, out, start;
+     int type;
+     //Initialize buffer
+     for (int ch = 0; IP_getChannel(I1, ch, in, type); ch++) {    // get input  pointer for channel ch
+          IP_getChannel(I2, ch, out, type);        // get output pointer for channel ch
+          for (int i = 0; i < maxH; i++) { // Setting Up Buffer Values, Starting From First Row
+               for (int j = 0; j < maxW; j++) { // Setting Up Buffer Values, Starting From First Column
+                    if (i < paddingH || i >= paddingH + h || j < paddingW || j >= paddingW + w) { // Buffer Is Outside The Image, The Padding Part
+                         *out++ = 0; // Set Buffer Values To Zero
+                    }
+                    else { // Inside Image
+                         *out++ = *in++; //  Set Buffer Values To Same As Image Values
+                    }
+               }
+          }
+     }
+     return I2;
+}
+
+ImagePtr unpaddedImage(ImagePtr I1, ImagePtr I2) {
+     int w = I1->width();                              // Getting Width
+     int h = I1->height();                             // Getting Height
+     int total = w * h;
+     if (w % 2 != 0) {
+          w++;
+     }
+     if (h % 2 != 0) {
+          h++;
+     }
+     int zerosW = 0;
+     int upperBase = floor(log2(w)) + 1;
+     zerosW = pow(2, upperBase) - w;            // Number of zeros to append
+     int zerosH = 0;
+     upperBase = floor(log2(h)) + 1;
+     zerosH = pow(2, upperBase) - h;            // Number of zeros to append
+
+     int paddingH = zerosH / 2;
+     int paddingW = zerosW / 2;
+
+     ImagePtr I3;
+     ChannelPtr<float> real, img, real2, img2;
+     real = I2[0];                                 // I2[0] Is Real
+     img = I2[1];                                  // I2[1] Is Imaginary
+     real2 = I3[0];                                // I3[0] Is Real
+     img2 = I3[1];                                 // I3[1] Is Imaginary
+
+     for (int row = 0; row < paddingH + h; row++) { // FFT Row by Row
+          for (int column = 0; column < paddingW + w; column++) { // FFT Columns
+               if (row >= paddingH && column >= paddingW) {
+                    real2++ = real++;
+                    img2++ = img++;
+               }
+               else {
+                    real++;
+                    img++;
+               }
+          }
+     }
+     return I3;
 }
 
 void fft1D(complexP *q1, int dir, complexP *q2) { // Converted to cpp from fft1D.c
@@ -215,10 +317,8 @@ void fft1DRow(ImagePtr I1, ImagePtr Image1) {
                     *img++ = q2->imag[i];         // Sets Imaginary Output to Image1
                }
           }
-         //delete[] q1->len;                       // Free Memory
           delete[] q1->real;                      // Free Memory
           delete[] q1->imag;                      // Free Memory
-        //delete[] q2->len;                       // Free Memory
           delete[] q2->real;                      // Free Memory
           delete[] q2->imag;                      // Free Memory
      }
@@ -265,10 +365,8 @@ void fft1DColumn(ImagePtr I1, ImagePtr Image1, ImagePtr Image2) {
           real++;                             // Next Column For Real
           img++;                              // Next Column For Imaginary
      }
-    // delete[] q1->len;                       // Free Memory
      delete[] q1->real;                      // Free Memory
      delete[] q1->imag;                      // Free Memory
-     //delete[] q2->len;                       // Free Memory
      delete[] q2->real;                      // Free Memory
      delete[] q2->imag;                      // Free Memory
 }
@@ -300,3 +398,183 @@ float getMax(float arr[], int total) {
           maxValue = max(maxValue, arr[i]);  // Max is set to maxValue
      return maxValue;                        // Output maxValue
 }
+
+
+#else
+
+#include "IP.h"
+#include <stdio.h>
+#include <algorithm>
+
+using namespace IP;
+using namespace std;
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// HW_spectrum:
+//
+// Convolve magnitude and phase spectrum from image I1.
+// Output is in Imag and Iphase.
+//
+
+ImagePtr paddedImage(ImagePtr I1);
+ImagePtr unpaddedImage(ImagePtr I1, ImagePtr I2);
+
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// HW_spectrum:
+//
+// Compute magnitude and phase spectrum from input image I1.
+// Save results in Imag and Iphase.
+//
+void
+HW_spectrum(ImagePtr I1, ImagePtr Imag, ImagePtr Iphase)
+{
+     int w = I1->width();                              // Getting Width
+     int h = I1->height();                             // Getting Height
+     int total = w * h;
+     // compute FFT of the input image
+
+// PUT YOUR CODE HERE...
+     ImagePtr I2;
+     int test; //to unpad
+     if (ceil(log2(w)) != floor(log2(w)) || ceil(log2(h)) != floor(log2(h))) {
+          test = 1;
+          I2 = paddedImage(I1);
+     }
+     else {
+          test = 0;
+          I2 = I1;
+     }
+
+//     if (test == 1) {
+//          I2 = unpaddedImage(I1, I2);
+//     }
+    ChannelPtr<uchar> p1,p2,p3; // p1 points to I1 channels and p2 to I2 channels
+    int type;
+    IP_copyImageHeader(I2, Imag);
+    IP_copyImageHeader(I2, Iphase);
+    int newTotal = I2->width() * I2->height();
+    for(int ch=0; IP_getChannel(I2, ch, p1, type); ch++) {
+        IP_getChannel(Imag, ch, p2, type);
+        IP_getChannel(Iphase, ch, p3, type);
+        for(int i=0; i<newTotal; i++) {
+            *p2++ = *p1++;
+            *p3++ = 0;
+        }
+    }
+    
+    
+}
+
+ImagePtr paddedImage(ImagePtr I1) {
+     ImagePtr I2;
+     int w = I1->width();                              // Getting Width
+     int h = I1->height();                             // Getting Height
+     int zerosW = 0;
+     int upperBase = floor(log2(w)) + 1;
+     zerosW = pow(2, upperBase) - w;            // Number of zeros to append
+     int zerosH = 0;
+     upperBase = floor(log2(h)) + 1;
+     zerosH = pow(2, upperBase) - h;            // Number of zeros to append
+
+     int paddingH = zerosH / 2;
+     int paddingW = zerosW / 2;
+    
+     IP_copyImageHeader(I1, I2);               // Allocate I2
+     I2->setWidth(w+zerosW);             // MAKE THIS POSSIBLE
+     I2->setHeight(h+zerosH);               // MAKE THIS POSSIBLE
+     ChannelPtr<uchar> in, out, start;
+    
+     int type;
+     //Initialize buffer
+     for (int ch = 0; IP_getChannel(I1, ch, in, type); ch++) {    // get input  pointer for channel ch
+          IP_getChannel(I2, ch, out, type);        // get output pointer for channel ch
+          for (int i = 0; i < h+zerosH; i++) { // Setting Up Buffer Values, Starting From First Row
+               for (int j = 0; j < w+zerosW; j++) { // Setting Up Buffer Values, Starting From First Column
+                    if (i < paddingH || i >= paddingH + h || j < paddingW || j >= paddingW + w) { // Buffer Is Outside The Image, The Padding Part
+                        //printf("0 ");
+
+                        *out++ = 0; // Set Buffer Values To Zero
+                    }
+                    else { // Inside Image
+                        //printf("%d ", *in);
+                         *out++ = *in++; //  Set Buffer Values To Same As Image Values
+                    }
+               }
+              
+             // printf("\n");
+          }
+     }
+    
+    if(zerosH%2 != 0) {
+        //ADD extra row of zeros
+        for (int ch = 0; IP_getChannel(I1, ch, in, type); ch++) {    // get input  pointer for channel ch
+             IP_getChannel(I2, ch, out, type);        // get output pointer for channel ch
+            int lastRow = (w+zerosW)*(h+zerosH-1);
+            for(int j=0; j<w+zerosW; j++) {
+                out[lastRow+j] = 0;
+            }
+        }
+    }
+    
+    //Error:
+    if(zerosW%2 != 0) {
+
+        //Add extra column of zeros
+        printf("Hereeeee!!!!\n");
+        for (int ch = 0; IP_getChannel(I1, ch, in, type); ch++) {    // get input  pointer for channel ch
+            IP_getChannel(I2, ch, out, type);        // get output pointer for channel ch
+            int lastColumn = w+zerosW-1;
+            for(int j=0; j<w+zerosW; j++) {
+                int index = lastColumn*(j+1);
+                out[index] = 0;
+            }
+        }
+
+    }
+    printf("%d x %d = %d\n", I2->width(),I2->height(),I2->width()*I2->height());
+    return I2;
+}
+
+ImagePtr unpaddedImage(ImagePtr I1, ImagePtr I2) {
+     int w = I1->width();                              // Getting Width
+     int h = I1->height();                             // Getting Height
+     if (w % 2 != 0) {
+          w++;
+     }
+     if (h % 2 != 0) {
+          h++;
+     }
+     int zerosW = 0;
+     int upperBase = floor(log2(w)) + 1;
+     zerosW = pow(2, upperBase) - w;            // Number of zeros to append
+     int zerosH = 0;
+     upperBase = floor(log2(h)) + 1;
+     zerosH = pow(2, upperBase) - h;            // Number of zeros to append
+
+     int paddingH = zerosH / 2;
+     int paddingW = zerosW / 2;
+
+     ImagePtr I3;
+     ChannelPtr<float> real, img, real2, img2;
+     real = I2[0];                                 // I2[0] Is Real
+     img = I2[1];                                  // I2[1] Is Imaginary
+     real2 = I3[0];                                // I3[0] Is Real
+     img2 = I3[1];                                 // I3[1] Is Imaginary
+
+     for (int row = 0; row < paddingH + h; row++) { // FFT Row by Row
+          for (int column = 0; column < paddingW + w; column++) { // FFT Columns
+               if (row >= paddingH && column >= paddingW) {
+                    real2++ = real++;
+                    img2++ = img++;
+               }
+               else {
+                    real++;
+                    img++;
+               }
+          }
+     }
+     return I3;
+}
+
+#endif

@@ -35,13 +35,40 @@ extern float getMax(float arr[], int total);
 void
 HW_swapPhase(ImagePtr I1, ImagePtr I2, ImagePtr II1, ImagePtr II2)
 {
-    
-    int w1 = I1 -> width();
+    //Dimensions of I1
+    int w1 = I1->width();
+    int h1 = I1->height();
+    int total1 = w1 * h1;
+
+    //Dimensions of I2
+    int w2 = I2->width();
+    int h2 = I2->height();
+    int total2 = w2 * h2;
+
+    //Checking that the images have same dimensions
+    if(w1 != w2 || h1 != h2) {
+        printf("Dimensions of I1: %d x %d \nDimensions of I2: %d x %d\nAre not equal",w1,h1,w2,h2);
+        return;
+    }
     
     ImagePtr Ifft1, Ifft2, IinvFFT1, IinvFFT2;
     ImagePtr Imag1, Iphase1, Imag2, Iphase2;
-
+    
+    // copy image header (width, height) of input image I1 to output image II1 & II2
+    IP_copyImageHeader(I1, II1);
+    IP_copyImageHeader(I1, II2);
+    
+    // Input and output channels
+    ChannelPtr<uchar> in, out;
+    int type;
+    
     // compute FFT of I1 and I2
+    ImagePtr I1FFT;
+    ImagePtr I2FFT;
+    I1FFT->allocImage(w1,h1,FFT_TYPE); //FFT for I1
+    I2FFT->allocImage(w2,h2,FFT_TYPE); //FFT for I2
+    
+    
     
 // PUT YOUR CODE HERE...
 

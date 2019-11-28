@@ -11,7 +11,8 @@ Since there is no frequency, then the only component contributing is 0.
 
 E) The difference is the two spikes that the individual FT of cos produces. This example is testing
 the additive property of FT. The individual FT of a box plus a cos is the same as adding them together 
-or individually. 
+or individually. This is why we see the fourier transform of a box which is a sinc added to the fourier 
+transform of a cosine which gives 2 spikes. 
 
 F) B(x) will now be a taller box which on the frequency domain translates to the sinc function getting taller as well by
 the same amount. Thus, if we scaled the input on the space domain it also gets scaled on the frequency domain. 

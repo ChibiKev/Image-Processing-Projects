@@ -7,7 +7,6 @@
 #define PHASE(i)	(atan2(Fi[i],Fr[i]))
 
 int main(int argc, char *argv[]) {
-	printf("%s\n","hello");
 	if (argc == 4) {
 		FILE *input, *output; 								// Create File Pointer
 		char *in  = argv[1]; 								// First Argument, Input

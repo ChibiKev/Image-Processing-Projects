@@ -52,7 +52,7 @@ HW_spectrum(ImagePtr I1, ImagePtr Imag, ImagePtr Iphase)
      else {
           I2 = I1;                                                              // I2 = I1
      }
-#if 0
+#if 0 // 0 For Spectrum and 1 To Output Original Image. For Testing Purposes
      ChannelPtr<uchar> p1, p2, p3; // p1 points to I1 channels and p2 to I2 channels
      int type;
      IP_copyImageHeader(I2, Imag);
@@ -126,7 +126,7 @@ HW_spectrum(ImagePtr I1, ImagePtr Imag, ImagePtr Iphase)
 }
 
 void paddedImage(ImagePtr I1, ImagePtr I1Padded) {
-#if 0
+#if 0 // 0 For Padding Around, 1 For Padding Just To The Right and Bottom. For Testing Purposes
      int w = I1->width();                              // Getting Width
      int h = I1->height();                             // Getting Height
      int zerosW = 0;
@@ -202,13 +202,13 @@ void paddedImage(ImagePtr I1, ImagePtr I1Padded) {
      //Initialize buffer
      for (int ch = 0; IP_getChannel(I1, ch, in, type); ch++) {    // get input  pointer for channel ch
           IP_getChannel(I1Padded, ch, out, type);        // get output pointer for channel ch
-          for (int i = 0; i < newH; i++) { // Setting Up Buffer Values, Starting From First Row
-               for (int j = 0; j < newW; j++) { // Setting Up Buffer Values, Starting From First Column
-                    if(i < h && j < w){
-                         *out++ = *in++; //  Set Buffer Values To Same As Image Values
+          for (int i = 0; i < newH; i++) { // Runs Through Entire Height
+               for (int j = 0; j < newW; j++) { // Runs Through Entire Width
+                    if(i < h && j < w){ // Output Is Original, At Original Position
+                         *out++ = *in++; //  Output Is Input
                     }
-                    else {
-                         *out++ = 0;
+                    else { // Pads To The Right And Bottom
+                         *out++ = 0; // Padded Value Is Zero
                     }
                }
           }

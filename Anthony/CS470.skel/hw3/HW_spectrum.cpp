@@ -20,7 +20,6 @@ struct complexP {
 
 extern void HW_fft2MagPhase(ImagePtr Ifft, ImagePtr Imag, ImagePtr Iphase);
 void paddedImage(ImagePtr I1, ImagePtr I1Padded);
-ImagePtr unpaddedImage(ImagePtr I1, ImagePtr I1Padded);
 void fft1D(complexP *q1, int dir, complexP *q2);
 void fft1DRow(ImagePtr I1, ImagePtr Image1);
 void fft1DColumn(ImagePtr I1, ImagePtr Image1, ImagePtr Image2);
@@ -44,16 +43,13 @@ HW_spectrum(ImagePtr I1, ImagePtr Imag, ImagePtr Iphase)
 
 // PUT YOUR CODE HERE...
      ImagePtr I2;                                      // In Case of Padding
-     int needPad;                                      // For Unpadding Use
      if (ceil(log2(w)) != floor(log2(w)) || ceil(log2(h)) != floor(log2(h))) {  // Check If Padding Is Needed
-          needPad = 1;                                                          // Need Of Padding
           paddedImage(I1, I2);                                                  // Pads I1 and Results in I2
           w = I2->width();                                                      // New Width
           h = I2->height();                                                     // New Height
           total = w * h;                                                        // New Total
      }
      else {
-          needPad = 0;                                                          // No Padding
           I2 = I1;                                                              // I2 = I1
      }
 
@@ -63,21 +59,6 @@ HW_spectrum(ImagePtr I1, ImagePtr Imag, ImagePtr Iphase)
      fft1DRow(I2, Image1);                             // FFT For Row
      fft1DColumn(I2, Image1, Image2);                  // FFT For Column
      
-     ImagePtr I3, Image3;                              // In Case of Unpadding
-
-     // Unpadding Is Currently Off
-     if (needPad == 2) {                               // Check If Unpadding Is Needed
-          Image3 = unpaddedImage(I1, Image2);          // Unpads Image2 and Results in Image3
-          I3 = I1;                                     // Same Sizes as I1
-          w = I3->width();                             // New Width
-          h = I3->height();                            // New Height
-          total = w * h;
-     }
-     else {                                            // No Padding
-          Image3 = Image2;                             // Same
-          I3 = I2;                                     // Same
-     }
-     
      // compute magnitute and phase spectrums from FFT image
      /*
      ImagePtr Im = NEWIMAGE;
@@ -86,7 +67,7 @@ HW_spectrum(ImagePtr I1, ImagePtr Imag, ImagePtr Iphase)
      // PUT YOUR CODE HERE...
      float *Magnitude = new float[total];              // Declaring Magnitude
      float *Phase = new float[total];                  // Declairing Phase
-     fft1DMagPhase(I3, Image3, Magnitude, Phase);      // Getting Magitude And Phase, Changes By Reference
+     fft1DMagPhase(I2, Image2, Magnitude, Phase);      // Getting Magitude And Phase, Changes By Reference
      // find min and max of magnitude and phase spectrums
 
 // PUT YOUR CODE HERE...
@@ -111,21 +92,20 @@ HW_spectrum(ImagePtr I1, ImagePtr Imag, ImagePtr Iphase)
 
      // PUT YOUR CODE HERE...
 
-     IP_copyImageHeader(I3, Imag);                                                                                      // copy image header (width, height) of input image I1 to output image Imag
+     IP_copyImageHeader(I2, Imag);                                                                                      // copy image header (width, height) of input image I2 to output image Imag
+     IP_copyImageHeader(I2, Iphase);                                                                                    // copy image header (width, height) of input image I2 to output image IPhase
      ChannelPtr<uchar> Pmag, Pphase;                                                                                    // declarations for image channel pointers and datatype
      maxMagnitude /= 256;                                                                                               // Normalize Max By 256
      int type;
      for (int ch = 0; IP_getChannel(Imag, ch, Pmag, type); ch++) {
           for (int i = 0; i < total; i++) {
-               *Pmag++ = CLIP((Magnitude[i] - minMagnitude) / (maxMagnitude - minMagnitude) * MaxGray, 0, MaxGray);     //scale magnitude to fit between[0, 255]
+               *Pmag++ = CLIP((Magnitude[i] - minMagnitude) / (maxMagnitude - minMagnitude) * MaxGray, 0, MaxGray);     // Scales Magnitude and Clipped
           }
      }
-
-     IP_copyImageHeader(I3, Iphase);                                                                                    // copy image header (width, height) of input image I1 to output image IPhase
      
      for (int ch = 0; IP_getChannel(Iphase, ch, Pphase, type); ch++) {
           for (int i = 0; i < total; i++) {
-               *Pphase++ = CLIP((Phase[i] - minPhase) / (maxPhase - minPhase) * MaxGray, 0, MaxGray);                   //scale phase to fit between[0, 255]
+               *Pphase++ = CLIP((Phase[i] - minPhase) / (maxPhase - minPhase) * MaxGray, 0, MaxGray);                   // Scales Phase and Clipped
           }
      }
 }
@@ -140,12 +120,12 @@ void paddedImage(ImagePtr I1, ImagePtr I1Padded) {
      upperBase = floor(log2(h)) + 1;
      zerosH = pow(2, upperBase) - h;            // Number of zeros to append
 
-     int paddingH = zerosH / 2;
-     int paddingW = zerosW / 2;
+     int paddingH = zerosH / 2;                 // Amount Need To Pad Top and Bottom
+     int paddingW = zerosW / 2;                 // Amount Need To Pad Left and Right
 
-     int newW = w + zerosW;
-     int newH = h + zerosH;
-     I1Padded->allocImage(newW, newH, BW_TYPE);
+     int newH = h + zerosH;                     // Max Height Adding Zeros
+     int newW = w + zerosW;                     // Max Width Adding Zeros
+     I1Padded->allocImage(newW, newH, BW_TYPE); // New Padded Image, With New Width and New Height
      ChannelPtr<uchar> in, out, start;
 
      int type;
@@ -163,6 +143,7 @@ void paddedImage(ImagePtr I1, ImagePtr I1Padded) {
                }
           }
      }
+     /*
      if (zerosH % 2 != 0) {
           //ADD extra row of zeros
           for (int ch = 0; IP_getChannel(I1, ch, in, type); ch++) {    // get input  pointer for channel ch
@@ -185,53 +166,7 @@ void paddedImage(ImagePtr I1, ImagePtr I1Padded) {
                }
           }
      }
-}
-
-ImagePtr unpaddedImage(ImagePtr I1, ImagePtr I1Padded) {
-     int w = I1->width();                              // Getting Width
-     int h = I1->height();                             // Getting Height
-     int zerosW = 0;
-     int upperBase = floor(log2(w)) + 1;
-     zerosW = pow(2, upperBase) - w;            // Number of zeros to append
-     int zerosH = 0;
-     upperBase = floor(log2(h)) + 1;
-     zerosH = pow(2, upperBase) - h;            // Number of zeros to append
-
-     int paddingH = zerosH / 2;
-     int paddingW = zerosW / 2;
-
-     int additionalH = 0;
-     int additionalW = 0;
-
-     if (zerosH % 2 != 0) {
-          additionalH++;
-     }
-
-     if (zerosW % 2 != 0) {
-          additionalW++;
-     }
-
-     ImagePtr I3;
-     I3->allocImage(w, h, FFT_TYPE);               // Allocate I3
-     ChannelPtr<float> real, img, real2, img2;
-     real = I1Padded[0];                                 // I2[0] Is Real
-     img = I1Padded[1];                                  // I2[1] Is Imaginary
-     real2 = I3[0];                                // I3[0] Is Real
-     img2 = I3[1];                                 // I3[1] Is Imaginary
-
-     for (int row = 0; row < paddingH + h + additionalH; row++) { // FFT Row by Row
-          for (int column = 0; column < paddingW + w + additionalW; column++) { // FFT Columns
-               if (row >= paddingH && column >= paddingW) {
-                    real2++ = real++;
-                    img2++ = img++;
-               }
-               else {
-                    real++;
-                    img++;
-               }
-          }
-     }
-     return I3;
+     */
 }
 
 void fft1D(complexP *q1, int dir, complexP *q2) { // Converted to cpp from fft1D.c

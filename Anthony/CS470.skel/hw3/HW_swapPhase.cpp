@@ -203,7 +203,6 @@ void Ifft1DColumn(ImagePtr I, ImagePtr IFFT ,ImagePtr IFFTout, ImagePtr II1) {
               for (int i = 0; i < q2->len; ++i)
               {
                    *pII1++ = CLIP(q2->real[i], 0, MaxGray);
-                   // *pII1++ = static_cast<unsigned char> (q2->real[i]);
               }
               real++;
               img++;

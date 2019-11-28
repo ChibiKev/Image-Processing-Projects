@@ -24,6 +24,10 @@ extern void fft1DMagPhase(ImagePtr I1, ImagePtr Image2, float *Magnitude, float 
 extern float getMin(float arr[], int total);
 extern float getMax(float arr[], int total);
 
+void swapPhase(ImagePtr I, float * magnitude ,float * newPhase, int total); //Puts new phase on image I
+void Ifft1DRow(ImagePtr I, ImagePtr IFFT, ImagePtr out);
+void Ifft1DColumn(ImagePtr I, ImagePtr rowI, ImagePtr out);
+
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // HW_swapPhase:
@@ -80,12 +84,20 @@ HW_swapPhase(ImagePtr I1, ImagePtr I2, ImagePtr II1, ImagePtr II2)
     fft1DColumn(I2, I2FFTTemp, I2FFT);
 
     // compute magnitude and phase from real and imaginary FFT channels
+    float *magnitude1 = new float[total1];              // Declaring Magnitude for Img1
+    float *phase1 = new float[total1];                  // Declairing Phase for Img1
+    fft1DMagPhase(I1, I1FFT, magnitude1 , phase1);
     
-    
-// PUT YOUR CODE HERE...
+    float *magnitude2 = new float[total2];              // Declaring Magnitude for Img2
+    float *phase2 = new float[total2];                  // Declairing Phase for Img2
+    fft1DMagPhase(I2, I2FFT, magnitude2 , phase2);
 
     // swap phases and convert back to FFT images
+    ImagePtr I1IFFTTemp;
+    swapPhase(I1FFT,magnitude1,phase2,total1);
+    Ifft1DRow(I1,I1FFT, I1IFFTTemp);
     
+    swapPhase(I2FFT,magnitude2,phase1,total1);
 // PUT YOUR CODE HERE...
 
     // compute inverse FFT
@@ -104,6 +116,60 @@ HW_swapPhase(ImagePtr I1, ImagePtr I2, ImagePtr II1, ImagePtr II2)
 
 // PUT YOUR CODE HERE...
 }
+
+void swapPhase(ImagePtr I, float * magnitude ,float * newPhase, int total) {
+    ChannelPtr<float> real, img;
+    real = I[0];
+    img = I[1];
+    
+    for (int i = 0; i < total; ++i){
+        *real++ = magnitude[i] * cos(newPhase[i]);
+        *img++ = magnitude[i] * sin(newPhase[i]);
+    }
+}
+
+void Ifft1DRow(ImagePtr I, ImagePtr IFFT ,ImagePtr out) {
+    int w = I->width();
+    int h = I->height();
+    ChannelPtr<float> real, img, real2, img2;
+    out->allocImage(w, h, FFT_TYPE);
+    
+    real = IFFT[0];
+    img = IFFT[1];
+    real2 = out[0];
+    img2 = out[1];
+    
+    complexP c1, c2, *q1, *q2;
+    q1 = &c1;
+    q2 = &c2;
+    q1->len = w;
+    q1->real = new float[w];
+    q1->imag = new float[w];
+    q2->len = w;
+    q2->real = new float[w];
+    q2->imag = new float[w];
+
+    for (int row = 0; row < h; ++row) {
+         for (int column = 0; column < w; ++column)
+         {
+              q1->real[column] = *real++;
+              q1->imag[column] = *img++;
+         }
+
+         fft1D(q1, 1, q2);
+
+         for (int i = 0; i < q2->len; ++i)
+         {
+              *real2++ = q2->real[i];
+              *img2++ = q2->imag[i];
+         }
+    }
+}
+
+void Ifft1DColumn(ImagePtr I, ImagePtr rowI, ImagePtr out) {
+    
+}
+
 #else
 #include "IP.h"
 #include <stdio.h>

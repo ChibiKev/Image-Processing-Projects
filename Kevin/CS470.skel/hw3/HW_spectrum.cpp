@@ -52,7 +52,21 @@ HW_spectrum(ImagePtr I1, ImagePtr Imag, ImagePtr Iphase)
      else {
           I2 = I1;                                                              // I2 = I1
      }
-
+#if 0
+     ChannelPtr<uchar> p1, p2, p3; // p1 points to I1 channels and p2 to I2 channels
+     int type;
+     IP_copyImageHeader(I2, Imag);
+     IP_copyImageHeader(I2, Iphase);
+     int newTotal = I2->width() * I2->height();
+     for (int ch = 0; IP_getChannel(I2, ch, p1, type); ch++) {
+          IP_getChannel(Imag, ch, p2, type);
+          IP_getChannel(Iphase, ch, p3, type);
+          for (int i = 0; i < newTotal; i++) {
+               *p2++ = *p1++;
+               *p3++ = 0;
+          }
+     }
+#else
      ImagePtr Image1, Image2;                          // Get Two Different Images For Row and Column
      Image1->allocImage(w, h, FFT_TYPE);               // Allocate Image1
      Image2->allocImage(w, h, FFT_TYPE);               // Allocate Image2
@@ -108,9 +122,11 @@ HW_spectrum(ImagePtr I1, ImagePtr Imag, ImagePtr Iphase)
                *Pphase++ = CLIP((Phase[i] - minPhase) / (maxPhase - minPhase) * MaxGray, 0, MaxGray);                   // Scales Phase and Clipped
           }
      }
+#endif
 }
 
 void paddedImage(ImagePtr I1, ImagePtr I1Padded) {
+#if 0
      int w = I1->width();                              // Getting Width
      int h = I1->height();                             // Getting Height
      int zerosW = 0;
@@ -167,6 +183,39 @@ void paddedImage(ImagePtr I1, ImagePtr I1Padded) {
           }
      }
      */
+#else
+     int w = I1->width();                              // Getting Width
+     int h = I1->height();                             // Getting Height
+     int zerosW = 0;
+     int upperBase = floor(log2(w)) + 1;
+     zerosW = pow(2, upperBase) - w;            // Number of zeros to append
+     int zerosH = 0;
+     upperBase = floor(log2(h)) + 1;
+     zerosH = pow(2, upperBase) - h;            // Number of zeros to append
+
+     int newH = h + zerosH;                     // Max Height Adding Zeros
+     int newW = w + zerosW;                     // Max Width Adding Zeros
+     I1Padded->allocImage(newW, newH, BW_TYPE); // New Padded Image, With New Width and New Height
+     ChannelPtr<uchar> in, out, start;
+
+     int type;
+     //Initialize buffer
+     for (int ch = 0; IP_getChannel(I1, ch, in, type); ch++) {    // get input  pointer for channel ch
+          IP_getChannel(I1Padded, ch, out, type);        // get output pointer for channel ch
+          for (int i = 0; i < newH; i++) { // Setting Up Buffer Values, Starting From First Row
+               for (int j = 0; j < newW; j++) { // Setting Up Buffer Values, Starting From First Column
+                    if(i < h && j < w){
+                         *out++ = *in++; //  Set Buffer Values To Same As Image Values
+                    }
+                    else {
+                         *out++ = 0;
+                    }
+               }
+          }
+     }
+
+
+#endif
 }
 
 void fft1D(complexP *q1, int dir, complexP *q2) { // Converted to cpp from fft1D.c

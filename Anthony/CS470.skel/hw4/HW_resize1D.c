@@ -9,32 +9,56 @@
 #define CLAMP(A,L,H)	((A)<=(L) ? (L) : (A)<=(H) ? (A) : (H))
 
 
-enum FILTERS { BOX, TRIANGLE, CUBIC_CONV, LANCZOS, HANN, HAMMING };
-double	boxFilter	(double);
+double	boxFilter	(double, double);
 double	triFilter	(double);
 double	cubicConv	(double);
 double  sinc        (double);
 double	lanczos3 	(double);
 double	hann4	 	(double);
+double  hamming     (double, double);
 
 void resample1D (float *IN, float *OUT, int INlen, int OUTlen, int filtertype, double param);
 
 
 int main(int argc, char *argv[]) {
 
-    if (argc == 6) {
+    if (argc == 7) {
+
         FILE *input, *output;                               // Create File Pointer
         char *in  = argv[1];                                // First Argument, Input
-        int dir = atoi(argv[2]);                            // Second Argument, Dir
-        char *out = argv[3];                                // Third Arugment, Output
+        char *out = argv[2];                                // Second Argument, Output
+        int INlen = atoi(argv[3]);                          // Third Argument, input size
+        int OUTlen = atoi(argv[4]);                        // Fourth Argument, output size
+        int filtertype = atoi(argv[5]);                     // Fifth Argument, filter type
+        double param = atoi(argv[6]);                       // Sixth Argument, param
+
         input  = fopen(in, "r");                            // Read Input
         output = fopen(out, "w");                           // Write Output
+        
+        float *IN =  malloc(sizeof(float) * INlen);
+        float *OUT = malloc(sizeof(float) * OUTlen);
 
-        int width, height;                                  // Declare Width and Height
-        int zeros = 0;
-        fscanf(input, "%d\t%d", &width, &height);           // Get Values of Width and Height
-        int N = height;  
-                                           // N = Height
+
+        // Put input.txt into float array
+        for(int i=0; i<INlen; i++) {
+            fscanf(input,"%f",&IN[i]);
+        }
+
+        //Call resample
+        resample1D(IN,OUT, INlen, OUTlen, filtertype, param);
+        
+        // Wrtie to output file
+        for(int i=0; i<OUTlen; i++) {
+            fprintf(output,"%f\n",OUT[i]);
+        }
+
+        //close files
+		fclose(input);
+		fclose(output);
+
+        //Freeing memory
+        free(IN);
+		free(OUT);
         
     }
     else {                                                   // Condition Check
@@ -72,11 +96,13 @@ void resample1D (float *IN, float *OUT, int INlen, int OUTlen, int filtertype, d
 		fwidth = 2;
 		break;
 	case 3:	filter = lanczos3;	/* Lanczos3 windowed sinc function */
-		fwidth = 3;
+		fwidth = param;
 		break;
 	case 4:	filter = hann4;	/* Hann windowed sinc function */
-		fwidth = 4;			/* 8-point kernel */
+		fwidth = param;			/* 8-point kernel */
 		break;
+    case 5: filter = hamming;
+        fwidth = param;
 	}
 
 	if(scale < 1.0) {		/* minification: h(x) -> h(x*scale)*scale */
@@ -122,8 +148,8 @@ void resample1D (float *IN, float *OUT, int INlen, int OUTlen, int filtertype, d
  * Box (nearest neighbor) filter.
  */
 double
-boxFilter(t)
-double t;
+boxFilter(t, p)
+double t, p;
 {
 	if((t > -.5) && (t <= .5)) return(1.0);
 	return(0.0);
@@ -205,5 +231,16 @@ double t;
 
 	if(t < 0) t = -t;
 	if(t < N) return(sinc(t) * (.5 + .5*cos(PI*t / N)));
+	return(0.0);
+}
+
+double
+hamming(t, p)
+double t, p;
+{
+	int N = (int) p;	/* fixed filter width */
+
+	if(t < 0) t = -t;
+	if(t < N) return(sinc(t) * (.54 + .46*cos(PI*t / N)));
 	return(0.0);
 }

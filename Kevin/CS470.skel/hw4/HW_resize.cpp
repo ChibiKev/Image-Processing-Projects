@@ -311,22 +311,26 @@ HW_resize(ImagePtr I1, int ww, int hh, int kernelID, double param, ImagePtr I2)
 
 	// 2-pass scale algorithm
 	int t;
-	ChannelPtr<uchar> src, dst;
+	ChannelPtr<uchar> src, dst, p3;
 	for(int ch = 0; IP_getChannel(II, ch, src, t); ch++) {
 		IP_getChannel(I2, ch, dst, t);
-
+        IP_getChannel(I3, ch, p3, t);
 		// horizontal pass scales rows
 		for(int y = 0; y<h; ++y) {
 
 // PUT YOUR CODE HERE
-
+            resize1D(src,w,ww,1,kernelID,param,p3);
+            p3 += ww;
+            src += w;
 		}
-
+        IP_getChannel(I3, ch, p3, t); //reset p3 back to beginning of image for vertical pass
+        
 		// vertical pass scales columns
 		for(int x = 0; x<ww; ++x) {
-
 // PUT YOUR CODE HERE
-
+            resize1D(p3, h, hh, ww, kernelID, param, dst);
+            p3++;
+            dst++;
 		}
 	}
 

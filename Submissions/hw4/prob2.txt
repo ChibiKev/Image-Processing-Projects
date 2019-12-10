@@ -1,0 +1,42 @@
+/******************************************************/
+/**************  Magnification  ***********************/
+/******************************************************/
+
+Image Used: eye50.bw
+
+1. Over what scale factors are the various kernels acceptable?
+
+    Box:            Acceptable from 1 to 4  (50x50 to 200x200)
+    Triangle:       Acceptable from 1 to 6  (50x50 to 300x300)
+    Cubic:          Acceptable from 1 to 8  (50x50 to 400x400)
+    Lanczos:        Acceptable from 1 to 10 (50x50 to 500x500)
+    Hann:           Acceptable from 1 to 10 (50x50 to 500x500)
+    Hamming:        Acceptable from 1 to 10 (50x50 to 500x500)
+
+2. Describe the artifacts that appear, including their location and structure.
+
+    As the image gets bigger via the scale factor the artifacts stand out more. 
+    These small square artifacts occur at different color transitions. For example, 
+    in the eyes50.bw the color transition from the women's eyes to the outer skin is a 
+    good example of where these artifacts become noticeable. 
+
+
+/******************************************************/
+/**************  Minification  ***********************/
+/******************************************************/
+
+Images Used: star.bw and ramp.bw
+
+1. Compare the results between the point sampling (nearest neighbor) and a higher quality filter when minifying star.bw or ramp.bw.
+
+    For the image ramp.bw all the kernels produce similar results and there are no sudden changes that could be observed. 
+    The histograms stay the same with little changes. For the image star.bw, when minifying it from (512x512) to (200x200)
+    we can observe that point sampling produces a minified imaged with distorted details on the background. 
+    This can be noticed if we observe the circles close to the radius. The higher quality filter does not show this distortion because they blur this into the image. 
+
+2. Why does point sampling work well for the ramp.bw image and not for star.bw?
+
+    Point sampling does not work well for star.bw because there is not a smooth color transition. The rings change from
+    white to dark very quickly for the inner circles and thus when we minify this image we are losing all this information. 
+    Point sampling works well for ramp.bw because of the smooth color transition. When we minify the image and lose 
+    some of the information this is not very apparent to the eye because it only makes the transitions between the colors faster. 

@@ -11,24 +11,22 @@
 
 double	boxFilter	(double, double);
 double	triFilter	(double);
-double	cubicConv	(double);
+double	cubicConv	(double, double);
 double  sinc        (double);
-double	lanczos3 	(double);
-double	hann4	 	(double);
+double	lanczos 	(double, double);
+double	hann	 	(double, double);
 double  hamming     (double, double);
 
 void resample1D (float *IN, float *OUT, int INlen, int OUTlen, int filtertype, double param);
 
 
 int main(int argc, char *argv[]) {
-
-    if (argc == 7) {
-
+    if (argc == 7) {										// 6 Arguments
         FILE *input, *output;                               // Create File Pointer
         char *in  = argv[1];                                // First Argument, Input
         char *out = argv[2];                                // Second Argument, Output
         int INlen = atoi(argv[3]);                          // Third Argument, input size
-        int OUTlen = atoi(argv[4]);                        // Fourth Argument, output size
+        int OUTlen = atoi(argv[4]);                        	// Fourth Argument, output size
         int filtertype = atoi(argv[5]);                     // Fifth Argument, filter type
         double param = atoi(argv[6]);                       // Sixth Argument, param
 
@@ -45,7 +43,7 @@ int main(int argc, char *argv[]) {
         }
 
         //Call resample
-        resample1D(IN,OUT, INlen, OUTlen, filtertype, param);
+        resample1D(IN, OUT, INlen, OUTlen, filtertype, param);
         
         // Wrtie to output file
         for(int i=0; i<OUTlen; i++) {
@@ -63,6 +61,14 @@ int main(int argc, char *argv[]) {
     }
     else {                                                   // Condition Check
         printf("Must have 6 arguments.\n");
+        printf("./HW_resize1D [Input].txt [Output].txt [Input Size] [Output Size] [Filter Type] [Param]\n");
+        printf("Filter Type:\n");
+        printf("0 = Box Filter\n");
+        printf("1 = Triangle Filter\n");
+        printf("2 = Cubic Convolution Filter\n");
+        printf("3 = Lanczos Filter\n");
+        printf("4 = Hann Filter\n");
+        printf("5 = Hamming Filter\n");
     }
 
     return 0;
@@ -95,10 +101,10 @@ void resample1D (float *IN, float *OUT, int INlen, int OUTlen, int filtertype, d
 	case 2:	filter = cubicConv;	/* cubic convolution filter 	  */
 		fwidth = 2;
 		break;
-	case 3:	filter = lanczos3;	/* Lanczos3 windowed sinc function */
+	case 3:	filter = lanczos;	/* Lanczos windowed sinc function */
 		fwidth = param;
 		break;
-	case 4:	filter = hann4;	/* Hann windowed sinc function */
+	case 4:	filter = hann;	/* Hann windowed sinc function */
 		fwidth = param;			/* 8-point kernel */
 		break;
     case 5: filter = hamming;
@@ -132,7 +138,7 @@ void resample1D (float *IN, float *OUT, int INlen, int OUTlen, int filtertype, d
 		/* weigh input pixels around u with kernel */
 		for(i=left; i <= right; i++) {
 			pixel  = IN[ CLAMP(i, 0, INlen-1)*offset];
-			weight = (*filter)((u - i) * fscale);
+			weight = (*filter)((u - i) * fscale, param);
 			acc   += (pixel * weight);
 		}
 
@@ -175,8 +181,8 @@ double t;
  * Cubic convolution filter.
  */
 double
-cubicConv(t)
-double t;
+cubicConv(t, p)
+double t, p;
 {
 	double A, t2, t3;
 
@@ -184,7 +190,7 @@ double t;
 	t2 = t  * t;
 	t3 = t2 * t;
 
-	A = -1.0;	/* user-specified free parameter */
+	A = p;	/* user-specified free parameter */
 	if(t < 1.0) return((A+2)*t3 - (A+3)*t2 + 1);
 	if(t < 2.0) return(A*(t3 - 5*t2 + 8*t - 4));
 	return(0.0);
@@ -210,11 +216,12 @@ double t;
  * Lanczos3 filter.
  */
 double
-lanczos3(t)
-double t;
+lanczos(t, p)
+double t, p;
 {
+	int N = (int) p;
 	if(t < 0) t = -t;
-	if(t < 3.0) return(sinc(t) * sinc(t / 3.0));
+	if(t < N) return(sinc(t) * sinc(t / N));
 	return(0.0);
 }
 
@@ -224,10 +231,10 @@ double t;
  * Hann windowed sinc function. Assume N (width) = 4.
  */
 double
-hann4(t)
-double t;
+hann(t, p)
+double t, p;
 {
-	int N = 4;	/* fixed filter width */
+	int N = (int) p;	/* fixed filter width */
 
 	if(t < 0) t = -t;
 	if(t < N) return(sinc(t) * (.5 + .5*cos(PI*t / N)));
